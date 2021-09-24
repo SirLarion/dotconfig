@@ -1,0 +1,19 @@
+.color-behind-tabs-on .SearchField:focus-within,
+.color-behind-tabs-on .UrlBar-AddressField:focus-within {
+    box-shadow: none;
+    border-color: var(--colorBg);
+}
+
+.theme-dark .tab-position .tab.active .tab-header .favicon:not(.svg),
+.acc-dark.color-behind-tabs-off
+    .tab-position
+    .tab.active
+    .tab-header
+    .favicon:not(.svg) {
+    filter: none;
+}
+
+#browser.color-behind-tabs-on .tab-position .tab.active.active {
+    background-color: var(--colorBgLighter);
+    color: var(--colorFg);
+}
