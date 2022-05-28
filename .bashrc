@@ -31,6 +31,15 @@ colors() {
 	done
 }
 
+mkfile() { 
+    mkdir -p -- "$1"
+    touch -- "$1"/"$2" 
+}
+
+cr() {
+    cd ~/repos/"$1"
+}
+
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
 
 # Change the window title of X terminals
@@ -82,15 +91,30 @@ if ${use_color} ; then
 else
 	PS1='\u \w \$ '
 fi
-
 unset use_color safe_term match_lhs sh
+
+# GIT ALIASES
+alias ga="git add"
+alias gc="git commit"
+alias gst="git status"
+alias gfp="git push --force"
+alias grb="git rebase"
+alias grbc="git rebase --continue"
+alias grbi="git rebase --interactive"
+alias gco="git checkout"
+alias gcb="git checkout -b"
+alias goops="git commit --amend"
 
 alias cp="cp -i"                          # confirm before overwriting something
 alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
 alias np='nano -w PKGBUILD'
 alias more=less
-alias restartpolybar='bash ~/.config/polybar/launch.sh'
+alias bashrc='vim ~/.bashrc && source ~/.bashrc'
+alias restartpolybar='bash ~/.config/polybar/launch.sh &'
+alias startur='/opt/urserver/urserver-start --no-copy --no-manager'
+alias stopur='/opt/urserver/urserver-stop'
+
 alias pushvrc='sudo cp ~/.vimrc /home/sirlarion/Dropbox/__self__/dotconfig/.'
 alias fetchvrc='sudo cp /home/sirlarion/Dropbox/__self__/dotconfig/.vimrc ~/.'
 alias pushbrc='sudo cp ~/.bashrc /home/sirlarion/Dropbox/__self__/dotconfig/.'
@@ -139,9 +163,13 @@ ex ()
   fi
 }
 
+MT_USER=o4on1asjafef
+
 PATH=$PATH:/bin/eclipse
 PATH=$PATH:/bin/sbt/bin
 PATH=$PATH:/bin/maple2018/bin
+PATH=$PATH:/home/sirlarion/blender-git/build_linux/bin
+PATH=$PATH:/opt/android-sdk/tools/bin
 neofetch
 
 stty -ixon
@@ -163,3 +191,4 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+source "$HOME/.cargo/env"
