@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout onlaunch="launch_kiosk">
+  <row weight="1">
+    <button icon="home" ontap="launch_kiosk" color="#add884" />
+    <button icon="left" onTap="previous_tab" color="#9ac5ce" />
+    <button icon="right" onTap="next_tab" color="#9ac5ce"/>
+    <button icon="docclose" onTap="close_tab" color="#cc7b7a" />
+  </row>
+  <row weight="5">
+    <touch
+      weight="5"
+      color="#202020"
+      onhold="hold"
+      ontap="tap" 
+      ondoubletap="double" 
+      ontouchdelta="delta"
+    />
+    <touch
+      weight="2"
+      color="404040"
+      ontouchdelta="scroll"
+    />
+  </row>
+
+</layout>

@@ -2,22 +2,20 @@ local mouse = libs.mouse;
 local keyboard = libs.keyboard;
 
 dragging = false;
+scroll_amount = 0;
 
-
-function update (r)
-	--server.update({id = "touch", text = r });
+actions.scroll = function (id, x, y)
+  absy = math.abs(y);
+  sign = y / absy;
+  scroll_amount = scroll_amount + math.min(math.max(0.25, absy*0.01), 1);
+  if(scroll_amount >= 1) then
+    mouse.vscroll(sign);
+    scroll_amount = scroll_amount -1;
+  end
 end
 
-actions.down = function ()
-	update("down");
-end
-
-actions.up = function ()
-	update("up");
-end
 
 actions.tap = function ()
-	update("tap");
 	if (dragging) then
 		dragging = false;
 		mouse.dragend();
@@ -28,19 +26,16 @@ actions.tap = function ()
 end
 
 actions.double = function ()
-	update("double");
 	mouse.double("left");
 end
 
 actions.hold = function ()
-	update("hold");
 	mouse.down();
 	mouse.dragbegin();
 	dragging = true;
 end
 
-actions.delta = function  (id, x, y)
-	update("delta: " .. x .. " " .. y);
+actions.delta = function (id, x, y)
 	mouse.moveraw(x, y);
 end
 
@@ -51,8 +46,6 @@ end
 actions.right = function ()
 	mouse.click("right");
 end
-
-
 
 
 --@help Close current tab
@@ -72,5 +65,6 @@ end
 
 --@help Open up Media Kiosk
 actions.launch_kiosk = function ()
+  os.start("node", "/home/sirlarion/repos/startpage/backend/index.js");
 	os.start("firefox", "--kiosk", "http://localhost:5000");
 end
