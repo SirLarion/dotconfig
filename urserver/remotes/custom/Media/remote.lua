@@ -1,5 +1,6 @@
 local mouse = libs.mouse;
 local keyboard = libs.keyboard;
+local device = libs.device;
 
 dragging = false;
 scroll_amount = 0;
@@ -48,6 +49,18 @@ actions.right = function ()
 end
 
 
+--@help Open search in current tab
+actions.search = function ()
+  keyboard.stroke("control", "L"); 
+  device.keyboard();
+end
+
+--@help Open new tab
+actions.new_tab = function ()
+  keyboard.stroke("control", "T");
+  actions.search();
+end
+
 --@help Close current tab
 actions.close_tab = function()
 	keyboard.stroke("control", "W");
@@ -56,6 +69,7 @@ end
 --@help Go to next tab
 actions.next_tab = function()
 	keyboard.stroke("lctrl", "pagedown");
+  device.keyboard();
 end
 
 --@help Go to previous tab
