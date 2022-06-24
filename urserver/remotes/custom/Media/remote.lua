@@ -1,6 +1,24 @@
 local mouse = libs.mouse;
 local keyboard = libs.keyboard;
 local device = libs.device;
+local de = "";
+
+events.create = function ()
+	-- Try to determine the current DE
+	local desktop = os.getenv("XDG_CURRENT_DESKTOP");
+	local session = os.getenv("GDMSESSION");
+	if (desktop == "Unity") then
+		de = "Unity";
+	elseif (desktop == "KDE" or utf8.contains(session, "kde")) then
+		de = "KDE";
+	elseif (desktop == "GNOME") then
+		de = "GNOME";
+	elseif (desktop == "LXDE") then
+		de = "LXDE";
+	else
+		de = "";
+	end
+end
 
 dragging = false;
 scroll_amount = 0;
@@ -55,30 +73,34 @@ actions.search = function ()
   device.keyboard();
 end
 
---@help Open new tab
-actions.new_tab = function ()
-  keyboard.stroke("control", "T");
+--@help Open new window
+actions.new_app = function ()
+  keyboard.stroke("control", "N");
   actions.search();
 end
 
---@help Close current tab
-actions.close_tab = function()
-	keyboard.stroke("control", "W");
+--@help Close current window
+actions.close_app = function()
+	keyboard.stroke("control", "Q");
 end
 
---@help Go to next tab
-actions.next_tab = function()
-	keyboard.stroke("lctrl", "pagedown");
-  device.keyboard();
+--@help Go to next window
+-- NOTE: this only works if "switch application" has been configured to use this keybinding
+actions.next_app = function()
+	keyboard.stroke("control", "shift", "tab");
 end
 
---@help Go to previous tab
-actions.previous_tab = function()
-	keyboard.stroke("lctrl", "pageup");
+--@help Force system shutdown
+actions.shutdown = function ()
+	-- Alternatives for other DEs should be added here...
+	if (de == "KDE") then
+		os.execute("qdbus org.kde.ksmserver /KSMServer logout 0 2 2");
+	else
+		os.execute('dbus-send --system --print-reply --dest="org.freedesktop.login1" /org/freedesktop/login1 org.freedesktop.login1.Manager.PowerOff boolean:true');
+	end
 end
 
 --@help Open up Media Kiosk
 actions.launch_kiosk = function ()
-  os.start("node", "/home/sirlarion/repos/startpage/backend/index.js");
-	os.start("firefox", "--kiosk", "http://localhost:5000");
+	os.start("firefox", "--kiosk", "http://localhost:12345");
 end
