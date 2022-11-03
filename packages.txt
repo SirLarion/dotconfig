@@ -1,1 +1,2 @@
-xdotool vivaldi signal-desktop discord thunderbird python-pip neofetch
+xdotool vivaldi signal-desktop discord thunderbird python-pip neofetch telegram-desktop flameshot
+ gimp
