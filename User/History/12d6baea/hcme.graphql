@@ -1,0 +1,6 @@
+query GetThemeTags {
+  vectorTags {
+    categoryName
+    name
+  }
+}

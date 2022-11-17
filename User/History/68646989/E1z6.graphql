@@ -1,0 +1,27 @@
+fragment SingleMarkerFields on Marker {
+  _id
+  tag
+  title {
+    id
+    defaultMessage
+    description
+  }
+  description {
+    id
+    defaultMessage
+    description
+  }
+}
+
+query SingleMarkerQuery($id: ID) {
+  markers(filter: { _id_eq: $id }) {
+    _id
+    ...SingleMarkerFields
+  }
+}
+mutation createOrUpdateMarker($marker: MarkerInput!) {
+  createOrUpdateMarker(marker: $marker) {
+    _id
+    ...SingleMarkerFields
+  }
+}

@@ -1,0 +1,34 @@
+fragment FailedTaskInfo on Task {
+  _id
+  args
+  errorMessage
+}
+
+query UserActionTaskGroupProgressQuery(
+  $taskGroupId: ID!
+  $showErrors: Boolean!
+) {
+  taskGroups(filter: { _id_eq: $taskGroupId }) {
+    _id
+    description {
+      id
+      defaultMessage
+    }
+    estimatedTotalTaskCount
+    totalTaskCount
+    successCount
+    failureCount
+    failedTasks: tasks(filter: { state_eq: FAILURE })
+      @include(if: $showErrors) {
+      ...FailedTaskInfo
+    }
+    tasks {
+      _id
+      state
+      errorMessage
+      result {
+        value
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+query GetIsAdminOrSuperAdmin {
+  currentUser {
+    isSuperAdmin
+    isAdmin
+  }
+}

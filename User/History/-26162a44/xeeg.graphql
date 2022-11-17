@@ -1,0 +1,9 @@
+query GetAppUser {
+  currentUser {
+    _id
+    roles
+    game {
+      mode
+    }
+  }
+}

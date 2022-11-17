@@ -1,0 +1,71 @@
+fragment CurrentUser on User {
+  _id
+  organization {
+    _id
+    name
+    askNPSSurvey
+    emailEnvironment
+    industry {
+      _id
+      name
+    }
+    game {
+      allowAnyoneToJoin
+      anonymousLeaderboards
+      leaderboardVisibility {
+        individual
+        country
+      }
+      spicyModeEnabled
+    }
+    features {
+      name
+    }
+    hideZendeskWidget
+  }
+  features {
+    name
+  }
+  emails {
+    address
+  }
+  flags {
+    gameOnboardingTutorialCompleted
+  }
+  game {
+    mode
+    active
+    activatedAt
+    onboardedAt
+    onboardingState
+  }
+  quests(first: 1) {
+    _id
+  }
+  player {
+    stars
+    stats {
+      total
+    }
+  }
+  profile {
+    firstName
+    lastName
+    spicyModeEnabled
+    jobFunction
+    hasEnforcedAnonymity
+    locale {
+      quests
+      ui
+      disableAutomaticTimezoneUpdate
+      tz
+    }
+  }
+  ...UserRole
+}
+
+query GetCurrentUser {
+  currentUser {
+    ...CurrentUser
+  }
+}

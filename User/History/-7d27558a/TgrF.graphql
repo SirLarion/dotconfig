@@ -1,0 +1,43 @@
+fragment UserActivityTimelineItem on AnalyticsEvent {
+  _id
+  timestamp
+  event
+  questTag
+  quest {
+    _id
+    state
+    tags {
+      categoryName
+      name
+      value
+    }
+  }
+}
+
+query FetchUserActivityTimeline(
+  $userId: ID!
+  $limit: Int!
+  $offset: Int
+  $events: [EAnalyticsEvent!]!
+) {
+  currentUser {
+    _id
+    organization {
+      _id
+      users(first: 1, filter: { _id_eq: $userId }) {
+        _id
+        activity(
+          sort: timestamp_DESC
+          first: $limit
+          skip: $offset
+          filter: { event_in: $events }
+        ) {
+          totalCount
+          nodes {
+            ...UserActivityTimelineItem
+          }
+        }
+      }
+    }
+  }
+}

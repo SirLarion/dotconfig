@@ -1,0 +1,89 @@
+query RateThreatContainer($id: ID!, $organizationId: ID) {
+  threats(filter: { _id_eq: $id, organizationId_eq: $organizationId }) {
+    _id
+    severity
+    createdAt
+    feedbackSentAt
+    userModifiers {
+      userActedOnThreat
+      repliedToEmail
+      downloadedFile
+      openedAttachment
+      visitedLink
+      enteredCredentials
+      userMarkedAsSpam
+      other
+    }
+    enrichments {
+      hops {
+        from
+        fromScore
+        by
+        byScore
+      }
+      links {
+        label
+        href
+        score
+      }
+    }
+    email {
+      subject
+      sanitizedBody {
+        signedUrl
+      }
+      headers {
+        name
+        value
+      }
+      from {
+        name
+        address
+      }
+      to {
+        name
+        address
+      }
+      attachments {
+        type
+        hash
+        size
+        name
+        content {
+          signedUrl
+        }
+        score
+      }
+      mime {
+        signedUrl
+      }
+    }
+    organization {
+      _id
+      name
+      notifications {
+        threatEscalationEmails
+      }
+    }
+    escalationEmail {
+      sendDate
+    }
+    escalationEmail {
+      sendDate
+      message
+    }
+    reporterUser {
+      ...PlayerCardUserFragment
+    }
+  }
+}
+
+query RateThreatContainerCurrentUser {
+  currentUser {
+    _id
+    isSuperAdmin
+    organization {
+      _id
+    }
+  }
+}

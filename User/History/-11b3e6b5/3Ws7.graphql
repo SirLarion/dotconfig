@@ -1,0 +1,20 @@
+mutation UpdateOrgDomainContextOrgTheme(
+  $organizationId: ID!
+  $input: DomainInput!
+) {
+  updateDomain(organizationId: $organizationId, domainInput: $input) {
+    data {
+      name
+      context {
+        organization {
+          theme {
+            mainColor
+            logo {
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+}

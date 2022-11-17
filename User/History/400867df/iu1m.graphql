@@ -1,0 +1,30 @@
+query GetOrgOnboardingRate(
+  $filter: AnalyticsCubesBetaDailyUserTypeCountsSnapshotAggregateFilter
+) {
+  currentUser {
+    _id
+    organization {
+      _id
+      analytics {
+        analyticsCubesBeta {
+          data: dailyUserTypeCountsSnapshotAggregate(
+            filter: $filter
+            orderBy: timestamp_asc
+            groupBy: [timestampDate, timestamp]
+          ) {
+            nodes {
+              group {
+                key
+                x: value
+              }
+              aggregate: sum {
+                ySubset: onboardedUsers
+                yTotal: totalUsers
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

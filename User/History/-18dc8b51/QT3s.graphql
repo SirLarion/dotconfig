@@ -1,0 +1,18 @@
+mutation GenerateUserCSVFile(
+  $organizationId: ID!
+  $search: String
+  $filter: User_filter
+  $selectedColumns: [USER_DATA_COLUMN!]!
+) {
+  generateUserCSVFile(
+    organizationId: $organizationId
+    search: $search
+    filter: $filter
+    selectedColumns: $selectedColumns
+  ) {
+    signedUrl
+    taskGroup {
+      _id
+    }
+  }
+}

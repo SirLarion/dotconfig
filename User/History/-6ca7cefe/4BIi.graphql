@@ -1,0 +1,57 @@
+mutation UpdateQuestTemplate(
+  $questTemplateId: ID!
+  $questTemplate: QuestTemplateInput!
+) {
+  updateQuestTemplate(
+    questTemplateId: $questTemplateId
+    questTemplate: $questTemplate
+  ) {
+    ...QuestTemplateFields
+  }
+}
+
+mutation ToggleQuestTemplatePublicationStatus(
+  $questTemplateId: ID!
+  $isActive: Boolean!
+) {
+  toggleQuestTemplatePublicationStatus(
+    questTemplateId: $questTemplateId
+    isActive: $isActive
+  ) {
+    ...QuestTemplateFields
+  }
+}
+
+mutation CreateQuestTemplate($questTemplate: QuestTemplateInput!) {
+  createQuestTemplate(questTemplate: $questTemplate) {
+    ...QuestTemplateFields
+  }
+}
+
+mutation ToggleQuestTemplateSoftDeletion($questTemplateId: ID!) {
+  toggleQuestTemplateSoftDeletion(questTemplateId: $questTemplateId) {
+    _id
+    softDeletedAt
+  }
+}
+
+query QuestTemplateEditorPreviewQuery(
+  $emailTemplate: QuestTemplateEmailTemplateInput!
+  $organizationIdForContext: String
+) {
+  compiledQuestTemplateEmail(
+    emailTemplate: $emailTemplate
+    organizationIdForContext: $organizationIdForContext
+  ) {
+    to {
+      name
+      address
+    }
+    from {
+      name
+      address
+    }
+    subject
+    html
+  }
+}

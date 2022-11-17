@@ -1,0 +1,30 @@
+mutation UpdateDomain($organizationId: ID!, $domainInput: DomainInput!) {
+  updateDomain(organizationId: $organizationId, domainInput: $domainInput) {
+    data {
+      name
+      context {
+        organization {
+          name
+          postAddress {
+            street
+            city
+            postCode
+          }
+        }
+        persons {
+          ceo {
+            name
+            email
+          }
+          hr {
+            name
+            email
+          }
+        }
+      }
+    }
+    errors {
+      message
+    }
+  }
+}

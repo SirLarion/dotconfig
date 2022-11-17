@@ -1,0 +1,106 @@
+{{#embed "new-hoxhunt-email-base"}} {{#content "body-content"}}
+<table class="basic-table-styles" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td class="heading2">
+        {{ formattedMessage "emailTemplates.welcomeEmail.welcomeUser"
+        firstName=user.profile.firstName}}
+      </td>
+    </tr>
+    <tr>
+      <td class="list-heading heading4">
+        {{ formattedMessage "emailTemplates.welcomeEmail.happyToKnow"
+        organization=organization.name}}
+      </td>
+    </tr>
+    <tr>
+      <td class="text-padding normal-text">
+        {{ formattedMessage
+        "emailTemplates.welcomeEmail.willSendSimulatedThreats" }}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <table cellpadding="0" cellspacing="0">
+          <tbody>
+            <tr>
+              <td>
+                <table cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td class="lower-part-padding heading2">
+                      {{ formattedMessage
+                      "emailTemplates.welcomeEmail.firstSimulatedThreat" }}
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td class="text-padding normal-text">
+                {{ formattedMessage "emailTemplates.welcomeEmail.openEmail" }}
+              </td>
+            </tr>
+            {{#if (and (hasFeature organization "verbose gmail texts") (pathEq
+            organization "emailEnvironment" "google") ) }}
+            <tr>
+              <td class="text-padding normal-text">
+                2. {{ formattedMessage
+                "emailTemplates.promotionEmail.gmailInstructionClickButton" }}
+              </td>
+            </tr>
+            {{/if}}
+            <tr>
+              <td class="welcome-email-image-padding">
+                {{#if organization.images.useCustomOnboardingAssets}}
+                <img
+                  width="464"
+                  src="{{organization.images.buttonLocationWelcome.url}}"
+                  alt="Position of Hoxhunt
+                  button in email client."
+                  class="banner-image"
+                />
+                {{else if (pathEq organization "emailEnvironment" "google")}}
+                <img width="464" src="{{absoluteUrl
+                "images/dhl-mail-banner-gmail.png" }}" alt="Position of Hoxhunt
+                button in email client." class="banner-image" /> {{else}} <img
+                width="464" src="{{absoluteUrl "images/dhl-mail-banner.png" }}"
+                alt="Position of Hoxhunt button in email client."
+                class="banner-image" /> {{/if}}
+              </td>
+            </tr>
+            <tr>
+              <td class="text-padding normal-text">
+                {{#if (and (hasFeature organization "verbose gmail texts")
+                (pathEq organization "emailEnvironment" "google") ) }} 3. {{
+                formattedMessage
+                "emailTemplates.promotionEmail.gmailInstructionAuthorize" }}
+                <br />
+                <br />
+                4. {{ formattedMessage
+                "emailTemplates.welcomeEmail.gmailInstructionClickReport" }}
+                {{else}} {{ formattedMessage
+                "emailTemplates.welcomeEmail.reportEmail" }} {{/if}}
+              </td>
+            </tr>
+            <tr>
+              <td class="text-padding normal-text">
+                <a
+                  href="https://support.hoxhunt.com/hc/en-us/articles/360020320112-What-is-HoxHunt"
+                  >{{ formattedMessage
+                  "emailTemplates.general.knowledgeBaseQuestionsLink" }}</a
+                >
+              </td>
+            </tr>
+            <tr>
+              <td class="text-padding normal-text">
+                {{ formattedMessage
+                "emailTemplates.general.happyHuntingGreeting" }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{{/content}} {{/embed}}

@@ -1,0 +1,19 @@
+query GetTaskGroupProgress($taskGroupId: ID!, $showErrors: Boolean!) {
+  taskGroups(filter: { _id_eq: $taskGroupId }) {
+    _id
+    description {
+      id
+      defaultMessage
+    }
+    estimatedTotalTaskCount
+    totalTaskCount
+    successCount
+    failureCount
+    tasks(filter: { state_eq: FAILURE }) @include(if: $showErrors) {
+      _id
+      args
+      errorMessage
+      signature
+    }
+  }
+}

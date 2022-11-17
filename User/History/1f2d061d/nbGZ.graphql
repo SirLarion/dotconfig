@@ -1,0 +1,29 @@
+fragment TestQuestFieldsFragment on Quest {
+  _id
+  tag
+  state
+  startsAt
+  user {
+    _id
+    emails {
+      address
+    }
+    profile {
+      firstName
+      lastName
+    }
+  }
+  result {
+    completedAt
+  }
+  email {
+    subject
+  }
+  objectives {
+    secondary {
+      ... on IQuestObjective {
+        completedAt
+      }
+    }
+  }
+}

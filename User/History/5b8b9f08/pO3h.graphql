@@ -1,0 +1,8 @@
+query GetOrganizationDemoMode($organizationId: ID!) {
+  organizations(filter: { _id_eq: $organizationId }) {
+    _id
+    game {
+      demoMode
+    }
+  }
+}

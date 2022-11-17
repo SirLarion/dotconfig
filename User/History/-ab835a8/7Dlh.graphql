@@ -1,0 +1,20 @@
+mutation UpdateOrgDomainContextOrgGeneralInfo(
+  $organizationId: ID!
+  $input: DomainInput!
+) {
+  updateDomain(organizationId: $organizationId, domainInput: $input) {
+    data {
+      name
+      context {
+        organization {
+          name
+          postAddress {
+            street
+            city
+            postCode
+          }
+        }
+      }
+    }
+  }
+}

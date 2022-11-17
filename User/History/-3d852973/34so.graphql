@@ -1,0 +1,16 @@
+query GetQuizTemplateIds {
+  quizModules {
+    name {
+      defaultMessage
+    }
+    quizTemplateIds
+    _id
+  }
+}
+
+query GetQuizTemplates($quizTemplateIds: [ID]!) {
+  quizTemplates(filter: { _id_in: $quizTemplateIds }) {
+    tag
+    _id
+  }
+}

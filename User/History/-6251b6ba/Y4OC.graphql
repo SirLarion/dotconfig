@@ -1,0 +1,18 @@
+query GetMarkerList {
+  markers {
+    _id
+    tag
+    title {
+      ...IcuFields
+    }
+    description {
+      ...IcuFields
+    }
+  }
+}
+
+mutation DeleteMarker($markerId: ID!) {
+  deleteMarker(id: $markerId) {
+    _id
+  }
+}

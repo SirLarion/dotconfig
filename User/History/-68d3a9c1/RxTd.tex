@@ -1,0 +1,251 @@
+\section{Applications of blockchains}
+
+Given the strengths and weaknesses of blockchains, what can they be
+used for in practice? I will spend this chapter reviewing blockchain
+usage within different domains. Each domain is covered in its own
+subsection, where I present problems that the domain has faced, and
+how blockchain has been applied in attempt to fix those problems. If
+possible, I will also go over the alternative. That is, how solutions
+that do not involve blockchain have been similarly applied. 
+
+It must be noted that empiric research of blockchain performance in
+different domains (excepting, perhaps, the domain of finance) is quite
+insufficient for drawing conclusions. Due to this, many of the
+references made in this section will be to case studies done by the
+institution applying blockchain, or another institution that has a
+vested interest in the application (for example, the Hyperledger
+Foundation).
+
+When reviewing the applicability of a novel technology such as
+blockchain, it must be kept in mind that the problems that are being
+solved might also be solved with another, existing technology. This
+has been a shortcoming of many research papers that propose the usage
+of blockchain in different areas. To this end, I will relate given
+examples of blockchain applications back to other applications that
+\textit{do not} use blockchain, given such ones exist.
+
+...
+
+\subsection{Payment systems}
+
+Using cryptocurrencies as means of payment is an attractive idea as
+it, theoretically, combines the privacy of cash payments and the
+convenience of current digital payments. However, this idea faces a
+few severe problems, namely scalability and market volatility.
+
+Sanka and Cheung \cite{sankaScalability} discuss the problem of
+blockchain scalability extensively. They introduce the so called
+"\textit{Blockchain Scalability Quadrilemma}" that defines a 4-way
+tradeoff between scalability, trust, security and decentralization.
+This quadrilemma poses that any improvement in one of the properties
+must go along with a decline in one of the others. While scalability
+is a prevalent problem for the technology itself, it is highlighted
+when using blockchain for payment systems. For a payment system to
+have any meaningful impact, it must be open to the public, requiring a
+high degree of scalability. Additionally, being public means that the
+chain must be permissionless and thus security is a major concern.
+Already, assuming the existence of the quadrilemma, it is evident that
+two of the four properties are locked in place. As such, either trust
+or decentralization must yield to the other. This is shown later in
+practice by the different types of payment systems that have been
+built on blockchain.
+
+Making currencies averse to volatility is a topic that has been
+studied for decades, if not centuries. The more volatility a currency
+experiences, the less trust can be placed on its purchasing power. So
+called "stablecoins", as the name implies, are stores of monetary
+value that are created solely with the goal of maintaining stability
+with respect to a currency or currencies \cite{liptonTether}. The
+origin of stablecoins lies in cryptocurrencies but, as discussed in
+\cite{liptonTether}, their meaning has expanded to a larger context of
+electric money. I will, however, only discuss stablecoins as an
+application of blockchains.
+
+All stablecoins have some mechanism for value stabilization. This way
+stablecoin holders can place more trust in the value of their asset.
+Mita et. al. \cite{mitaStablecoin} discuss the existing stablecoins
+and their ways of attaining stability. The system for stabilizing a
+coin's value can be based on providing other assets (US dollars, other
+cryptocurrencies or gold, for example) as collateral. Stabilization
+can also be algorithmic, or \textit{non-collaterized}, meaning that
+the amount of stablecoins in circulation is automatically controlled
+by the underlying blockchain. 
+
+Mita et. al. argue that only non-collaterized stablecoins can have the
+outcome that is desired as collaterization with fiat currencies or
+commodities would result in centralization (decline of
+decentralization in the quadrilemma of Sanka and Cheung
+\cite{sankaScalability}). Collaterization with other cryptocurrencies
+in turn would not actually stabilize the value of the currency. The
+authors do also conclude that current non-collaterized stabilization
+mechanisms cannot guarantee the stability of \textit{purchasing power}
+which is desired when using them for payments. A paper by Eichengreen
+\cite{eichengreenCommodity}, however, takes a firm stance against
+non-collaterization. Eichengreen argues that non-collaterized
+stablecoins cannot have resilience against price fluctuations as they
+lead to snowball effects that, without collateral, easily collapse the
+value of the coin entirely (decline of trust in the quadrilemma).
+
+Moreover, the blockchain-based stablecoins that are currently traded
+most are collaterized. At the time of writing, data from CoinMarketCap
+\footnote{https://coinmarketcap.com} shows that the top 10 stablecoins
+by trading volume include three stablecoins that are listed as
+"algorithmic" (Decentralized USD, Terra Classic USD and sUSD). These
+account for about 0.6\% of the trading volume of the top 10 while the
+top three (USD Tether, USD Coin and Binance USD) account for roughly
+98\% of the same volume.
+
+For blockchain applications in the space of payment systems, I will
+only discuss stablecoins. This is because, currently, they seem to be
+the only cryptocurrencies that are created with solving the volatility
+problem in mind. Cryptocurrencies that do not intend to solve the
+volatility problem should not be considered for use in payment as
+explained in \cite{yermackBitcoin}.
+
+Tether \footnote{https://tether.to}, specifically USD Tether (USDT),
+is by far the most traded stablecoin, accounting for 77\% of the
+volume of the top 10 stablecoins in CoinMarketCap statistics. In fact
+its trading volume is higher than that of Bitcoin (BTC), the second
+most traded cryptocurrency, by about 74\%. It is collaterized by fiat
+currencies corresponding to the traded "\textit{Tether token}". For
+example, USDT are tokens backed by US dollars and EURT respectively by
+Euros. I will refer to the USDT token from now on for simplicity.
+These Tether tokens exist on multiple different cryptocurrency
+blockchains to create price stability. By all accounts, it does so
+fairly well. Since the issuance of USDT in 2015 its deviations from
+the price of USD have remained under ±10\% Figure
+\ref{fig:tether-deviations} shows deviations in more detail. A study
+by Lyons and Viswanath-Natraj \cite{lyonsStable} 
+
+...
+
+More examples
+
+...
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{tether-deviations.png}
+  \caption{USDT/USD deviations from peg and histogram of deviations.
+  As shown in \cite{lyonsStable}.}
+  \label{fig:tether-deviations}
+\end{figure}
+
+As discussed earlier, collaterized stablecoins like Tether face
+criticism in the blockchain space for what can be argued to be moving
+towards centralization. Tether themselves have stated that
+\textit{"Tether does not purport to be a central bank, and it is false
+to suggest that Tether is like a central bank for a number of reasons
+[.]"}\footnote{https://tether.to/en/a-commentary-on-tether-chainalysis}.
+Clearly, Tether is not a central bank. However, it and other
+collaterized stablecoins behave very similarly to a \textit{normal}
+bank. Users store value of a certain amount of fiat currency by giving
+it to a company for safekeeping. They do this as they have a belief
+that they are able to retrieve it later when they need it. As long as
+these companies are audited to show they have the collateral they
+claim to have, there is no problem with this. In fact, this may have
+groundbreaking effects on competition in the banking sector, which is,
+traditionally, very difficult to enter as a newcomer. In comparison,
+the \textit{go-to-market} for stablecoins has drastically lower
+requirements.
+
+
+...
+
+\subsection{Digital supply chain management}
+
+In markets where companies increasingly outsource parts of their
+production to different, often international, entities, managing the
+resulting supply chains (SC) is instrumental to all entities taking
+part. A high degree of planning and communication is required to
+respond to future demand for products and maintaining
+cost-effectiveness throughout the chain. As demonstrated by Ivanov et.
+al. \cite{ivanovIntertwined}, the participants become interconnected
+to each other, and as an effect of globalization, to the participants
+of other SCs as well. Ivanov et. al. conclude that the resulting
+"\textit{Intertwined supply networks}" must be resilient to such
+events as the COVID-19 epidemic, else the effects reverberating
+throughout the network will be critical to securing goods and
+services globally. In practice, this resilience is built with interoperability.
+
+As such, supply chain management (SCM) is an area which would
+certainly benefit from digitalization. Korpela et. al.
+\cite{korpelaDSC} discuss the potential benefits of digital supply
+chains (DSCs). These include improving SC effectiveness, reducing
+costs throughout the chain and providing flexibility in designing
+them. Done properly, digitalization would also decrease human error as
+a consequence of automation.  However, converting an SC to a DSC is
+quite a difficult problem. A fully digitalized SC would require
+interoperability between the internal systems of \textit{all} the
+participants in the SC.
+
+Korpela et. al. go on to explore potential benefits of using
+blockchains to drive business-to-business (B2B) system integration
+within DSCs. They argue that in DSCs, creating a blockchain layer
+would allow for interoperability between businesses while providing
+visibility to the current state of the SC.
+
+A permissioned blockchain enables a DSC to operate using trusted
+sensors whose data are added to the ledger for SC participants to see.
+They can then be confident that the data has not been tampered with.
+However, what if the \textit{environment} of the sensor is tampered
+with? \cite{wustBlockchainNeed} gives an example of a blockchain-based
+DSC for food. In one part of it, food is meant to be stored in a
+certain temperature during delivery. Figure \ref{fig:scm-problem}
+illustrates the posed problem. The trusted sensor that is connected to
+the blockchain is placed in a cooled compartment of the truck, whereas
+the food itself is not. This way, a dishonest participant of the SC
+can cut costs by having reduced cooling for the food while the
+blockchain indicates it was properly cooled. This problem can, of
+course, be fixed by verifying through some third party that the
+sensors are installed correctly. But if such a system of verification
+is available, why not simply use a regular database management system
+for reading and writing the data from the sensors?
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{scm-problem.png}
+  \caption{A potential problem with trusted sensors in an SC
+  blockchain as posed by \cite{wustBlockchainNeed}. The left shows the
+  intended use of the trusted sensor (illustrated as a snowflake) and
+  the right
+  shows the malicious use.}
+  \label{fig:scm-problem}
+\end{figure}
+
+Despite the existence of such hypothetical problem scenarios, many
+companies have found success improving their SCs by using a blockchain
+application. The Hyperledger Foundation, which has grown quite popular
+as a maintainer and provider of blockchain frameworks geared at
+enterprises, has conducted several case studies (58 listed on their
+website as of writing
+\footnote{https://www.hyperledger.org/learn/case-studies}) on
+blockchain applications using their suite of frameworks.
+
+One such case study investigates how Hitachi used the Hyperledger
+Fabric blockchain framework to improve their internal contract
+processing procedure \cite{hyperledgerHitachi}. They started from a
+completely paper-based system and converted a division to use a fully
+electric signature system built on Hyperledger Fabric. As a result,
+Hitachi reported going from 333 to over 400 monthly processed
+contracts, a 20\% increase.
+
+Another study looks at Walmart Canada working to reduce invoice
+disputes between them and their carriers, the companies that are
+contracted to deliver goods for them \cite{hyperledgerWalmart}.
+Walmart Canada ordered a tailor-made blockchain application for
+this purpose. The resulting system reportedly enables them to share
+real-time data between them and all 70 carriers. The study concludes
+that the amount of invoice disputes dropped from around 70\% of
+invoices to 1.5\%. A decrease of 98\%.
+ 
+In contrast, a case study very similar to that of Hitachi
+\cite{docusignBurger} explains how Restaurant Services, Inc. (RSI),
+the supply chain manager for the Burger King Corporation (BKC),
+applied a set of non-blockchain technologies to the same problem of
+converting to a paperless contract signing procedure. At the core of
+the conversion was DocuSign's eSignature service. It provides users a
+way to sign contracts digitally by creating a hash of the contents of
+signed contracts via symmetric-key cryptography. DocuSign then stores
+the hash inside a database so that any tampering of copies of the
+contract is evident when comparing against it \cite{docusignHow}. A
+team of two developers digitalized the entirety of BKC's contract
+signing procedure.

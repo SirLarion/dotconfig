@@ -1,0 +1,13 @@
+query GetOrgThreatSettings($organizationId: ID!) {
+  organizations(filter: { _id_eq: $organizationId }) {
+    _id
+    ...OrganizationThreatSettings
+  }
+}
+
+mutation SaveOrgThreatSettings($id: ID!, $organization: OrganizationInput!) {
+  updateOrganization(organizationId: $id, organization: $organization) {
+    _id
+    ...OrganizationThreatSettings
+  }
+}

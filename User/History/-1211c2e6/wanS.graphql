@@ -1,0 +1,20 @@
+mutation UserListAddAdminRole($organizationId: ID!, $selectedUserIds: [ID!]!) {
+  addRoleForUsers(
+    organizationId: $organizationId
+    userIds: $selectedUserIds
+    role: "admin"
+  ) {
+    _id
+    roles
+  }
+}
+
+mutation UserListResetUserRoles(
+  $organizationId: ID!
+  $selectedUserIds: [ID!]!
+) {
+  resetUsersRoles(organizationId: $organizationId, userIds: $selectedUserIds) {
+    _id
+    roles
+  }
+}

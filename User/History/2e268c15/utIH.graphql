@@ -1,0 +1,5 @@
+mutation AddUsersByEmail($users: [CreateUserInput]!) {
+  createUsers(users: $users) {
+    _id
+  }
+}

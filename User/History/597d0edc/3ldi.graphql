@@ -1,0 +1,10 @@
+query QuickRatingQuery($threatId: ID!) {
+  threats(filter: { _id_eq: $threatId }) {
+    _id
+    severity
+    feedbackSentAt
+    reporterUser {
+      _id
+    }
+  }
+}

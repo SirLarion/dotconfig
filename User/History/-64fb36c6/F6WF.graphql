@@ -1,0 +1,131 @@
+query GetOrgAndIndustryAnalytics($startDate: Timestamp!) {
+  currentUser {
+    _id
+    organization {
+      _id
+      analytics {
+        analyticsCubesBeta {
+          dataSet: dailyOrganizationPerformanceRatesSnapshot(
+            filter: { timestamp_gt: $startDate }
+            orderBy: timestamp_asc
+          ) {
+            nodes {
+              x: timestamp
+              successRate: obSimSuccessRate30D
+              failRate: obSimFailRate30D
+              missRate: obSimMissRate30D
+              onboardingRate: obSimSuccessRate30D
+              activityRate: obSimSuccessRate30D
+            }
+          }
+          comparisonDataSet: dailyIndustryComparisonRatesSnapshot(
+            filter: { timestamp_gt: $startDate }
+            orderBy: timestamp_asc
+          ) {
+            nodes {
+              x: timestamp
+              successRate: obSimSuccessRate30D
+              failRate: obSimFailRate30D
+              missRate: obSimMissRate30D
+              onboardingRate
+              activityRate
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+query GetFailRates($start: Timestamp!) {
+  currentUser {
+    _id
+    organization {
+      _id
+      analytics {
+        analyticsCubesBeta {
+          dataSet: dailyOrganizationPerformanceRatesSnapshot(
+            filter: { timestamp_gt: $start }
+            orderBy: timestamp_asc
+          ) {
+            nodes {
+              x: timestamp
+              y: obSimFailRate30D
+            }
+          }
+          comparisonDataSet: dailyIndustryComparisonRatesSnapshot(
+            filter: { timestamp_gt: $start }
+            orderBy: timestamp_asc
+          ) {
+            nodes {
+              x: timestamp
+              y: obSimFailRate30D
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+query GetMissRates($start: Timestamp!) {
+  currentUser {
+    _id
+    organization {
+      _id
+      analytics {
+        analyticsCubesBeta {
+          dataSet: dailyOrganizationPerformanceRatesSnapshot(
+            filter: { timestamp_gt: $start }
+            orderBy: timestamp_asc
+          ) {
+            nodes {
+              x: timestamp
+              y: obSimMissRate30D
+            }
+          }
+          comparisonDataSet: dailyIndustryComparisonRatesSnapshot(
+            filter: { timestamp_gt: $start }
+            orderBy: timestamp_asc
+          ) {
+            nodes {
+              x: timestamp
+              y: obSimMissRate30D
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+query GetSuccessRates($start: Timestamp!) {
+  currentUser {
+    _id
+    organization {
+      _id
+      analytics {
+        analyticsCubesBeta {
+          dataSet: dailyOrganizationPerformanceRatesSnapshot(
+            filter: { timestamp_gt: $start }
+            orderBy: timestamp_asc
+          ) {
+            nodes {
+              x: timestamp
+              y: obSimSuccessRate30D
+            }
+          }
+          comparisonDataSet: dailyIndustryComparisonRatesSnapshot(
+            filter: { timestamp_gt: $start }
+            orderBy: timestamp_asc
+          ) {
+            nodes {
+              x: timestamp
+              y: obSimSuccessRate30D
+            }
+          }
+        }
+      }
+    }
+  }
+}

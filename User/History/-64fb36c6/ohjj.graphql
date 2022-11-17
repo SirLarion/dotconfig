@@ -1,0 +1,61 @@
+query GetFailRates($start: Timestamp!) {
+  currentUser {
+    _id
+    organization {
+      _id
+      analytics {
+        analyticsCubesBeta {
+          dataSet: dailyOrganizationPerformanceRatesSnapshot(
+            filter: { timestamp_gt: $start }
+            orderBy: timestamp_asc
+          ) {
+            nodes {
+              x: timestamp
+              y: obSimFailRate30D
+            }
+          }
+          comparisonDataSet: dailyIndustryComparisonRatesSnapshot(
+            filter: { timestamp_gt: $start }
+            orderBy: timestamp_asc
+          ) {
+            nodes {
+              x: timestamp
+              y: obSimFailRate30D
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+query GetMissRates($start: Timestamp!) {
+  currentUser {
+    _id
+    organization {
+      _id
+      analytics {
+        analyticsCubesBeta {
+          dataSet: dailyOrganizationPerformanceRatesSnapshot(
+            filter: { timestamp_gt: $start }
+            orderBy: timestamp_asc
+          ) {
+            nodes {
+              x: timestamp
+              y: obSimMissRate30D
+            }
+          }
+          comparisonDataSet: dailyIndustryComparisonRatesSnapshot(
+            filter: { timestamp_gt: $start }
+            orderBy: timestamp_asc
+          ) {
+            nodes {
+              x: timestamp
+              y: obSimMissRate30D
+            }
+          }
+        }
+      }
+    }
+  }
+}

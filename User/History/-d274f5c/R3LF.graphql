@@ -1,0 +1,23 @@
+mutation UpdateUserBasicInfo($user: UserInput!) {
+  updateUser(user: $user) {
+    _id
+    game {
+      mode
+      active
+      activatedAt
+    }
+    profile {
+      department
+      site
+      locale {
+        ui
+        quests
+      }
+      firstName
+      lastName
+      isAnonymous
+      country
+      city
+    }
+  }
+}

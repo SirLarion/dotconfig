@@ -1,0 +1,115 @@
+{
+	"data": {
+		"currentUser": {
+			"organization": {
+				"_id": "QWjpR9ogGBMWLYuG9",
+				"onboardingStartedAt": "2022-10-27T09:18:14.563Z",
+				"onboardingCompletedAt": null,
+				"organizationOnboardingTasksConnection": {
+					"nodes": [
+						{
+							"_id": "62a1e0913cc4b2001bdcc176",
+							"required": true,
+							"tag": "allow-simulation-content"
+						},
+						{
+							"_id": "62a1e0913cc4b2001bdcc172",
+							"required": false,
+							"tag": "single-sign-on"
+						},
+						{
+							"_id": "62a1e0913cc4b2001bdcc174",
+							"required": true,
+							"tag": "distribute-plugin"
+						},
+						{
+							"_id": "62a1e0913cc4b2001bdcc175",
+							"required": true,
+							"tag": "setup-dkim"
+						},
+						{
+							"_id": "62a1e0913cc4b2001bdcc173",
+							"required": true,
+							"tag": "add-users"
+						},
+						{
+							"_id": "62a1e0913cc4b2001bdcc17b",
+							"required": false,
+							"tag": "leaderboard-visibility"
+						},
+						{
+							"_id": "62a1e0913cc4b2001bdcc179",
+							"required": false,
+							"tag": "review-simulations"
+						},
+						{
+							"_id": "62a1e0913cc4b2001bdcc178",
+							"required": true,
+							"tag": "review-domain-context"
+						},
+						{
+							"_id": "62a1e0913cc4b2001bdcc17a",
+							"required": true,
+							"tag": "add-fake-domains"
+						},
+						{
+							"_id": "62a1e0913cc4b2001bdcc177",
+							"required": true,
+							"tag": "run-tech-test-suite"
+						},
+						{
+							"_id": "635a4cd574bf030017a8ad00",
+							"required": false,
+							"tag": "single-sign-on"
+						},
+						{
+							"_id": "635a4cd574bf030017a8ad03",
+							"required": true,
+							"tag": "setup-dkim"
+						},
+						{
+							"_id": "635a4cd574bf030017a8ad02",
+							"required": true,
+							"tag": "distribute-plugin"
+						},
+						{
+							"_id": "635a4cd574bf030017a8ad01",
+							"required": true,
+							"tag": "add-users"
+						},
+						{
+							"_id": "635a4cd574bf030017a8ad04",
+							"required": true,
+							"tag": "allow-simulation-content"
+						},
+						{
+							"_id": "635a4cd574bf030017a8ad07",
+							"required": false,
+							"tag": "review-simulations"
+						},
+						{
+							"_id": "635a4cd574bf030017a8ad06",
+							"required": true,
+							"tag": "review-domain-context"
+						},
+						{
+							"_id": "635a4cd574bf030017a8ad08",
+							"required": true,
+							"tag": "add-fake-domains"
+						},
+						{
+							"_id": "635a4cd574bf030017a8ad09",
+							"required": false,
+							"tag": "leaderboard-visibility"
+						},
+						{
+							"_id": "635a4cd574bf030017a8ad05",
+							"required": true,
+							"tag": "run-tech-test-suite"
+						}
+					]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,37 @@
+query GetOrgAndIndustryAnalytics($startDate: Timestamp) {
+  currentUser {
+    organization {
+      _id
+      analytics {
+        analyticsCubesBeta {
+          dataSet: dailyOrganizationPerformanceRatesSnapshot(
+            filter: { timestamp_gt: $startDate }
+            orderBy: timestamp_asc
+          ) {
+            nodes {
+              x: timestamp
+              successRate: obSimSuccessRate30D
+              failRate: obSimFailRate30D
+              missRate: obSimMissRate30D
+              onboardingRate: obSimSuccessRate30D
+              activityRate: obSimSuccessRate30D
+            }
+          }
+          comparisonDataSet: dailyIndustryComparisonRatesSnapshot(
+            filter: { timestamp_gt: $startDate }
+            orderBy: timestamp_asc
+          ) {
+            nodes {
+              x: timestamp
+              successRate: obSimSuccessRate30D
+              failRate: obSimFailRate30D
+              missRate: obSimMissRate30D
+              onboardingRate
+              activityRate
+            }
+          }
+        }
+      }
+    }
+  }
+}

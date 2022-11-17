@@ -1,0 +1,9 @@
+query GetCurrentOrganizationCountries {
+  currentUser {
+    _id
+    organization {
+      _id
+      countries
+    }
+  }
+}

@@ -1,0 +1,10 @@
+query GetIsOrgOnboarding {
+  currentUser {
+    _id
+    organization {
+      _id
+      onboardingStartedAt
+      onboardingCompletedAt
+    }
+  }
+}

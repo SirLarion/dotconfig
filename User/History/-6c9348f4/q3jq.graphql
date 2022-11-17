@@ -1,0 +1,15 @@
+query QuestTemplateQuery($questId: ID!) {
+  questTemplates(filter: { _id_eq: $questId }) {
+    _id
+    tag
+    attributes {
+      difficultyEstimate
+      language
+    }
+    tags {
+      name
+      categoryName
+      value
+    }
+  }
+}

@@ -1,0 +1,5 @@
+mutation DeleteThreat($threatId: ID!) {
+  deleteThreat(threatId: $threatId) {
+    _id
+  }
+}

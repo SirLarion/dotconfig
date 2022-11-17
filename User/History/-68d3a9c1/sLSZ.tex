@@ -1,0 +1,504 @@
+\section{Blockchain applicability} \label{applications}
+
+The list of proposed blockchain application domains is long
+\cite{zileUseCases}. For the scope of this study, reducing it to a
+significantly shorter one is necessary in order to conduct in-depth
+examinations of each domain. Based on findings from \cite{jaoudeApplications} 
+and assessments of several studies that examine blockchain use cases
+\cite{sankaScalability,wustBlockchainNeed,zhengChallenges}, the
+domains discussed are:
+
+\begin{enumerate}
+  \item Digital payment systems
+  \item The Internet of things
+  \item Supply chain management
+\end{enumerate}
+
+I will discuss challenges associated with each domain. Then I will present
+ways that using blockchain may benefit the domain with regard to the
+challenges and otherwise. After this, I will present alternative ways
+to approach these challenges and conclude on an assessment of blockchain's
+applicability with a specification on what kind of blockchain seems most
+suitable.
+
+\subsection{Digital payment systems}
+
+In a contrast to history, modern digital payment systems are
+incredibly efficient and secure. Verifying the legitimacy of the money
+that exchanges hands in a payment scenario is practically trivial. As
+these exchanges happens digitally and in a fully encrypted manner, any
+consideration for whether someone steals the money en-route to its
+recipient is unnecessary. The operability of this system is taken for
+granted by many. It is enabled by the operation of two entities: the
+bank, who is housing the money that the buyer has and the seller will
+have, and the \textit{payment service provider} (PSP), who maintains
+the system which asks the bank to move money from one account to
+another. This system is thus dependent on a two-pronged assumption:
+\begin{enumerate}
+  \item The bank is trusted and always available
+  \item The PSP is trusted and always available
+\end{enumerate}
+
+\paragraph{Challenges} Two  issues arise from this. Payments
+across national borders is complicated when different nations utilize
+different currencies. A more critical issue is that fiat currencies
+are monopolized to a single issuer \cite{eichengreenCommodity}. As
+money is an all-encompassing element of modern life, this makes quite
+an existential assumption on the trustworthiness of the issuer.. 
+
+\paragraph{Blockchain solutions} The initial motivation for
+creating crypto-assets was to use them as means of payment as proposed
+by Bitcoin \cite{nakamoto2008bitcoin}, this idea has not seen much
+interest since its conception \cite{liptonTether}. In fact, several
+authors have argued that crypto-assets do not meet the criteria to be
+considered currencies at all due to their strong fluctuations in price
+\cite{carstensMoney,merschVirtual,yermackBitcoin}. 
+
+Generally, use of crypto-assets has been shown to exist largely in the
+context of speculative finance \cite{liptonTether,steinmetzOwnership}.
+However, stablecoins, a fairly recent development in the
+crypto-asset space, have a focus on price stability
+\cite{mitaStablecoin} as the name implies. Due to this, they are
+considered to hold the potential to be used as digital currencies
+\cite{bullmannSearch,liptonTether}. Lipton et al. go so far as to
+claim that stablecoins are conceptually much larger than crypto-assets
+as a potential generic form of digital money.
+
+Mita et al. \cite{mitaStablecoin} review existing stablecoins and
+their ways of attaining stability. The system for stabilizing a coin's
+value can be based on providing other assets -- US dollars, other
+crypto-assets or gold, for example -- as collateral. Stabilization
+can also be \textit{non-collaterized}. Here, the stabilization
+mechanism is purely an algorithm which automatically attempts to
+control the amount of stablecoins in circulation to stabilize the
+price. The terms \textit{non-collaterized} and \textit{algorithmic}
+are often used synonymously in the literature. It must be noted that
+not all algorithmic stablecoins are non-collaterized as they can use
+both the algorithm and some form of collateral for stabilization.
+
+Mita et al. go on to argue that only non-collaterized stabilization
+can have the desired outcome for stablecoins. They say collaterization
+with national-backed currencies or commodities would result in
+centralization and collaterization with other crypto-assets would,
+in turn, not actually stabilize the value of the currency. Several
+other authors, however, are sceptical of non-collaterized stablecoins
+\cite{berentsenStablecoins,bullmannSearch,eichengreenCommodity,lyonsStable}.
+Eichengreen \cite{eichengreenCommodity}, for example, takes a firm
+stance against non-collaterization. Eichengreen argues that
+non-collaterized stablecoins cannot have resilience against price
+fluctuations as they lead to snowball effects that, without
+collateral, easily collapse the value of the coin entirely. Berentsen
+and Schär \cite{berentsenStablecoins}, on the other hand, consider
+stablecoins collaterized with crypto-assets
+(DAI\footnote{https://makerdao.com/en/}, for example) to be the
+perfect middle-ground between decentralization and stability.
+
+The blockchain-based stablecoins that are currently traded most are
+collaterized. At the time of writing, data from CoinMarketCap
+\footnote{https://coinmarketcap.com} shows that the ten stablecoins
+with the highest trading volume include three stablecoins that are
+listed as "algorithmic" (Decentralized USD, Terra Classic USD and
+sUSD). These account for about 0.6\% of the trading volume of the top
+10 while the top three (USD Tether, USD Coin and Binance USD) account
+for roughly 98\% of the same volume.
+
+Tether\footnote{https://tether.to}, specifically USD Tether (USDT),
+is by far the most traded stablecoin, accounting for 77\% of the
+volume of the top ten stablecoins by volume in CoinMarketCap
+statistics. In fact its trading volume is higher than that of Bitcoin
+(BTC), the second most traded crypto-asset, by about 74\%. It is
+collaterized by national-backed currencies which are held by Tether
+Holdings Limited, a daughter company of Tether Limited. Tether Limited
+is the issuer for so called "Tether tokens". When paying an amount of
+a certain currency to Tether Limited, they issue a corresponding
+amount of Tether tokens pegged to that currency. For example, USDT are
+Tether tokens backed by US dollars and EURT respectively by
+Euros. These Tether tokens exist on multiple different crypto-asset
+blockchains to create price stability. Since the issuance of USDT in
+2015, its deviations from the price of USD have remained under ±10\%
+Figure \ref{fig:tether-deviations} from a paper by Lyons and
+Viswanath-Natraj \cite{lyonsStable} displays the deviations in more
+detail.
+
+DAI, a significantly less traded stablecoin (about 0.5\% of Tether's
+trading volume), is collaterized with other crypto-assets. DAI is
+pegged to US dollars like Tether.
+
+% ...
+
+% More examples \& counterexamples
+
+% ...
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{tether-deviations.png}
+  \caption{USDT/USD deviations from peg and histogram of deviations.
+  As shown in \cite{lyonsStable}.}
+  \label{fig:tether-deviations}
+\end{figure}
+
+\paragraph{Alternative solutions}
+
+\paragraph{Conclusion}
+
+\subsection{Internet of things}
+
+The \textit{Internet of things} (IoT) often refers to a global network
+of interconnected devices, \textit{IoT nodes}, with digital capabilities such
+as weather sensors, home appliances and even cars. "IoT" is additionally
+used to describe similar, but \textit{local} intranets that are not
+connected to the global Internet. 
+
+Advocates of \textit{consumer-centric} IoT suggest that it can enable
+the development of \textit{smart cities}, smart energy grids
+\cite{reynaIntegration}, intelligent transportation systems and better
+monitoring of, for example, pollution and weather
+\cite{sisinniIndustrial}. Moreover, it is said to create a digital
+representation of the physical world, increasing the degree with which
+people are able to interact with the world
+\cite{reynaIntegration,viriyasitavatIot}. Furthermore,
+\textit{industrial} IoT (IIoT) is said to provide efficiency and
+productivity to industrial systems through a higher degree of
+automatization and better monitoring and management capabilities
+\cite{coleBlockchain,sisinniIndustrial}.
+
+
+\paragraph{Challenges} There exist a large amount of IoT nodes
+(estimated tens of billions \cite{reynaIntegration}) with
+\textit{highly} varying capabilities and many different configurations
+for connectivity and data sharing \cite{sisinniIndustrial}.
+Consequently, IoT faces a number of challenges:
+
+\begin{itemize}
+  \item \textbf{Susceptibility to security threats.} Many IoT nodes
+  operate with low bandwidth and weak security measures to achieve
+  better energy efficiency. Thus, defense against attacks is
+  nearly non-existent \cite{sisinniIndustrial}. Additionally, updating
+  the software of IoT nodes is time consuming and expensive due to 
+  their large amount \cite{jaoudeApplications}.
+
+  \item \textbf{Lack of data interface interoperability.} IoT nodes
+  have varying configurations for their data interfaces
+  \cite{panInteroperability,viriyasitavatIot}. As such, integrating
+  different IoT systems and gaining useful aggregations of data from
+  many nodes can be complicated \cite{sisinniIndustrial}.
+
+  \item \textbf{Complexity of maintaining confidentiality.} Due to the
+  lack of interoperability, maintaining the confidentiality of data,
+  especially in publicly available applications, is highly complex.
+
+  \item \textbf{Storing large quantities of data.} The key activity in
+  IoT is data collection. As all IoT nodes are continuously collecting
+  data, storing it becomes increasingly difficult.
+
+  \item \textbf{Resource management.} Having a large amount of IoT
+  nodes requires constant resource management. When nodes are
+  operating expectedly, they require electricity to run on. When not,
+  they require maintenance in order to preserve the functionality of
+  the IoT system.
+\end{itemize}
+
+
+\paragraph{Blockchain solutions} Using blockchain within IoT is a
+topic that has gained significant academic interest
+\cite{jaoudeApplications}. It is considered suitable to fix many of
+the problems faced within IoT. 
+
+An often mentioned advantage in blockchain-powered IoT is enchanced
+security. A literature review by Jaoude et al.
+\cite{jaoudeApplications} has identified the following benefits on
+security: Using a blockchain enables verifying that a node is
+operating according to up-to-date instructions. If it is
+malfunctioning, its software has been modified by an adversary or it
+requires a system update, the blockchain can display this in the
+node's data output. Furthermore, in case of a system update, the
+authors show that the update can be delivered to the node through the
+blockchain itself. In addition, Reyna et al. note that securing
+inter-node communications in IoT can be done by validation with
+smart contracts in blockchains \cite{reynaIntegration}.
+
+Blockchain can additionally improve trust towards IoT networks. The
+tamper-resistance in blockchains may be utilized to increase the
+trustworthiness of IoT nodes' data \cite{jaoudeApplications}. One
+problem mentioned with IoT networks is that they are opaque, leading
+to distrust towards the networks, especially in consumer-centric IoT
+\cite{reynaIntegration}. Blockchain can provide visibility to the
+state of the network. If privacy is not critical, any blockchain
+implementation will allow for data verifiability, and in
+privacy-critical applications, NIZK-enabled blockchains may be used to
+maintain confidentiality while enabling verifiability (Section
+\ref{security}). Notably, blockchain can provide privacy overall to
+IoT nodes through pseudonymity. 
+
+Other identified advantages of blockchains in IoT include the ability
+of reducing data storage requirements by enabling the IoT nodes to
+process recorded data themselves through the use of smart contracts
+\cite{viriyasitavatIot}. Furthermore, smart contract utilization may
+enable a higher degree of autonomous activity on the part of IoT nodes
+improving, for example, \textit{machine-to-machine} decisionmaking
+\cite{panInteroperability} such as automatic purchasing of energy
+\cite{jaoudeApplications,viriyasitavatIot}. Blockchains, as
+distributed systems, additionally limit the amount of single points of
+failure in the network.
+
+New issues do emerge when using blockchain for an IoT system. Notably,
+scalability is a challenge that is difficult to circumvent due to
+IoT's dependence on both a large number of nodes in the network and
+high throughput to write data. From Section \ref{scalability}, a
+permissionless blockchain scales well in network size but is more
+lacking in TPS. A permissioned blockchain, in contrast, has more
+difficulty in scaling network size but can reach high TPS quite well.
+
+Reaching consensus between IoT nodes is another problem. Consensus
+mechanisms in permissionless blockchains often require computational
+capacity or storage capacity, both of which can have strict limits in
+IoT nodes \cite{viriyasitavatIot}. PoS consensus is an exception since
+it has low demands from the node. However, PoR consensus, though it
+requires storage capacity, may be considered as it could be used to
+store network data \cite{banoConsensus}, mitigating the problem of big
+data in IoT. Consensus models in permissioned blockchains generally
+are low in system demands, but they often instead require low latency
+between nodes to maintain a high TPS, such as in PBFT
+\cite{tomicPermissioned}. This may be a problem as IoT nodes'
+connections to the network are often of low quality. However,
+permissioned consensus models may be improved in this respect as
+using, for example, \textit{gossip protocols} can decrease the demand
+for low latency by requiring less visibility from a node to the
+network \cite{banoConsensus}. In the future, the use of 5G networks
+may further decrease the prevalence of this problem
+\cite{sisinniIndustrial}.
+
+The \textit{garbage in garbage out} (GIGO) problem has been identified
+by several authors as a notable challenge when using blockchains in IoT
+\cite{babichDistributed,reynaIntegration,wustBlockchainNeed}.
+Blockchain relies on input from the physical world being trustworthy.
+If illegitimate data is entered mistakenly or maliciously, it is
+likely to remain on the blockchain due to tamper-resistance
+\cite{olearyConfiguring}. Wüst and Gervais \cite{wustBlockchainNeed}
+illustrate this clearly as seen in Figure \ref{fig:scm-problem}. The
+GIGO problem has also been identified in practice by several companies
+as shown by \cite{rogersonFood}. While no clear solution to it exists,
+permissioned blockchains can alleviate it somewhat due to their higher
+degree of trust between nodes.
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{scm-problem.png}
+  \caption{A potential problem with trusted sensors in an IoT
+  blockchain as posed by \cite{wustBlockchainNeed}. On the left, a
+  temperature sensor is placed correctly in a food carrier truck. On
+  the right, it is placed maliciously in a cooled compartment to
+  falsify the recorded temperature inside the truck.}
+  \label{fig:scm-problem}
+\end{figure}
+
+
+\paragraph{Alternative solutions} Purely as a mechanism of data
+storage, blockchain is, regardless of implementation, less efficient
+than established techonologies like database management systems (DBMS)
+\cite{stolfiNISTReview,wustBlockchainNeed}. Especially
+\cite{chenComparative} shows how even a private blockchain is less
+efficient on all counts than a DBMS like MySQL. DBMSs can also be
+resistant to single points of failure as their infrastructure can be
+distributed. Due to this, using DBMS in IIoT when all IoT nodes are
+trusted, such as in the production system of a single company, seems
+suitable.
+
+Several possible solutions have been suggested with regard to security
+in IoT. Hassija et al. mention, apart from blockchain, edge computing
+and fog computing; extensions of cloud computing, and machine learning
+algorithms \cite{hassijaSurvey}. Each of these have their own
+strengths and weaknesses which are outside this paper's scope.
+However, none of these solutions is found to be clearly superior to
+the others.
+
+\paragraph{Conclusion} Based on this discussion, blockchain's
+applicability to IoT cn be assessed. The result of the assessment is
+shown in Table \ref{tab:iot}. The only clearly noticable edge blockchain
+has over other solutions is its decentralization. This
+decentralization is gained in exchange of performance always being
+weaker than the alternative options and having to solve the GIGO
+problem. It can thus be said that blockchain should only be used in
+IoT if trust between the blockchain's writer entities is limited. In a
+full-trust environment, distributed DBMS solutions should be used.
+
+The applicability of different blockchains varies. In consumer-centric
+IoT, requiring permissions may be infeasible for the application.
+Thus, a permissionless consensus mechanism with low system demands and
+high TPS such as DPoS can be utilized. \textit{Roll-DPoS} is an
+improvement on DPoS that is specifically designed with the low
+capabilities of IoT nodes in mind. It is said to achieve 3000 TPS
+\cite{sankaScalability}. Additionally, using a PoR blockchain, such as
+PermaCoin \cite{millerPermacoin}, has potential conceptually but this
+should be studied more. The prevalence of the GIGO problem remains. It
+may be alleviated by having larger networks of sensors to confirm
+other sensors' data \cite{babichDistributed}. In a permissionless
+blockchain, this can have significant costs but it may be the required
+trade-off for public availability.
+
+In IIoT, the situation is somewhat different. An IIoT blockchain can
+require permissions from its nodes. As such, a permissioned blockchain
+seems more applicable due to its capability for high TPS and low
+system demand for nodes while inherently alleviating the GIGO problem.
+Additionally, a permissioned blockchain is better equipped to further
+reduce the impact of GIGO since several independent entities' nodes
+can be used to confirm each others' data. Hyperledger Fabric, for
+example, is a suitable blockchain implementation in IIoT. A study by
+Kuzlu et al. supports this conclusion \cite{kuzluPerformance}.
+
+\begin{table}[]
+\begin{tabularx}{\textwidth}{lXXX}
+Solution                                                        & Hyperledger Fabric & Roll-DPoS           & Distributed DBMS \\[2ex] \hline
+\begin{tabular}[c]{@{}l@{}}Trust \\ required\end{tabular}       & limited            & low                 & full             \\[3ex] \hline
+\begin{tabular}[c]{@{}l@{}}Permission\\ required\end{tabular}   & yes                & no                  & yes              \\[3ex] \hline
+\begin{tabular}[c]{@{}l@{}}Implementing\\ security\end{tabular} & cheap              & cheap               & expensive        \\[3ex] \hline
+\begin{tabular}[c]{@{}l@{}}Scaling:\\ Network size\end{tabular} & moderate           & high                & low              \\[3ex] \hline
+\begin{tabular}[c]{@{}l@{}}Scaling:\\ TPS\end{tabular}          & high               & moderate            & optimal          \\[3ex] \hline
+\begin{tabular}[c]{@{}l@{}}GIGO\\ problem\end{tabular}          & solvable           & difficult           & inexistent       \\[3ex] \hline
+\begin{tabular}[c]{@{}l@{}}Suggested\\ area\end{tabular}        & IIoT               & Consumer IoT        & Private IIoT     \\[3ex] \hline
+\end{tabularx}
+\caption{Results of assessing blockchain applicability in IoT}
+\label{tab:iot}
+\end{table}
+
+
+\subsection{Supply chain management}
+
+
+Supply chain management (SCM) is the activity of planning and managing
+the process of procuring raw materials and turning them into products
+which are sold to customers. The process involves several different,
+often independent, companies forming a supply chain (SC). SCM is
+concerned with the cost-effectiveness of the chain and being able to
+respond quickly to changes in the supply and demand of products. 
+
+Digital supply chains (DSC), as opposed to traditional SCs, have been
+proposed. IoT networks are key components in DSCs \cite{panInteroperability}. As such, many of
+their advantages and challenges discussed in the previous section also
+apply to DSCs. Implementing DSCs is considered to have a multitude of
+benefits
+\cite{buyukozkanDigital,kimImpact,korpelaDSC,maullDistributed,neubertCollaboration,santosOrganizational}
+such as improving SC speed and effectiveness, reducing costs
+throughout the chain, decreasing environmental impact and providing
+flexibility in designing SCs. B\"uy\"uk\"ozkan and G\"o\c{c}er
+\cite{buyukozkanDigital} indicate thet all companies regardless of
+size or domain will need to explore digitalizing their supply chain to
+be able to compete in the future. Additionally, Ivanov and Dolgui
+\cite{ivanovIntertwined} demonstrate how participants in SCs become
+interconnected to each other, and as an effect of globalization, to
+the participants of other SCs as well. According to Ivanov and Dolgui,
+the resulting "\textit{Intertwined supply networks}" or ISNs must be
+resilient to such events as the COVID-19 epidemic, else the effects
+reverberating throughout the network will be critical to securing
+goods and services globally. The authors consider utilizing
+digitalization within these networks a promising approach to this
+problem.
+
+\paragraph{Challenges} The challenges associated with creating DSCs,
+or converting to DSCs from SCs, are significant.
+\cite{panInteroperability} and \cite{xuManaging} consider the primary
+challenges to be involving interoperability of different SC
+participants' information and IoT systems and also integration between
+digital and non-digital systems. Consequently, the challenges
+concerning IoT are prevalent for DSCs, too. See the previous section
+for those. For a thorough listing of challenges, see the literature
+review by B\"uy\"uk\"ozkan and G\"o\c{c}er \cite{buyukozkanDigital}.
+
+\paragraph{Blockchain solutions} Korpela et al. \cite{korpelaDSC}
+explore how blockchains could be used to drive B2B
+(\textit{business-to-business}) system integration within DSCs. They
+argue that a layer of interoperability between companies' systems
+could be created by utilizing blockchain while providing transparency
+to the current state of the SC. Specifically the blockchain ledger and
+the ability to process smart contracts were found by the authors'
+survey of SC managers to be valuable for DSCs. Dutta et al.
+\cite{duttaReview} note that interoperability is challenging for
+blockchains as well since many different blockchain systems exist and
+there is not yet sufficient standardization in creating blockchains.
+Yet more papers \cite{coleBlockchain,hackiusLogistics} consider
+blockchain to improve contract processing, tracking the origin of raw
+materials, preventing forgery of data and more. Especially the paper
+by Cole et al. \cite{coleBlockchain} exudes different posed benefits
+of blockchains in DSCs. Babich and Hilary note that though many
+existing solutions could be used for solving problems in DSCs, they
+may often be less economically feasible than using a blockchain
+\cite{babichDistributed}.
+
+Cole et al. do also notice that adoption of blockchain can have a lot
+of friction since it would require large investments. Sternberg et al.
+\cite{sternbergStruggle} expand on this by pointing out that the value
+of blockchain for a single SC participant is \textit{"[.] at best
+limited because the benefits are reaped when a critical mass of
+stakeholders and value chain partners adopt the technology."}
+Sternberg et al. also introduce the \textit{"Trust-investment
+paradox"} which asserts that for investments into blockchain by SC
+participants to occur, the participants must have trust in each other.
+If participants already have trust in each other, blockchain is not
+required for building trust. 
+
+Blockchain also has its weaknesses once it is already \textit{in} use.
+These are largely weaknesses relating to IoT such as the problem of
+inefficiency and the GIGO problem discussed in the previous section.
+Babich and Hilary \cite{babichDistributed} additionally mention the
+lack of standardization and the \textit{black-box effect}. This refers
+to the idea that even if transparency into the internal state of the
+blockchain is achieved, the users of the blockchain still need to
+trust the technology itself. And if trust on the technology is
+limited, its adoption will suffer, leading to negative effects
+on adoption throughout the supply chain \cite{sternbergStruggle}.
+
+
+\paragraph{Alternative solutions}
+
+Many business processes in SCM could be digitalized using an ERP
+(\textit{enterprise resource planning}) system. ERP has many
+functionalities similar to blockchain such as automatic smart contract
+processing but it is centrally managed which allows for increased
+efficiency. However, its functions are limited to the confines of a
+single organization which has negatively impacted adoption in SCM
+\cite{coleBlockchain}.
+
+Solutions in IIoT are largely applicable to the domain of SCM as well
+since IoT is an identified method for driving DSC conversion
+\cite{buyukozkanDigital}. It follows that, equivalently to the IoT
+section, distributed DBMS could be applied to many DSC use cases as
+well to drive data integration. Using a centrally-managed database
+would also not have the problem of lacking standardization or limited
+trust towards the technology as DBMS are well standardized and
+trusted.
+
+Thus, if operating in a full-trust environment, such as a single
+company's SC or the company's internal processes, an ERP system that
+utilizes a distributed DBMS is suitable.
+
+
+\paragraph{Conclusion}
+
+Generally, solutions in the domain of SCM need not be concerned with
+requiring public writability. As such, using permissionless
+Blockchains should generally be avoided. Consequently, the conclusion
+of using a permissioned blockchain like Hyperledger Fabric in IIoT
+applies here, too. Furthermore, Hyperledger Fabric is an established
+framework within blockchain, which provides the \textit{meta-trust}
+required against the black-box effect mentioned by Babich and Hilary
+\cite{babichDistributed}.
+
+Once again, if possible, using a centralized system is recommended.
+However, as argued in \cite{coleBlockchain}, this is often not the
+case in SCM because multiple independent oragnizations need to access the
+same data.
+
+
+\begin{table}[!ht]
+\begin{tabularx}{\textwidth}{lXXX}
+Solution                                                        & Hyperledger Fabric & ERP system       \\[2ex] \hline
+\begin{tabular}[c]{@{}l@{}}Trust \\ required\end{tabular}       & limited            & full             \\[3ex] \hline
+\begin{tabular}[c]{@{}l@{}}Permission\\ required\end{tabular}   & yes                & yes              \\[3ex] \hline
+\begin{tabular}[c]{@{}l@{}}Implementing\\ security\end{tabular} & cheap              & expensive        \\[3ex] \hline
+\begin{tabular}[c]{@{}l@{}}Scaling:\\ Network size\end{tabular} & moderate           & low              \\[3ex] \hline
+\begin{tabular}[c]{@{}l@{}}Scaling:\\ TPS\end{tabular}          & high               & optimal          \\[3ex] \hline
+\begin{tabular}[c]{@{}l@{}}GIGO\\ problem\end{tabular}          & solvable           & inexistent       \\[3ex] \hline
+\begin{tabular}[c]{@{}l@{}}Suggested\\ area\end{tabular}        & Multi-org SCM      & Private SCM      \\[3ex] \hline
+\end{tabularx}
+\caption{Results of assessing blockchain applicability in SCM}
+\label{tab:scm}
+\end{table}

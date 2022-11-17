@@ -1,0 +1,13 @@
+mutation SendQuestToOrganization(
+  $organizationId: ID!
+  $templateTag: String!
+  $origin: QuestOrigin
+) {
+  sendQuestToOrganization(
+    organizationId: $organizationId
+    templateTag: $templateTag
+    origin: $origin
+  ) {
+    _id
+  }
+}

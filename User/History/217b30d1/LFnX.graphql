@@ -1,0 +1,6 @@
+query GetOrgOnboardingSettings($organizationId: ID!) {
+  organizations(filter: { _id_eq: $organizationId }) {
+    _id
+    onboardingStartedAt
+  }
+}

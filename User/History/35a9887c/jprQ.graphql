@@ -1,0 +1,6 @@
+query GetOrganizationList {
+  organizations {
+    _id
+    name
+  }
+}

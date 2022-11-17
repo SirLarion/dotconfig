@@ -1,0 +1,62 @@
+{{#embed "new-hoxhunt-email-base"}} {{#content "body-content"}}
+<table class="basic-table-styles" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td class="heading1">
+        {{ formattedMessage "emailTemplates.general.hiUser" }}
+      </td>
+    </tr>
+    <tr>
+      <td class="normal-text text-padding">
+        {{ formattedMessage "emailTemplates.magicLinkLogin.text" }}
+      </td>
+    </tr>
+    <tr>
+      <td class="button-padding">
+        <table
+          class="table-to-center-cta-button"
+          align="center"
+          border="0"
+          cellspacing="0"
+          cellpadding="0"
+        >
+          <tbody>
+            <tr>
+              <td class="magic-link-cta-button-border" bgcolor="#ED2A5D">
+                <a class="button-primary" href="{{{magicLoginUrl}}}">
+                  {{ formattedMessage "emailTemplates.magicLinkLogin.ctaText" }}
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td class="text-center bold-text">
+        {{ formattedMessage "emailTemplates.magicLinkLogin.copyLinkText" }}
+      </td>
+    </tr>
+    <tr>
+      <!-- Double elements & style attrs because M$ Windows Outlook -->
+      <td class="text-center small-text-for-long-url">
+        <a
+          href="{{{magicLoginUrl}}}"
+          class="text-center small-text-for-long-url"
+        >
+          {{{magicLoginUrl}}}
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <table>
+          <tbody>
+            {{> signature}}
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+{{{customHiddenEmailBodyIdentifier}}} {{/content}} {{/embed}}

@@ -1,0 +1,21 @@
+#import "../../fragments.graphql"
+
+fragment TestQuestFields on Quest {
+  _id
+  ...TestQuestFieldsFragment
+}
+
+query FetchOrganizationActiveTestQuests($filter: Quest_filter) {
+  currentUser {
+    _id
+    organization {
+      _id
+      questsConnection(filter: $filter) {
+        totalCount
+        nodes {
+          ...TestQuestFields
+        }
+      }
+    }
+  }
+}

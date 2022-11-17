@@ -1,0 +1,13 @@
+query GetCurrentUserLocation {
+  currentUser {
+    _id
+    profile {
+      country
+      geoLocation {
+        latest {
+          countryCode
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,172 @@
+SEGMENT_WRITE_KEY=iQ6PHOmoAHhwFv5S5QgiA0dwPF8OGv4u
+
+I18N_CDN_URL=https://storage.googleapis.com/cdn.hoxhunt.com/i18n/hoxapp/develop
+
+# REQUIRED
+
+ENABLE_SUPER_ADMIN_ACCESS="true"
+#Application options
+
+GAME_CYCLE_TIME_IN_MINUTES=1
+AGGREGATION_CYCLE_TIME_IN_MINUTES=5
+
+TARGET_DB_NAME=hoxapp_master_obfuscated
+# Sending email
+MAIL_URL=smtp://hoxapp-develop:eCkgnYXhTcEQY4xiBZJMWYniaosbJesT@hoxmta-develop-a1a2a4ca09cfda33.elb.eu-central-1.amazonaws.com:2525/?tls.rejectUnauthorized=false
+HOXHUNT_MTA_IP4=18.197.232.171
+
+# HOX_TELEMETRY_SETUP=local
+# CONTEXT_LOG_LEVEL="trace"
+# CONTEXT_LOG_ENABLED="true"
+# CONTEXT_TRACE_ENABLED="true"
+# CONTEXT_TRACE_EXPORTER_URL="localhost:55680"
+
+# HoxUrl - Required when creating vectors (links)
+# HOXURL_USER=testuser
+# HOXURL_PASSWORD=testpass
+# HOXURL_URL=http://localhost:6080
+# ROOT_URL=https://hoxjulius.eu.ngrok.io
+# HOXHUNT_API_URL=https://hoxjulius.eu.ngrok.io
+HOXURL_PASSWORD=ecac3ac6-673a-46d4-bb16-935b33f3f623
+HOXURL_URL=http://hoxurl.hoxhunt.com
+HOXURL_USER=hoxurl-master
+
+NODE_ENV=development
+
+MONGO_URL=mongodb://hox-local-dev:D2D045C2-81E7-4CEE-8C10-6486C4D4598E@localhost:27117/hoxapp_master_obfuscated?authSource=admin
+DEVELOPER_USER_EMAIL=miska.tammenpaa@hoxhunt.com
+
+# Bitly - Required when creating shortUrls
+BITLY_API_TOKEN=de2af00163b8a9686de4404edfd2851cdf995ab0
+BITLY_API_CLIENT_ID=53fb7f83907e47906824fb7b357db9503a9e5311
+BITLY_API_CLIENT_SECRET=93c715b54999f289f02121220c2a90951c43f209
+
+# Google integration - Only required when uploading threats or other assets to google storage
+GOOGLE_APPLICATION_CREDENTIALS=/Users/miskatammenpaa/keys/google_cloud/hoxhunt-dev/key.json
+GOOGLE_GMAIL_API_CREDENTIALS=/Users/miskatammenpaa/keys/google_cloud/hoxhunt-dev/key.json
+GOOGLE_CLOUDSTORAGE_BUCKET=miska-test-bucket
+ADMIN_CSV_EXPORT_TEMPORARY_STORAGE_BUCKET=miska-test-bucket
+ACCESS_TOKEN_EXPIRY_MINUTES=10000000
+REFRESH_TOKEN_EXPIRY_DAYS=10000000
+GOOGLE_BIGQUERY_CUBES_DATASET='analytics_cubes_beta'
+GOOGLE_CLOUD_PROJECT='hoxhunt-dev'
+TRANSLATIONS_CLOUDSTORAGE_BUCKET=miska-development
+TRANSLATIONS_CLOUDSTORAGE_PATH=i18n/database-translations-hoxhunt-local
+
+# Cloudinary - We upload some images here
+CLOUDINARY_API_KEY=511211329427946
+CLOUDINARY_SECRET=Xaq-M9Y-2zgR8S23tkCktR5y51E
+CLOUDINARY_CLOUD_NAME=hoxhunt
+CLOUDINARY_BASE_NAME=development
+
+#Intercom - customer support platform
+INTERCOM_APP_ID=vn31oms3
+INTERCOM_SECRET_KEY=vTBqbrqdRM8FF6Gz_DgcXNUbzDYpXE8gK5Kcm5b4
+
+# Optional
+
+ZENDESK_BASE_URL=http://localhost:3000/axel-test
+ZENDESK_JWT_SECRET=123
+
+# Analytics
+# APOLLO_ENGINE_API_KEY=service:Dhude-Develop-test:Gnfoed479kPlD7YZEJysHQ
+
+# Sentry error reports
+# SENTRY_PUBLIC_URL=https://3974643ab00740a98533abcf4f8c1f14@app.getsentry.com/90608
+# SENTRY_URL=https://3974643ab00740a98533abcf4f8c1f14:ef67b69f241c43a38a3bb5bf2e94e743@app.getsentry.com/90608
+
+#Crowdin - the translations platform for our app
+CROWDIN_PROJECT_NAME=hoxapp
+CROWDIN_PROJECT_KEY=2570d283f219bf65c207bf1daa1e03fb
+
+TASK_QUEUE_DEFAULT_TIMEOUT_IN_MINUTES=5
+TASK_QUEUE_CONCURRENCY_LIMIT=10
+
+# warn, info, debug
+LOG_LEVEL=debug
+# PAINFUL MODE: (better debugging)
+; HOX_TELEMETRY_SETUP=local
+
+# # Task schedules
+
+TASK_SCHEDULE_GAME_CYCLE="0 0 2 * * *"
+# # Send threat feedback once an hour
+TASK_SCHEDULE_THREAT_FEEDBACK="0 0 2 * * *"
+
+
+THREAT_ENRICHMENT_ENRICH_THREAT_BATCH="0 0 2 * * *"
+
+# # Group new threats every 5 minute
+TASK_SCHEDULE_THREAT_GROUPING="0 0 2 * * *"
+TASK_SCHEDULE_EXPIRE_QUESTS="55 12 * * *"
+
+TASK_SCHEDULE_THREAT_ENRICHMENT="0 0 2 * * *"
+
+TASK_SCHEDULE_UPLOAD_TRANSLATIONS="0 0 2 * * *"
+
+TASK_QUEUE_EXECUTE_POOL_SIZE=1
+TASK_QUEUE_SCHEDULE_POOL_SIZE=1
+
+# # Clean database 2am every night
+# TASK_SCHEDULE_DATABASE_CLEANUP=0 0 2 * * *
+
+# # Run user enrichment once a night at midnight
+# TASK_SCHEDULE_USER_ENRICHMENT="*/2 0 0 * * *"
+
+TASK_SCHEDULE_MIGRATE_THREATS_PIPELINE="0 0 */10 * *"
+
+# # Scheduling task processing
+SKIP_TASK_PROCESSING=false
+SKIP_TASK_SCHEDULING=false
+
+
+CORS_GLOBS=mail.google.com,inbox.google.com
+
+# Externallay exposed GQL API
+SHARED_JWT_SECRET=enterHighlySecretAndExtremelyRandomSharedJwtSecretHere696669
+
+# HOXHASH
+HOXHASH_ENABLED=1
+HOXHASH_BASE_URL=http://localhost:8080
+
+# Threat enrichment
+THREAT_ENRICHMENT_VERSION=hoxhash_01
+
+# Enable new Threat Pipeline
+USE_NEW_THREAT_PIPELINE="1"
+
+# Monorepo configs
+CORS_ALLOWED_HOST_GLOBS="*.eu.ngrok.io,localhost:+([0-9]),app.develop.hoxhunt.com,app.hoxhunt.com"
+HTTP_REDIRECT_ALLOWED_HOST_GLOBS="*.eu.ngrok.io,localhost:+([0-9]),app.develop.hoxhunt.com,app.hoxhunt.com"
+AUTH_APP_URL=http://localhost:3020
+GAME_APP_URL=http://localhost:3010
+ADMIN_APP_URL=http://localhost:3060
+HYDRA_BASE_URL="http://localhost:4445"
+REMEMBER_LOGIN_FOR_IN_HOURS="720"
+OTP_MAGIC_LINK_LOGIN_URL_VALIDITY_IN_MINUTES=30
+OTP_SUCCESS_URL_VALIDITY_IN_MINUTES=5
+OTP_SSO_URL_VALIDITY_IN_MINUTES=5
+OTP_SIGNING_SECRET="development-time-secret"
+
+# For quiz adaptive card creation 
+# quiz.ngrok:
+#ADAPTIVE_CARD_ORIGINATOR_TOKEN=7f0870a2-3dc4-4f38-b802-533c84f07dea
+# hoxjulius
+ADAPTIVE_CARD_ORIGINATOR_TOKEN=ca21cdb1-834d-477b-a530-9b16eab61122
+#DEMO:
+#ADAPTIVE_CARD_ORIGINATOR_TOKEN=ea1eb73a-2e83-43bb-b9ee-17c1fad06def
+QUEST_CARD_IMAGE_BASE_URL=https://hoxjulius.eu.ngrok.io/images/hoxquiz
+QUEST_RESPONSE_URL=https://hoxjulius.eu.ngrok.io
+QUIZ_SENDING_EMAIL_ADDRESS=quiz@hoxhunt.com
+IMPORTANT_TO_REPORT_ARTICLE_URL="hoxhunt.com/about/"
+INTRODUCTION_TO_HOXHUNT_URL="https://support.hoxhunt.com/hc/en-us/articles/360020320112-Introduction-to-Hoxhunt"
+#HOX_TELEMETRY_SETUP=local
+
+JWT_AUTH_TOKEN_SIGNING_SECRET="klödafafjklödsjfay7774747"
+
+ACCESS_TOKEN_EXPIRY_MINUTES=10000000
+REFRESH_TOKEN_EXPIRY_DAYS=10000000
+
+LOG_ANALYTICS_EVENTS=true
+HOXSNAP_ENABLED=true
+#########

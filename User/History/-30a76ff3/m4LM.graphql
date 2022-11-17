@@ -1,0 +1,4 @@
+fragment ThreatRatingFields on Threat {
+  severity
+  feedbackSentAt
+}

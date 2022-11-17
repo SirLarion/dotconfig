@@ -1,0 +1,8 @@
+mutation UserAnonimityMutation($user: UserInput!) {
+  updateUser(user: $user) {
+    _id
+    profile {
+      isAnonymous
+    }
+  }
+}

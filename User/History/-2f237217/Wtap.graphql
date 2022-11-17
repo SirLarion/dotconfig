@@ -1,0 +1,13 @@
+    currentUser {
+      _id
+      profile {
+        isAnonymous
+      }
+    }
+    publicCurrentUser {
+      _id
+      profile {
+        isAnonymous
+      }
+    }
+  }

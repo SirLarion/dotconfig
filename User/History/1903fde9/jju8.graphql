@@ -1,0 +1,5 @@
+mutation CreateOrgScimToken($id: ID!) {
+  createOrganizationScimToken(organizationId: $id) {
+    token
+  }
+}

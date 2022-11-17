@@ -1,0 +1,70 @@
+fragment OrganizationUsers on UserConnection {
+  totalCount
+  nodes {
+    _id
+    roles
+    profile {
+      firstName
+      lastName
+      city
+      country
+      site
+      department
+      isAnonymous
+      spicyModeEnabled
+      locale {
+        quests
+        ui
+      }
+    }
+    emails {
+      address
+    }
+    status
+    willBeHardDeletedAt
+    game {
+      mode
+      active
+    }
+    player {
+      stars
+      stats {
+        total
+        success
+        missed
+        failed
+        failureRate
+        last10Quests
+      }
+    }
+  }
+}
+
+query GetOrganizationUsers(
+  $first: Int
+  $skip: Int
+  $sort: [User_sort]
+  $search: String
+  $filter: User_filter
+) {
+  currentUser {
+    _id
+    organization {
+      _id
+      scim {
+        authToken {
+          createdAt
+        }
+      }
+      usersConnection(
+        first: $first
+        skip: $skip
+        sort: $sort
+        search: $search
+        filter: $filter
+      ) {
+        ...OrganizationUsers
+      }
+    }
+  }
+}

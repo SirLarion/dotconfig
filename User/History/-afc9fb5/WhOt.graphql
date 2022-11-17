@@ -1,0 +1,6 @@
+mutation ClientMetricSubmission(
+  $clientName: String!
+  $metrics: ClientMetricInput!
+) {
+  trackClientMetrics(clientName: $clientName, metrics: $metrics)
+}

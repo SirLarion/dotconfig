@@ -1,0 +1,147 @@
+\section{Background}
+% --------------------------------------------------------------------
+First, it is important to know why the technology for blockchains was
+created. Has the reasoning changed over time? Establishing this base
+is instrumental. It will help with evaluating, first, the necessity of
+using blockchain for different applications and, second, how well
+existing blockchain applications solve the problems they were created
+for.
+
+\subsection{Motivation}
+Back in 1990, in one of blockchain's foundational papers "How to
+Time-stamp a Digital Document" \cite{haber1990time}, Haber and
+Stornetta proposed a solution for the problem of verifying when and by
+whom a publicly accessible ledger was last modified. This issue of
+verifying the integrity and authorship of a file are fundamental
+issues in cybersecurity. Today they are addressed quite universally by
+creating signatures via standardized hashing algorithms such as that
+of OpenPGP \cite{PGPstandard}. 
+
+Can the signature, or the file itself, be trusted? Either of them
+might have been created maliciously or in an otherwise faulty way
+simply by accident. For example, in the context of finance, this
+results in entities being able to create nonexistent transactions with
+the impression of legitimacy. This is known as the double spending
+problem. Typically, this problem is solved by consulting a trusted
+third party, such as a bank, that works as an intermediary to make
+sure that transactions are conducted as agreed upon. Of course, this
+requires that a trusted third party is \textit{always} available,
+meaning that they have to be consulted regarding each transaction that
+is made. Quite often, this is not the case. In a \textit{limited
+trust} environment, the involved parties have to reach a consensus by
+themselves about which transactions are legitimate.
+
+This is where blockchain comes in. The consensus protocol at the core
+of each blockchain implementation enables participants in a limited trust
+environment to, nevertheless, have trust in the transactions that are
+recorded.
+
+Haber and Stornetta, among several others \cite{haber1990time,
+parliamentLamport, benalohBroadcast}, had built a strong mathematical
+base for the blockchain technology. The first proper use case of it
+was only missing public interest in solving the problem of
+\textit{"trustless trust"}. Later, in 2008, the market crashed,
+leading to strong distrust in centralized financial authorities. As a
+result, pseudonym Satoshi Nakamoto proposed their electronic
+equivalent for cash, Bitcoin \cite{nakamoto2008bitcoin}.
+
+...
+
+
+\subsection{The technology}
+
+Blockchain is a technology with many definitions. It is, increasingly,
+a category of technologies rather than a singular one. Generally, all 
+blockchains have a few key concepts at their core:
+\begin{enumerate}
+  \item Recordkeeping with a ledger
+  \item Network permissions
+  \item Linked blocks as data containers
+  \item Protocol for reaching concensus
+\end{enumerate}
+Each blockchain has its own quirks regarding these concepts. Next, I
+will expand upon each item in the list. Finally, I will discuss some
+aspects of blockchain that are left out of the list above, but are
+still worth mentioning in this context. 
+
+During this section, for the sake of simplicity, I will explain
+concepts in the blockchain technology mainly through the use case of
+monetary transactions. This is because I feel it is the most easily
+understandable practical example. Note, however, that all these
+concepts can be generalized. Later, in section 4, I will show
+how they can be expanded to different appications.
+
+\subsubsection{Recordkeeping with a ledger}
+All blockchains are digital, append-only, ledgers. This means that
+transactions are stored as a sequential list of records. Each record is
+immutable and can only be undone by appending the "reverse" of that
+record to the ledger. For example, if Alice sends 100€ to Bob, this
+transaction can only be reverted by creating another transaction where
+Bob sends the same amount back to Alice.
+
+...
+
+\subsubsection{Network permissions}
+When creating a blockchain, it must be defined who has the permission
+to access it. As such, blockchains can be divided to two categories:
+permissionless and permissioned blockchains.
+
+A permissionless blockchain can be accessed by anoyone. Most
+cryptocurrencies, for example, are permissionless, as enabling anyone
+to create transactions with them is a core principle for them. In the
+network of a permissionless blockchain, all participants are distrusted.
+This leads to higher requirements for the concensus mechanism as
+verifying the legitimacy of transactions becomes more difficult.
+
+Permissioned blockchains can only be read and written to by entities
+who have been given permission to it. In practice, a permissioned
+blockchain could be a ledger of internal transactions inside a
+corporation. Clearly, in a permissioned blockchain, the requirement
+for trust is weaker as it can be assumed that a notable portion of
+the participants can be trusted.
+
+...
+
+\subsubsection{Linked blocks as data containers}
+As the name implies, a blockchain is composed of "blocks" that are
+linked together. In the beginning there is just one block which simply
+contains any data, say, details for a set of transactions. Any
+following transactions can be added to the blockchain by taking the
+hash value of the previous block and including it alongside the new
+set of transactions. This then becomes the new block which can again
+be hashed and included in the next one.
+
+Each block also contains some crucial metadata that give the
+technology its resistance to tampering. Blocks have an identifier to
+differentiate them from other blocks. A timestamp is also included. This,
+in conjunction with the ID, hash function and concensus model is
+what verifies that the blockchain has not been modified.
+
+...
+
+
+\subsubsection{Protocol for reaching concensus}
+Blockchain networks do not have a trusted central authority to
+validate which blocks should be included in the chain. Due to this, a
+concensus must be reached between the participants of the network on
+which blocks to include. As participants are assumed to be distrusted,
+reaching a concensus becomes quite difficult. Many different models
+have been proposed to act as the mechanism by which the inclusion of
+blocks is decided.
+
+Proof of work (PoW) blockchains require the participants to solve a very
+specific "puzzle". Whoever solves this puzzle gets to decide which
+block is added to the chain. Bitcoin, for example, requires that, to
+add a block, a participant of the network needs to produce a hash
+value that starts with a certain number of '0' bits
+\cite{nakamoto2008bitcoin}. 
+
+In proof of stake (PoS) blockchains, participants must pay to take
+part in the decision making process. Most often, this roughly
+translates to participants buying a certain amount of "voting" power.
+This amount then correlates with how much the participant can affect
+the decision of which block gets included next.
+
+...
+
+% --------------------------------------------------------------------

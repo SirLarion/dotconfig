@@ -1,0 +1,63 @@
+{
+	"data": {
+		"currentUser": {
+			"organization": {
+				"_id": "QWjpR9ogGBMWLYuG9",
+				"onboardingStartedAt": "2022-10-27T09:18:14.563Z",
+				"onboardingCompletedAt": null,
+				"organizationOnboardingTasksConnection": {
+					"nodes": [
+						{
+							"_id": "62a1e0913cc4b2001bdcc175",
+							"required": true,
+							"completedAt": null,
+							"tag": "setup-dkim"
+						},
+						{
+							"_id": "635a4cd574bf030017a8ad03",
+							"required": true,
+							"completedAt": null,
+							"tag": "setup-dkim"
+						},
+						{
+							"_id": "635a4cd574bf030017a8ad02",
+							"required": true,
+							"completedAt": null,
+							"tag": "distribute-plugin"
+						},
+						{
+							"_id": "635a4cd574bf030017a8ad01",
+							"required": true,
+							"completedAt": null,
+							"tag": "add-users"
+						},
+						{
+							"_id": "635a4cd574bf030017a8ad04",
+							"required": true,
+							"completedAt": null,
+							"tag": "allow-simulation-content"
+						},
+						{
+							"_id": "635a4cd574bf030017a8ad06",
+							"required": true,
+							"completedAt": null,
+							"tag": "review-domain-context"
+						},
+						{
+							"_id": "635a4cd574bf030017a8ad08",
+							"required": true,
+							"completedAt": null,
+							"tag": "add-fake-domains"
+						},
+						{
+							"_id": "635a4cd574bf030017a8ad05",
+							"required": true,
+							"completedAt": null,
+							"tag": "run-tech-test-suite"
+						}
+					]
+				}
+			}
+		}
+	}
+}

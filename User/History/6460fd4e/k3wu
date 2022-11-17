@@ -1,0 +1,34 @@
+import React, { FC } from 'react';
+import styled from 'styled-components';
+import { MessageDescriptor } from 'react-intl';
+
+export interface ITimeseriesQueryVariables {
+  start: string;
+  end: string;
+  [key: string]: string | number | Date;
+}
+
+export interface ITimeseriesGraphProps {}
+
+export interface IAnalyticsIntervalTrendCardProps<
+  T,
+  X extends ITimeseriesQueryVariables
+> {
+  title: React.ReactNode;
+  comparisonText: MessageDescriptor;
+  variables: X;
+  hideDelta?: boolean;
+  calculateValue: (data: T) => number;
+  calculateComparisonValue: (data: T) => number;
+  query: (
+    baseOptions: QueryHookOptions<T, Exact<X>>
+  ) => QueryResult<T, Exact<X>>;
+}
+
+const StyledTimeseriesGraph = styled.div``;
+
+export const TimeseriesGraph: FC<ITimeseriesGraphProps> = ({
+  ...restProps
+}) => {
+  return <StyledTimeseriesGraph {...restProps}>heloo</StyledTimeseriesGraph>;
+};

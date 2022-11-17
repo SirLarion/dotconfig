@@ -1,0 +1,6 @@
+query OrganizationsQuery {
+  organizations(sort: name_ASC) {
+    _id
+    name
+  }
+}

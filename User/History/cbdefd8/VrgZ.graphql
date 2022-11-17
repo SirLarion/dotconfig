@@ -1,0 +1,6 @@
+mutation AddUiEvents($uiEvents: [UiEventInput]!) {
+  addUiEvents(uiEvents: $uiEvents) {
+    _id
+    ...UserEvents
+  }
+}

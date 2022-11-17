@@ -1,0 +1,12 @@
+mutation SaveOrgThresholdIncidentPolicySettings(
+  $organizationId: ID!
+  $policySettings: ThresholdIncidentPolicySettingsInput!
+) {
+  updateOrganizationThresholdIncidentPolicySettings(
+    organizationId: $organizationId
+    policySettings: $policySettings
+  ) {
+    _id
+    ...OrganizationIncidentSettings
+  }
+}

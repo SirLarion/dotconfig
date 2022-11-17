@@ -1,0 +1,13 @@
+query VisibilityManager {
+  currentUser {
+    _id
+    ...UserEvents
+    organization {
+      _id
+      features {
+        categoryName
+        name
+      }
+    }
+  }
+}

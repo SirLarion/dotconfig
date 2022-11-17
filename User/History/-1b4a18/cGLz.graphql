@@ -1,0 +1,11 @@
+query GetDistinct {
+  currentUser {
+    _id
+    organization {
+      _id
+      departments
+      countries
+      sites
+    }
+  }
+}

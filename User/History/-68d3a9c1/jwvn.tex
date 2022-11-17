@@ -1,0 +1,120 @@
+\section{Applications of blockchains}
+
+Given the strengths and weaknesses of blockchains, what can they be
+used for in practice? I will spend this chapter discussing what are
+the potential use cases of blockchains. I will go through a set of
+applications that are used in different fields of work. I will discuss
+only the applications that are already established. Speculation about
+the potential value of applications in development is not in the scope
+of this study. 
+
+The section is structured such that each subsection concerns a domain
+where blockchain has been taken into use. Each domain contains several
+blockchain applications that are discussed. For each application (or
+several applications if the comparison is feasible), a counterexample
+that does \textit{not} utilize blockchain is presented.  
+Finally, at the end of each subsection, I will review the
+applicability of blockchain in the domain from the perspective of both
+the studies that have been written on it and its relative performance
+when compared to the given counterexamples. This is done to avoid
+force-fitting blockchain solutions to problems that could be solved
+better in other ways. 
+
+I will also broadly review the maturity of the literature concerning
+each domain.
+
+...
+
+\subsection{Payment systems}
+
+In the context of blockchain applications, the domain of payment
+systems relates closely to financial instruments. However, I make a
+clear distinction here between the two. This is primarily because the
+domain of cryptocurrencies has become proliferated with different
+'coins' that, though theoretically usable for payment, are developed
+with the sole purpose of being used as speculative financial
+instruments. 
+
+\paragraph{Example: Bitcoin}
+
+Satoshi Nakamoto proposed Bitcoin as a way 
+
+\paragraph{Counterexample: Visa}
+
+\subsection{Intrabank payments}
+
+Also, intrabank payments is another problem space where
+blockchain has often been proposed as a solution. Neither of these
+areas benefits from a focus on creating financial instruments.
+
+
+\paragraph{Example: ...}
+
+\subsection{Digital supply chain management}
+
+In markets where companies increasingly outsource parts of their
+production to different, often international, entities, managing the
+resulting supply chains (SC) is instrumental to all entities taking
+part. A high degree of planning and communication is required to
+respond to future demand for products and maintaining
+cost-effectiveness throughout the chain.
+
+As such, supply chain management (SCM) is an area which would
+certainly benefit from digitalization. Korpela et. al.
+\cite{korpelaDSC} discuss the potential benefits of digital supply
+chains (DSC). These include improving SC effectiveness, reducing costs
+throughout the chain and providing flexibility in designing them. Done
+properly, digitalization would also decrease human error as a
+consequence of automation. However, converting to DSCs is quite a
+difficult problem. A fully digitalized SC would require
+interoperability between the internal systems of \textit{all} the
+participants in the SC.
+
+Korpela et. al. go on to explore potential benefits of using
+blockchains to drive business-to-business (B2B) system integration
+within DSCs. They argue that in DSCs, creating a blockchain layer
+would allow for interoperability between businesses while providing
+visibility to the current state of the chain.
+
+A permissioned blockchain enables a DSC to operate using trusted
+sensors whose data are added to the ledger for SC participants to see.
+They can then be confident that the data has not been tampered with.
+However, what if the \textit{environment} of the sensor is tampered
+with? \cite{wustBlockchainNeed} gives an example of a blockchain-based
+DSC for food. In one part of it, food is meant to be stored in a
+certain temperature during delivery. Figure X illustrates the posed
+problem. The sensor that the blockchain trusts to give an accurate
+reading of the temperature the food is stored in, is itself located in
+a cooled section while the food is not. This way, a dishonest
+participant of the SC can cut costs by having reduced cooling for the
+food while the blockchain indicates it was properly cooled. This
+problem can, of course, be fixed by verifying through some third party
+that the sensors are installed correctly. But if such a system of
+verification is available, why not simply use a regular database
+management system for reading and writing the data from the sensors?
+
+
+A case study by the Hyperledger Foundation \cite{hyperledgerHitachi}
+investigates how Hitachi used the Hyperledger Fabric blockchain framework
+to improve their internal contract processing procedure. They started
+from a completely paper-based system and converted a division to use
+a fully electric signature system using Hyperledger Fabric. As a result,
+Hitachi reported a 20\% increase in the amount of processed contracts.
+
+A very similar case study \cite{docusignBurger} explains how
+Restaurant Services, Inc. (RSI), the supply chain manager for Burger
+King, applied a set of non-blockchain technologies to the same problem
+of converting to a paperless contract signing procedure. At the core
+of the conversion was DocuSign's eSignature service. It provides users
+a way to sign contracts digitally by creating a hash of the contents of
+signed contracts. DocuSign then stores the hash inside a database so
+that any tampering of copies of the contract is evident when comparing
+against it.
+
+
+
+\subsection{Internet of Things}
+
+\subsection{Identity management}
+
+\subsection{}

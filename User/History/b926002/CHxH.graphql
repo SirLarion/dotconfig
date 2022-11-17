@@ -1,0 +1,3 @@
+query GetCloudinaryUploadParams($params: CloudinaryUploadParams!) {
+  signedCloudinaryUploadParams(params: $params)
+}

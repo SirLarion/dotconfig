@@ -1,0 +1,30 @@
+query GetCurrentUserQuestLocales {
+  currentUser {
+    _id
+    profile {
+      locale {
+        quests
+      }
+    }
+    emails {
+      address
+    }
+    organization {
+      _id
+      domains {
+        name
+        allowedSimulationLanguages
+      }
+    }
+  }
+}
+mutation SetCurrentUserQuestLocales($user: UserInput!) {
+  updateUser(user: $user) {
+    _id
+    profile {
+      locale {
+        quests
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+mutation SaveOrgIncidentSettings(
+  $organizationId: ID!
+  $incidentSettings: IncidentSettingsInput!
+) {
+  updateOrganizationIncidentSettings(
+    organizationId: $organizationId
+    incidentSettings: $incidentSettings
+  ) {
+    _id
+    ...OrganizationIncidentSettings
+  }
+}

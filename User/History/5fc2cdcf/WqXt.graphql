@@ -1,0 +1,9 @@
+mutation ImportUser($user: CreateUserInput!) {
+  upsertUser(user: $user) {
+    updated
+    inserted
+    user {
+      _id
+    }
+  }
+}

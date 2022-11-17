@@ -1,0 +1,41 @@
+query GetQuestTemplateList {
+  questTemplates {
+    _id
+    tag
+    isActive
+    softDeletedAt
+    emailTemplate {
+      email {
+        subject
+        attachments {
+          filename
+        }
+      }
+    }
+    attributes {
+      language
+    }
+    tags {
+      categoryName
+      name
+    }
+    createdAt
+  }
+}
+
+mutation SendQuestToCurrentUser(
+  $questTag: String!
+  $secondaryObjectiveOverrides: SecondaryObjectiveOverrides
+) {
+  sendQuestToCurrentUser(
+    questTag: $questTag
+    overrides: $secondaryObjectiveOverrides
+  ) {
+    _id
+  }
+}
+query GetActiveQuizTemplates {
+  quizTemplates(filter: { state_eq: ACTIVE }) {
+    tag
+  }
+}

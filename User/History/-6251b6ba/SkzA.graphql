@@ -1,0 +1,12 @@
+query GetMarkerList {
+  markers {
+    _id
+    tag
+    title {
+      ...IcuFields
+    }
+    description {
+      ...IcuFields
+    }
+  }
+}

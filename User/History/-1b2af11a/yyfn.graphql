@@ -1,0 +1,26 @@
+mutation UpdateUserEmailAddress($userId: ID!, $organizationId: ID!, emailAddress: String!) {
+  updateUserEmailAddress(userId: $userId, organizationId: $orgId, emailAddress: $emailAddress) {
+    _id
+    emails {
+      address
+    }
+    game {
+      mode
+      active
+      activatedAt
+    }
+    profile {
+      department
+      site
+      locale {
+        ui
+        quests
+      }
+      firstName
+      lastName
+      isAnonymous
+      country
+      city
+    }
+  }
+}

@@ -1,0 +1,24 @@
+query GetSuccessRates {
+  currentUser {
+    _id
+    organization {
+      _id
+      analytics {
+        analyticsCubesBeta {
+          dataSet: dailyOrganizationPerformanceRatesSnapshot {
+            nodes {
+              x: timestamp
+              y: obSimSuccessRate365D
+            }
+          }
+          comparisonDataSet: dailyIndustryComparisonRatesSnapshot {
+            nodes {
+              x: timestamp
+              y: obSimSuccessRate365D
+            }
+          }
+        }
+      }
+    
+  }
+}

@@ -1,0 +1,124 @@
+fragment OrganizationSettings on Organization {
+  name
+  emailEnvironment
+  region
+  industry {
+    _id
+  }
+  tagBlacklist {
+    categoryName
+    name
+  }
+  spicyModeTagBlacklist {
+    categoryName
+    name
+  }
+  features {
+    name
+    categoryName
+  }
+  sendThreatFeedback
+  askNPSSurvey
+  hideZendeskWidget
+  emailDomainMappings {
+    from
+    to
+  }
+  game {
+    active
+    allowAnyoneToJoin
+    defaultGameMode
+    usersAreAnonymousByDefault
+    firstQuestTag
+  }
+  pluginRedirect {
+    redirectPhish
+    redirectSpam
+    uploadThreats
+    phishRedirectAddresses
+    spamRedirectAddresses
+  }
+  plugin {
+    officejs {
+      allowedDomains {
+        name
+        cert
+      }
+      forceOnlyClientApis
+    }
+    removeThreatAfterReporting
+    removeSimulationAfterReporting
+  }
+  delivery {
+    email {
+      compressGlobs
+      customHeaders {
+        key
+        value
+      }
+      privateSmtpConnectionString
+      inlineImages
+      useReturnPath
+      customHiddenEmailBodyIdentifier
+    }
+  }
+  sso {
+    enabled
+    endPoint
+    providerName
+    cert
+    privateCert
+    disableIdentifierFormat
+    identifierFormat
+  }
+  notifications {
+    weeklyReportToAdmins
+    threatEscalationEmails
+  }
+  images {
+    logo {
+      url
+    }
+    useCustomGameLogo
+    customGameLogo {
+      url
+    }
+    useCustomOnboardingAssets
+    logoEmail {
+      url
+    }
+    buttonLocationFirstQuest {
+      url
+    }
+    buttonLocationInvite {
+      url
+    }
+    buttonLocationWelcome {
+      url
+    }
+    customPluginIcon {
+      url
+    }
+  }
+  results {
+    customEmailDisclaimer
+  }
+  automaticEnrollmentSettings {
+    enabled
+    useForcedStart
+  }
+}
+
+query GetOrgSettings($organizationId: ID!) {
+  organizations(filter: { _id_eq: $organizationId }) {
+    _id
+    ...OrganizationSettings
+  }
+}
+
+mutation SaveOrgSettings($id: ID!, $organization: OrganizationInput!) {
+  updateOrganization(organizationId: $id, organization: $organization) {
+    _id
+    ...OrganizationSettings
+  }
+}

@@ -1,0 +1,56 @@
+fragment TagFields on QuestTemplateTag {
+  name
+  categoryName
+  value
+}
+
+fragment QuestTemplateFields on QuestTemplate {
+  _id
+  attributes {
+    difficultyEstimate
+    language
+  }
+  tag
+  tags {
+    ...TagFields
+  }
+  preview(language: $language) {
+    subject
+  }
+  publishedAt
+}
+
+query FetchCurrentOrgQuestTemplates(
+  $search: String
+  $first: Int
+  $skip: Int
+  $sort: [QuestTemplate_sort]
+  $filter: QuestTemplate_filter
+  $language: SUPPORTED_LOCALE
+) {
+  currentUser {
+    _id
+    organization {
+      _id
+      tagBlacklist {
+        categoryName
+        name
+      }
+      questTemplatesConnection(
+        search: $search
+        first: $first
+        skip: $skip
+        sort: $sort
+        filter: $filter
+      ) {
+        nodes {
+          ...QuestTemplateFields
+        }
+        pageInfo {
+          hasNextPage
+        }
+        totalCount
+      }
+    }
+  }
+}

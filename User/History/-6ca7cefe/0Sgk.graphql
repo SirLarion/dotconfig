@@ -1,0 +1,29 @@
+mutation UpdateQuestTemplate(
+  $questTemplateId: ID!
+  $questTemplate: QuestTemplateInput!
+) {
+  updateQuestTemplate(
+    questTemplateId: $questTemplateId
+    questTemplate: $questTemplate
+  ) {
+    ...QuestTemplateFields
+  }
+}
+
+mutation ToggleQuestTemplatePublicationStatus(
+  $questTemplateId: ID!
+  $isActive: Boolean!
+) {
+  toggleQuestTemplatePublicationStatus(
+    questTemplateId: $questTemplateId
+    isActive: $isActive
+  ) {
+    ...QuestTemplateFields
+  }
+}
+
+mutation CreateQuestTemplate($questTemplate: QuestTemplateInput!) {
+  createQuestTemplate(questTemplate: $questTemplate) {
+    ...QuestTemplateFields
+  }
+}

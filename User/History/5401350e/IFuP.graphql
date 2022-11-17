@@ -1,0 +1,14 @@
+mutation SetOrgGmailIntegration(
+  $organizationId: ID!
+  $useGmailDeliveryApi: Boolean!
+) {
+  setOrganizationGmailIntegration(
+    organizationId: $organizationId
+    useGmailDeliveryApi: $useGmailDeliveryApi
+  ) {
+    data
+    errors {
+      message
+    }
+  }
+}

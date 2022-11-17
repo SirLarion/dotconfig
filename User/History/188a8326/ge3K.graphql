@@ -1,0 +1,57 @@
+query GetCurrentUserOrganization {
+  currentUser {
+    _id
+    organization {
+      _id
+    }
+    isSuperAdmin
+  }
+}
+
+query GetOrganizationListOrgs($organizationId: ID) {
+  organizations(filter: { _id_eq: $organizationId }, sort: name_ASC) {
+    _id
+    name
+    userCount
+    gameActiveCount
+    onboardedCount
+    createdAt
+    updatedAt
+    game {
+      active
+    }
+    ...OrganizationFeatures
+  }
+}
+
+mutation DeleteOrg($organizationId: ID!) {
+  deleteOrganization(organizationId: $organizationId) {
+    _id
+  }
+}
+
+mutation InviteUnstartedUsers($organizationId: ID!) {
+  inviteUnstartedUsers(organizationId: $organizationId) {
+    _id
+    totalTaskCount
+  }
+}
+
+mutation StartGameForUnstartedUsers($organizationId: ID!) {
+  startGameForUnstartedUsers(organizationId: $organizationId) {
+    _id
+    totalTaskCount
+  }
+}
+
+mutation InviteOrgToOnboard($organizationId: ID!) {
+  startOrganizationOnboarding(organizationId: $organizationId) {
+    data {
+      _id
+    }
+    errors {
+      field
+      message
+    }
+  }
+}

@@ -1,0 +1,26 @@
+mutation UpdateUserEmailAddress($user: UserInput!) {
+  updateUserEmailAddress {
+    _id
+    emails {
+      address
+    }
+    game {
+      mode
+      active
+      activatedAt
+    }
+    profile {
+      department
+      site
+      locale {
+        ui
+        quests
+      }
+      firstName
+      lastName
+      isAnonymous
+      country
+      city
+    }
+  }
+}

@@ -1,0 +1,20 @@
+mutation UpdateOrgDomainContextFakePerson(
+  $organizationId: ID!
+  $input: DomainInput!
+) {
+  updateDomain(organizationId: $organizationId, domainInput: $input) {
+    name
+    context {
+      persons {
+        ceo {
+          name
+          email
+        }
+        hr {
+          name
+          email
+        }
+      }
+    }
+  }
+}

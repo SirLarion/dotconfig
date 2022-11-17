@@ -1,0 +1,20 @@
+query GetOnboardingRateTimeseries {
+  currentUser {
+    _id
+    organization {
+      _id
+      analytics {
+        analyticsCubesBeta {
+          dailyUserTypeCountsSnapshotAggregate(groupBy: [timestampMonth]) {
+            nodes {
+              group {
+                key
+                value
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

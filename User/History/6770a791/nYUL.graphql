@@ -1,0 +1,10 @@
+fragment IcuFields on IcuMessage {
+  id
+  defaultMessage
+  description
+}
+
+fragment EmailAddressFields on EmailName {
+  address
+  name
+}

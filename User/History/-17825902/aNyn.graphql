@@ -1,0 +1,3 @@
+query QuestTemplateAttachmentEditorPreviewQuery($templateString: String) {
+  compiledTemplateString(templateString: $templateString)
+}

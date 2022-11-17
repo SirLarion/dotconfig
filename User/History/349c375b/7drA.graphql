@@ -1,0 +1,11 @@
+query GetTabUserCount($filter: User_filter) {
+  currentUser {
+    _id
+    organization {
+      _id
+      usersConnection(filter: $filter) {
+        totalCount
+      }
+    }
+  }
+}

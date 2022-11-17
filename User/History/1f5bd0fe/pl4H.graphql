@@ -1,0 +1,5 @@
+mutation UploadUsersCsv($file: Upload!, $organizationId: ID!) {
+  uploadUsersCsv(file: $file, organizationId: $organizationId) {
+    _id
+  }
+}
