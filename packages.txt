@@ -1,1 +1,3 @@
 xdotool vivaldi signal-desktop discord thunderbird python-pip neofetch telegram-desktop flameshot gimp steam rustup
+ inkscape
+ inkscape

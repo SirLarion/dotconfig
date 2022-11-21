@@ -1,0 +1,11 @@
+#!/bin/bash
+
+EWW_DEV=$HOME/repos/dotconfig/eww
+EWW=$HOME/.config/eww
+
+# Deploy EWW config to ~/.config/eww
+
+cd $EWW_DEV
+cp -r src/* $EWW/.
+
+eww reload

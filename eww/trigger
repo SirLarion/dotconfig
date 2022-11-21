@@ -1,0 +1,10 @@
+#!/bin/bash
+
+WINDOW='sidebar'
+
+if eww windows | grep -q \*$WINDOW; then
+  eww close $WINDOW
+  exit
+fi
+
+eww open $WINDOW

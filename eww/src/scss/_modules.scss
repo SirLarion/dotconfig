@@ -1,0 +1,27 @@
+.circbarbox {
+  background-color: $background-alt;
+  margin: 0rem;
+}
+
+.metrics {
+  & > :not(:last-child) {
+    margin-bottom: 2rem;
+  }
+}
+
+.metricrow {
+  & > :not(:last-child) {
+    margin-right: 2rem;
+  }
+}
+
+.circbar {
+  font-size: 3em;
+  margin: 2rem;
+  background-color: #212126;
+}
+
+.circtext {
+  padding: 4.8rem;
+  font-family: "Material Design Icons";
+}
