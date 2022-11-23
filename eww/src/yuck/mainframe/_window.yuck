@@ -1,8 +1,11 @@
 
 (defwindow sidebar
            :monitor 0
-           :geometry (geometry 
-                                :anchor "center")
+	         :geometry (geometry :x "0" 
+            :y "0"
+            :height "100%"
+            :width "100%"
+            :anchor "center")
            :wm-ignore true
            :stacking "fg"
   (sidebar))

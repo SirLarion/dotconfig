@@ -6,7 +6,7 @@
 (defpoll date :interval "2h" `date "+%d"`)
 (defpoll thourtime :interval "1s" `date +"%I:%M %p %a"`)
 (defpoll datemonth :interval "24h"
-	"date '+%A, %d %B'")
+	"date '+%d. %B'")
 
 (defpoll volume :interval "1s" `pamixer --get-volume`)
 (defpoll mic :interval "1s" `pamixer --source 1 --get-volume`)
@@ -23,7 +23,6 @@
 (defpoll songimage :interval "1s" "~/.config/eww/scripts/spotify --image")
 (defpoll repeat :interval "1s" "~/.config/eww/scripts/spotify --loop")
 (defpoll shuffle :interval "1s" "~/.config/eww/scripts/spotify --shuf")
-
 
 (defpoll cputemp :interval "1s" "~/.config/eww/scripts/cpu")
 

@@ -1,16 +1,132 @@
-.lockscreen {
+.window {
+  font-family: "Iosevka Nerd Font";
+  font-size: 16px;
+  padding: 1.2rem;
+  background-color: rgba(15, 15, 15, 0.3);
+  border-radius: 0px 8px;
+}
+
+.content {
+  & > :not(:last-child) {
+    margin-right: 1rem;
+  }
+}
+
+.timemusic {
+  & > :not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}
+
+.wrapper {
+  & > :not(:last-child) {
+    margin-right: 1rem;
+  }
+}
+
+.time {
+  font-family: "Iosevka Nerd Font";
+  color: $foreground;
+  background-color: $background;
+  padding: 2rem 6rem;
+
+  & > :first-child {
+    font-size: 6rem;
+  }
+
+  & > :last-child {
+    font-size: 2rem;
+  }
+}
+
+.scale trough {
+  min-height: 1.6rem;
+  border-radius: 3px;
+  min-width: 29rem;
+  background-color: #28292f;
+}
+
+.brightscale {
+  border-radius: 3px;
+  margin-bottom: 1.2rem;
+}
+
+.volover trough highlight {
+  border-radius: 3px;
+  background-color: $magenta;
+}
+
+.brightover trough highlight {
+  border-radius: 3px;
+  background-color: $green;
+}
+
+.scale-label {
+  font-family: "Iosevka Nerd Font";
+  margin-right: 1.5rem;
+}
+
+.sidescales {
+  padding: 2rem 1.3rem;
+  background-color: #18181a;
+}
+
+.setbtn {
+  background-color: $background-alt;
+  font-family: "Material Design Icon Desktop";
+  padding: 2.8rem;
+  font-size: 2rem;
+  border-radius: 3px;
+}
+
+.active {
+  background-color: $green;
+  color: $background;
+}
+
+.cava_placeholder {
+  background-color: $background;
+}
+
+.musicicon {
+  font-size: 7rem;
+  color: $red;
+  background-color: $background;
+  padding: 2rem;
+}
+
+.musicname {
   font-family: "Iosevka Nerd Font";
   font-size: 1.6rem;
-  padding: 1.2rem;
-  background-color: rgba(15, 15, 15, 0.6);
-  border-radius: 0px 8px;
+  margin-bottom: 0.8rem;
+  .profilebtn {
+    font-family: "Material Design Icon Desktop";
+    font-size: 1.58rem;
+  }
+}
+
+.musicartist {
+  font-family: "Iosevka Nerd Font";
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.musicinfo {
+  padding: 2rem;
+  color: $foreground;
+  background-color: $background;
+  margin-left: 1rem;
+}
+
+.musicctrl {
+  font-family: "Material Design Icon Desktop";
+  font-size: 2.3rem;
 }
 
 .lockicon {
   font-family: "Material Design Icon Desktop";
   font-size: 2.6rem;
   padding: 1rem;
-  border-radius: 8px 0;
 }
 
 .powerstr {
@@ -25,4 +141,17 @@
 
 .lockstr {
   font-size: 2rem;
+}
+
+.buttons {
+  & > :not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}
+
+.profilebtn {
+  font-family: "Material Design Icon Desktop";
+  font-size: 2rem;
+  padding: 0 2rem;
+  background-color: $background;
 }

@@ -8,9 +8,12 @@ EWW: https://github.com/elkowar/eww
 
 ### Setup
 
-0. Make sure you have a `$HOME/.config/eww` folder & you have run `eww daemon`
-1. Run `deploy`
-2. Open an eww window with `eww open <window>` (or run `trigger`)
+- Make sure you have a `$HOME/.config/eww` folder
+- Add `eww` to your `PATH`
+- Run `eww daemon`
+
+1.  Run `deploy`
+2.  Open an eww window with `eww open <window>` (or run `trigger`)
 
 ### Development
 

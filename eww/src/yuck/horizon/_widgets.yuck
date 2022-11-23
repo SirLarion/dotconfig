@@ -5,20 +5,64 @@
       )
   )
 
-(defwidget powermenu[] 
-  (box :orientation "h" :class "lockscreen" :space-evenly false :vexpand true :hexpand true
-          (box :orientation "v" :class "locktext"  :space-evenly false :valign "center" :hexpand true :halign "center"
-            (box :class "locktime" "${hour}:${minute}")
-            (box :class "lockstr" :valign "start" "~ brain.exists() == null; ~")
-          )
-          (box :orientation "v" :class "lockmenu" :spacing 15 :space-evenly false :valign "center"
-            (powerbtn :click "loginctl poweroff" :classname "lockicon red" :icon "󰐥" :name "Poweroff")
-            (powerbtn :click "loginctl reboot" :classname "lockicon green" :icon "󰑙" :name "Restart")
-            (powerbtn :click "eww close powermenu && lock" :classname "lockicon blue" :icon "󰌾" :name "Lock")
-            (powerbtn :click "eww close powermenu && loginctl suspend" :classname "lockicon magenta" :icon "󰤄" :name "Suspend")
-            (powerbtn :click "loginctl kill-user $USER" :classname "lockicon yellow" :icon "󰈆" :name "Logout")
+(defwidget time[]
+  (box :orientation "v" :class "time" :space-evenly "false"
+    (box :orientation "h" "${hour}:${minute}")
+    (box :orientation "v" "${datemonth}")
+  )
+)
+
+(defwidget music[]
+  (box :orientation "h" :class "musicbox" :space-evenly "false"
+      (box :class "musicicon" "󰎆")
+      (box :orientation "v"  :class "musicinfo" :space-evenly false :hexpand true
+          (box :class "musicname" "${songname}")
+          (box :class "musicartist" "${artist}")
+          (box :class "musicctrl" :orientation "h" :halign 'center' :spacing 20 :space-evenly false
+              (button :onclick "playerctl --player=spotify previous" :class "musicprev" "󰙣")
+              (button :onclick "playerctl --player=spotify play-pause" :class "musicprev" "${icon}")
+              (button :onclick "playerctl --player=spotify next" :class "musicnext" "󰙡")
             )
+        )
     )
+  )
+
+(defwidget volscale[]
+    (box
+    :orientation "h"
+    :space-evenly "false" :class "volscale"
+      (box :orientation "h" :valign "center" :class "scale-label" "VOL")
+      (scale :class " scale volover"
+              :min 0
+              :max 100
+              :orientation "h"
+              :value "${volume}"
+              :onchange "~/.config/eww/scripts/volume {}"
+              :valign 'center')
+    )
+)
+
+(defwidget dashboard[] 
+  (box :orientation "h" :class "window" :space-evenly false :vexpand true :hexpand true
+    (box :orientation "h" :class "content" :halign "center" :valign "center" :hexpand true :vexpand true :space-evenly false
+      (box :orientation "v" :class "timemusic" :space-evenly false :vexpand true
+        (box :orientation "h" :class "wrapper" :space-evenly false
+          (time)
+          (box :orientation "v" :class "buttons" :space-evenly true :hexpand true
+            (button :orientation "v" :onclick "loginctl poweroff" :class "profilebtn red" "󰤆")
+            (button :orientation "v" :onclick "loginctl restart" :class "profilebtn green" "󰦛")
+          )
+        )
+        (music)
+        (box :orientation "h" :class "cava_placeholder" :hexpand true :vexpand true)
+      )
+      (box :orientation "v" :class "metrics" :space-evenly false
+        (circbar :value {EWW_RAM.used_mem_perc} :text "󰍛" :classname "red")
+        (circbar :value {round(EWW_CPU.avg, 0)} :text "󰘚" :classname "yellow")
+        (circbar :value {EWW_DISK["/"].used_perc} :text "󰋊" :classname "green" )
+      )
+    )
+  )
 )
 
 
