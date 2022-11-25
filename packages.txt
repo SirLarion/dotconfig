@@ -3,3 +3,7 @@ xdotool vivaldi signal-desktop discord thunderbird python-pip neofetch telegram-
  inkscape
  playerctl
  kruler
+ kdebugsettings
+ hunspell
+ hunspell-en_us
+ hunspell-en

@@ -19,9 +19,9 @@
           (box :class "musicname" "${songname}")
           (box :class "musicartist" "${artist}")
           (box :class "musicctrl" :orientation "h" :halign 'center' :spacing 20 :space-evenly false
-              (button :onclick "playerctl --player=spotify previous" :class "musicprev" "󰙣")
-              (button :onclick "playerctl --player=spotify play-pause" :class "musicprev" "${icon}")
-              (button :onclick "playerctl --player=spotify next" :class "musicnext" "󰙡")
+              (button :onclick "playerctl previous" :class "musicprev" "󰙣")
+              (button :onclick "playerctl play-pause" :class "musicprev" "${icon}")
+              (button :onclick "playerctl next" :class "musicnext" "󰙡")
             )
         )
     )
@@ -49,8 +49,8 @@
         (box :orientation "h" :class "wrapper" :space-evenly false
           (time)
           (box :orientation "v" :class "buttons" :space-evenly true :hexpand true
-            (button :orientation "v" :onclick "loginctl poweroff" :class "profilebtn red" "󰤆")
-            (button :orientation "v" :onclick "loginctl restart" :class "profilebtn green" "󰦛")
+            (button :onclick "loginctl poweroff" :class "profilebtn red" "󰤆")
+            (button :onclick "loginctl restart" :class "profilebtn green" "󰦛")
           )
         )
         (music)
@@ -64,5 +64,3 @@
     )
   )
 )
-
-

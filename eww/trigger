@@ -8,7 +8,7 @@ if eww windows | grep -q \*$WINDOW; then
   exit
 fi
 
-konsole -e cava &
+konsole --name cava -e cava &
 echo $! > /tmp/cava.pid
 
 sleep 0.12

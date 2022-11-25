@@ -17,12 +17,12 @@
 (defpoll wifiactive :interval '1s' "~/.config/eww/scripts/wifi --class")
 (defpoll btactive :interval '1s' "~/.config/eww/scripts/bluetooth --class")
 
-(defpoll songname :interval "1s" "~/.config/eww/scripts/spotify --song")
-(defpoll artist :interval "1s" "~/.config/eww/scripts/spotify --artist")
-(defpoll icon :interval "1s" "~/.config/eww/scripts/spotify --icon")
-(defpoll songimage :interval "1s" "~/.config/eww/scripts/spotify --image")
-(defpoll repeat :interval "1s" "~/.config/eww/scripts/spotify --loop")
-(defpoll shuffle :interval "1s" "~/.config/eww/scripts/spotify --shuf")
+(defpoll songname :interval "1s" "~/.config/eww/scripts/audio --song")
+(defpoll artist :interval "1s" "~/.config/eww/scripts/audio --artist")
+(defpoll icon :interval "1s" "~/.config/eww/scripts/audio --icon")
+(defpoll songimage :interval "1s" "~/.config/eww/scripts/audio --image")
+(defpoll repeat :interval "1s" "~/.config/eww/scripts/audio --loop")
+(defpoll shuffle :interval "1s" "~/.config/eww/scripts/audio --shuf")
 
 (defpoll cputemp :interval "1s" "~/.config/eww/scripts/cpu")
 
