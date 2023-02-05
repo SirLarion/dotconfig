@@ -1,9 +1,1 @@
-xdotool vivaldi signal-desktop discord thunderbird python-pip neofetch telegram-desktop flameshot gimp steam rustup
- inkscape
- inkscape
- playerctl
- kruler
- kdebugsettings
- hunspell
- hunspell-en_us
- hunspell-en
+xdotool vivaldi signal-desktop discord thunderbird python-pip neofetch telegram-desktop flameshot gimp steam rustup inkscape playerctl kruler kdebugsettings minecraft blender bluez bluez-utils fuse3 fuse2 xdg-desktop-portal xdg-desktop-portal-gtk pulseaudio-bluetooth rtorrent vlc wine

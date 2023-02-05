@@ -1,0 +1,5 @@
+#!/bin/bash
+
+eww update $1=true
+
+$($2)

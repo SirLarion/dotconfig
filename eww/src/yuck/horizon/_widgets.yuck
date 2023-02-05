@@ -19,9 +19,9 @@
           (box :class "musicname" "${songname}")
           (box :class "musicartist" "${artist}")
           (box :class "musicctrl" :orientation "h" :halign 'center' :spacing 20 :space-evenly false
-              (button :onclick "playerctl previous" :class "musicprev" "󰙣")
-              (button :onclick "playerctl play-pause" :class "musicprev" "${icon}")
-              (button :onclick "playerctl next" :class "musicnext" "󰙡")
+              (button :onclick "~/.config/eww/scripts/buttonclick prevbutton playerctl previous" :class "musicprev" "󰙣")
+              (button :onclick "~/.config/eww/scripts/buttonclick playbutton playerctl play-pause" :class "musicprev" "${icon}")
+              (button :onclick "~/.config/eww/scripts/buttonclick nextbutton playerctl next" :class "musicnext" "󰙡")
             )
         )
     )

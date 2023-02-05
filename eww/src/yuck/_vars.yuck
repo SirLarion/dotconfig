@@ -28,6 +28,10 @@
 
 (defvar profilepic "./assets/chadcat.jpg")
 
+(defvar prevbutton false)
+(defvar playbutton false)
+(defvar nextbutton false)
+
 (defpoll batteryperc :interval "1s" "cat /sys/class/power_supply/BAT0/capacity")
 (defpoll uptime :interval "1m" "uptime -p | sed 's/up\s*//g' | sed 's/\s*days/d/g' | sed 's/\s*hours/h/g' | sed 's/\s*minutes/m/g'")
 
