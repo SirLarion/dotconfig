@@ -90,6 +90,22 @@ actions.next_app = function()
 	keyboard.stroke("control", "shift", "tab");
 end
 
+actions.arrow_left = function()
+	keyboard.stroke("left");
+end
+
+actions.arrow_right = function()
+	keyboard.stroke("right");
+end
+
+actions.arrow_up = function()
+	keyboard.stroke("up");
+end
+
+actions.arrow_down = function()
+	keyboard.stroke("down");
+end
+
 --@help Force system shutdown
 actions.shutdown = function ()
 	-- Alternatives for other DEs should be added here...
