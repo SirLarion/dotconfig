@@ -59,7 +59,8 @@ actions.delta = function (id, x, y)
 end
 
 actions.left = function ()
-	mouse.click("left");
+	mouse.down()
+	mouse.up()
 end
 
 actions.right = function ()
@@ -70,7 +71,6 @@ end
 --@help Open search in current tab
 actions.search = function ()
   keyboard.stroke("control", "L"); 
-  device.keyboard();
 end
 
 --@help Open new window

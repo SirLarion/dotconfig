@@ -14,27 +14,15 @@
     <touch
       weight="5"
       color="#707070"
-      onhold="hold"
-      ontap="tap" 
-      ondoubletap="double" 
-      ontouchdelta="delta"
+      onHold="hold"
+      onTap="left" 
+      onDoubleTap="double" 
+      onTouchDelta="delta"
     />
     <touch
       weight="2"
       color="#707070"
-      ontouchdelta="scroll"
+      onTouchDelta="scroll"
     />
-  </row>
-  <row weight="3">
-    <button icon="arrowleft" onTap="arrow_left" color="#9ac5ce"/>
-    <grid>
-      <row>
-        <button icon="arrowup" onTap="arrow_up" color="#9ac5ce"/>
-      </row>
-      <row>
-        <button icon="arrowdown" onTap="arrow_down" color="#9ac5ce"/>
-      </row>
-    </grid>
-    <button icon="arrowright" onTap="arrow_right" color="#9ac5ce" />
   </row>
 </layout>
