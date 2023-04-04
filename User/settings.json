@@ -59,5 +59,11 @@
   },
   "workbench.tree.indent": 16,
   "workbench.editor.focusRecentEditorAfterClose": false,
-  "window.zoomLevel": 1
+  "copy-with-imports.space-between-braces": true,
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "window.zoomLevel": 1,
+  "editor.inlineSuggest.enabled": true,
+  "javascript.updateImportsOnFileMove.enabled": "never"
 }
