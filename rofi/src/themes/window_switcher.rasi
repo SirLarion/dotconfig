@@ -32,6 +32,7 @@ window {
     margin:                      0px;
     padding:                     0px;
     border:                      0px solid;
+    border-radius:               16px;
     background-color:            @background;
     cursor:                      "default";
 }
@@ -65,7 +66,7 @@ listview {
     margin:                      0px;
     padding:                     0px;
     border:                      0px solid;
-    border-radius:               0px;
+    border-radius:               8px;
     border-color:                @selected;
     background-color:            transparent;
     text-color:                  @foreground;
@@ -90,6 +91,9 @@ element normal.normal {
     background-color:            transparent;
 }
 element selected.normal {
+    background-color:            @background-alt;
+}
+element selected.active {
     background-color:            @background-alt;
 }
 element-icon {
