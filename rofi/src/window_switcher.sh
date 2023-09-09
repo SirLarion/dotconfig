@@ -3,7 +3,7 @@
 dir="$HOME/.config/rofi/themes"
 theme='window_switcher'
 
-xdotool search --sync --syncsleep 50 --limit 1 --class Rofi keyup --delay 0 Tab key --delay 0 Tab keyup --delay 0 Alt_L keydown --delay 0 Alt_L&
+xdotool search --sync --sleep 50 --limit 1 --class Rofi keyup --delay 0 Tab key --delay 0 Tab keyup --delay 0 Alt_L keydown --delay 0 Alt_L&
 rofi \
     -show window  \
     -click-to-exit -hover-select -me-select-entry '' -me-accept-entry MousePrimary \

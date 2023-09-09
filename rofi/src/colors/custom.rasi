@@ -9,6 +9,8 @@
 * {
     background:     #F9F9F9FF;
     background-alt: #D9D9D9FF;
+    seethrough:     #00000010;
+    seethrough-alt: #00000040;
     foreground:     #444444FF;
     selected:       #6D92B7FF;
     active:         #10A778FF;

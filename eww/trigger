@@ -2,15 +2,4 @@
 
 WINDOW='dashboard'
 
-if eww windows | grep -q \*$WINDOW; then
-  eww close $WINDOW
-  kill $(cat /tmp/cava.pid)
-  exit
-fi
-
-konsole --name cava -e cava &
-echo $! > /tmp/cava.pid
-
-sleep 0.12
-
 eww open $WINDOW

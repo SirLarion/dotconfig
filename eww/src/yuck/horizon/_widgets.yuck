@@ -43,23 +43,20 @@
 )
 
 (defwidget dashboard[] 
-  (box :orientation "h" :class "window" :space-evenly false :vexpand true :hexpand true
-    (box :orientation "h" :class "content" :halign "center" :valign "center" :hexpand true :vexpand true :space-evenly false
-      (box :orientation "v" :class "timemusic" :space-evenly false :vexpand true
-        (box :orientation "h" :class "wrapper" :space-evenly false
-          (time)
-          (box :orientation "v" :class "buttons" :space-evenly true :hexpand true
-            (button :onclick "loginctl poweroff" :class "profilebtn red" "󰤆")
-            (button :onclick "loginctl restart" :class "profilebtn green" "󰦛")
-          )
+  (box :orientation "h" :class "content" :halign "center" :valign "center" :hexpand true :vexpand true :space-evenly false
+    (box :orientation "v" :class "timemusic" :space-evenly false :vexpand true
+      (box :orientation "h" :class "wrapper" :space-evenly false
+        (time)
+        (box :orientation "v" :class "buttons" :space-evenly true :hexpand true
+          (button :onclick "loginctl poweroff" :class "profilebtn red" "󰤆")
+          (button :onclick "loginctl restart" :class "profilebtn green" "󰦛")
         )
-        (music)
-        (box :orientation "h" :class "cava_placeholder" :hexpand true :vexpand true)
       )
-      (box :orientation "v" :class "metrics" :space-evenly false
+      (box :orientation "h" :class "metrics" :space-evenly false
         (circbar :value {EWW_RAM.used_mem_perc} :text "󰍛" :classname "red")
         (circbar :value {round(EWW_CPU.avg, 0)} :text "󰘚" :classname "yellow")
         (circbar :value {EWW_DISK["/"].used_perc} :text "󰋊" :classname "green" )
+        (circbar :value {EWW_BATTERY.BAT0.capacity} :text "" :classname "blue" )
       )
     )
   )
