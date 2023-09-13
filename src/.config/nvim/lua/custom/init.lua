@@ -3,6 +3,8 @@ vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 
+vim.opt_global.textwidth = 80
+
 -- Open nvim-tree on startup with some twists
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function (data)
@@ -39,3 +41,11 @@ vim.api.nvim_create_autocmd("QuitPre", {
     end
   end
 })
+
+-- Use internal formatting for bindings like gq. 
+ vim.api.nvim_create_autocmd('LspAttach', {
+   callback = function(args)
+     vim.bo[args.buf].formatexpr = nil
+   end,
+ })
+

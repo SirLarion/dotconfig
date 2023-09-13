@@ -45,7 +45,20 @@ local plugins = {
   {
     "nvim-telescope/telescope.nvim",
     lazy = false,
-  }
+  },
+  {
+    "andrewferrier/wrapping.nvim",
+    config = function ()
+      require("wrapping").setup({
+        create_keymaps = false,
+        auto_set_mode_filetype_allowlist = {
+          "latex",
+          "markdown",
+          "tex",
+        },
+      })
+    end,
+  },
 }
 
 return plugins

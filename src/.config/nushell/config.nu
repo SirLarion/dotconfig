@@ -762,18 +762,21 @@ $env.config = {
 }
 
 def conf [name = nu] {
-  cd ~/.config
+  cd ~/repos/dotconfig/
   if $name == "vim" {
-    nvim ./nvim/lua/custom/init.lua
+    nvim src/.config/nvim/lua/custom/init.lua
   }  
   if $name == "nu" {
-    nvim ./nushell/config.nu
+    nvim src/.config/nushell/config.nu
   }
   if $name == "tmux" {
-    nvim ./tmux/tmux.conf
+    nvim src/.config/tmux/tmux.conf
   }
   if $name == "omp" {
-    nvim ../.oh-my-posh.nu
+    nvim src/.oh-my-posh.nu
+  }
+  if $name == "zathura" {
+    nvim src/.config/zathura/zathurarc
   }
 }
 
@@ -784,11 +787,22 @@ def devenv [] {
   }
 }
 
+# def zoot [repo: string] {}
+
 neofetch
 source ~/.zoxide.nu
 source ~/.oh-my-posh.nu
 
 # Aliases
-alias vim = nvim
+# TODO make this more robust
+alias deploy = ./deploy
 
 alias gst = git status
+alias ga = git add
+alias gcm = git commit -m
+alias gp = git push
+alias groot = git rev-parse --show-toplevel
+
+alias zoot = cd (groot)
+alias vim = nvim
+

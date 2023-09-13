@@ -2,8 +2,6 @@
   :monitor 0
 	:geometry (geometry :x "0px" 
 						:y "0"
-            :height "100%"
-            :width "100%"
             :anchor "center")
   :wm-ignore false
   :stacking "bg"

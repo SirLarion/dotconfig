@@ -1,9 +1,0 @@
-#!/bin/bash
-
-ROFI_DEV=$HOME/repos/dotconfig/rofi
-ROFI=$HOME/.config/rofi
-
-# Deploy Rofi config to ~/.config/rofi
-
-cd $ROFI_DEV
-cp -r src/* $ROFI/.

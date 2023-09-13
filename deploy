@@ -1,0 +1,38 @@
+#!/bin/bash
+
+home="/home/sirlarion"
+current="$home/repos/dotconfig/src"
+cd $current
+
+declare -A targets
+
+targets[nvim]=".config/nvim/lua/custom"
+targets[tmux]=".config/tmux"
+targets[nushell]=".config/nushell"
+targets[rofi]=".config/rofi"
+targets[eww]=".config/eww"
+targets[omp]=".oh-my-posh.nu"
+targets[vim]=".vimrc"
+targets[bash]=".bashrc"
+targets[zathura]=".config/zathura"
+
+echo "============================== Deploying dots =============================="
+
+for t in "${targets[@]}"; do
+  # If the target is a directory
+  if [[ -d $t ]]; then 
+    if [[ ! -d $home/$t ]]; then 
+      printf "Initializing %50s\n" "$home/$t"
+      mkdir -p $home/$t
+    fi
+    cp -rf $current/$t/* $home/$t
+
+  # If the target is a file
+  elif [[ -f $t ]]; then 
+    cp $current/$t $home
+  fi
+
+  printf "$t %50s\n" " ==> $home/$t" 
+done
+
+echo "================================= All done ================================="
