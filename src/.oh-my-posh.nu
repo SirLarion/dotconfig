@@ -1,6 +1,6 @@
 export-env {
   $env.POWERLINE_COMMAND = 'oh-my-posh'
-  $env.POSH_THEME = "/home/sirlarion/.config/oh-my-posh/themes/dracula.omp.json"
+  $env.POSH_THEME = "/home/sirlarion/.config/oh-my-posh/themes/M365Princess.omp.json"
   $env.PROMPT_INDICATOR = ""
   $env.POSH_PID = (random uuid)
   # By default displays the right prompt on the first line
