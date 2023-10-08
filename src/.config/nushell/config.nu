@@ -778,9 +778,12 @@ def conf [name = nu] {
   if $name == "zathura" {
     nvim src/.config/zathura/zathurarc
   }
+  if $name == "neomutt" {
+    nvim src/.config/neomutt/neomuttrc
+  }
 }
 
-def devenv [] {
+def dev [] {
   let cmd = tmux attach-session -t devenv 
   if $cmd != 1 {
     tmux new -s devenv
@@ -788,6 +791,16 @@ def devenv [] {
 }
 
 # def zoot [repo: string] {}
+
+def nvim-clear-swap [] {
+  let user_input = (input "Are you sure?\n> ")
+  if $user_input in ['y', 'Y', 'yes'] {
+    print 'Clearing nvim swap'
+    rm -r ~/.local/state/nvim/swap
+  } else {
+    print 'Command canceled'
+  }
+}
 
 neofetch
 source ~/.zoxide.nu
@@ -799,10 +812,16 @@ alias deploy = ./deploy
 
 alias gst = git status
 alias ga = git add
+alias gc = git commit
 alias gcm = git commit -m
+alias goops = git commit --amend
+alias grb = git rebase
+alias grba = git rebase --abort
+alias grbc = git rebase --continue
+alias gco = git checkout
+alias gcb = git checkout -B
 alias gp = git push
 alias groot = git rev-parse --show-toplevel
 
 alias zoot = cd (groot)
 alias vim = nvim
-

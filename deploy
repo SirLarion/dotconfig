@@ -15,6 +15,7 @@ targets[omp]=".oh-my-posh.nu"
 targets[vim]=".vimrc"
 targets[bash]=".bashrc"
 targets[zathura]=".config/zathura"
+targets[neomutt]=".config/neomutt"
 
 echo "============================== Deploying dots =============================="
 
