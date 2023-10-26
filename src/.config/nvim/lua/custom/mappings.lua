@@ -82,8 +82,8 @@ M.tabufline = {
 		},
 	},
 }
-M.lspconfig = {
 
+M.lspconfig = {
 	plugin = true,
 }
 
