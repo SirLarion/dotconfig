@@ -19,7 +19,7 @@ M.general = {
 	},
 
 	i = {
-		["jj"] = { "<Esc>" },
+		["jj"] = { "<Esc><Esc>" },
 	},
 
 	v = {
@@ -81,10 +81,6 @@ M.tabufline = {
 			"Goto prev buffer",
 		},
 	},
-}
-
-M.lspconfig = {
-	plugin = true,
 }
 
 return M

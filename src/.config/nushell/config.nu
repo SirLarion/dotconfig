@@ -151,10 +151,6 @@ $env.config = {
         always_trash: false # always act as if -t was given. Can be overridden with -p
     }
 
-    cd: {
-        abbreviations: false # allows `cd s/o/f` to expand to `cd some/other/folder`
-    }
-
     table: {
         mode: rounded # basic, compact, compact_double, light, thin, with_love, rounded, reinforced, heavy, none, other
         index_mode: always # "always" show indexes, "never" show indexes, "auto" = show indexes when a table has "index" column
@@ -782,6 +778,28 @@ def conf [name = nu] {
     nvim src/.config/neomutt/neomuttrc
   }
 }
+
+def aurman [
+  pkg: string
+  --sync (-S)
+  --remove (-R)
+] {
+  let dir = (pwd)
+  if $sync {
+    mut package = $pkg
+    if not ($pkg | str starts-with 'https://') {
+      $package = $"https://aur.archlinux.org/($pkg)"
+    }
+    cd $"($env.HOME)/Downloads"
+    git clone $package pkgdir
+    cd pkgdir
+    makepkg -Acsi ; cd .. ; rm -r pkgdir
+  }
+  if $remove {
+    sudo pacman -R $pkg
+  }
+  cd $dir
+}  
 
 def dev [] {
   let cmd = tmux attach-session -t devenv 
