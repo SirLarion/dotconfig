@@ -793,7 +793,10 @@ def aurman [
     cd $"($env.HOME)/Downloads"
     git clone $package pkgdir
     cd pkgdir
-    makepkg -Acsi ; cd .. ; rm -r pkgdir
+    try {
+      makepkg -Acsi
+    }
+    cd .. ; rm -r pkgdir
   }
   if $remove {
     sudo pacman -R $pkg
@@ -806,6 +809,12 @@ def dev [] {
   if $cmd != 1 {
     tmux new -s devenv
   }
+}
+
+def ping-mc-server [] {
+  let script = $"($env.HOME)/.config/check_minecraft.py"
+  let host = $"($env.WAN)"
+  python $script -H $host
 }
 
 # def zoot [repo: string] {}

@@ -16,6 +16,8 @@ M.general = {
 		["<C-k>"] = { "<cmd> TmuxNavigateUp<CR>" },
 
 		["<F5>"] = { "<cmd> ! ./deploy<CR>" },
+		["+"] = { "<cmd> vertical res +5<CR>" },
+		["-"] = { "<cmd> vertical res -5<CR>" },
 	},
 
 	i = {
