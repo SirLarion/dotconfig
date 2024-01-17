@@ -16,6 +16,7 @@ targets[vim]=".vimrc"
 targets[bash]=".bashrc"
 targets[zathura]=".config/zathura"
 targets[neomutt]=".config/neomutt"
+targets[arduino]=".arduino15"
 
 echo "============================== Deploying dots =============================="
 

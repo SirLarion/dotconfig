@@ -777,6 +777,9 @@ def conf [name = nu] {
   if $name == "neomutt" {
     nvim src/.config/neomutt/neomuttrc
   }
+  if $name == "arduino" {
+    nvim src/.arduino15/arduino-cli.yaml
+  }
 }
 
 def aurman [
@@ -830,7 +833,7 @@ def nvim-clear-swap [] {
 }
 
 neofetch
-source ~/.zoxide.nu
+source ~/.zoxide-fix.nu
 source ~/.oh-my-posh.nu
 
 # Aliases
@@ -849,6 +852,9 @@ alias gco = git checkout
 alias gcb = git checkout -B
 alias gp = git push
 alias groot = git rev-parse --show-toplevel
+
+alias acli = arduino-cli
+alias teencli = teensly_loader_cli
 
 alias zoot = cd (groot)
 alias vim = nvim
