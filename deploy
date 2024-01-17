@@ -1,7 +1,6 @@
 #!/bin/bash
 
-home="/home/sirlarion"
-current="$home/repos/dotconfig/src"
+current="$HOME/repos/dotconfig/src"
 cd $current
 
 declare -A targets
@@ -14,6 +13,7 @@ targets[eww]=".config/eww"
 targets[omp]=".oh-my-posh.nu"
 targets[vim]=".vimrc"
 targets[bash]=".bashrc"
+targets[kitty]=".config/kitty"
 targets[zathura]=".config/zathura"
 targets[neomutt]=".config/neomutt"
 targets[arduino]=".arduino15"
@@ -23,18 +23,18 @@ echo "============================== Deploying dots ============================
 for t in "${targets[@]}"; do
   # If the target is a directory
   if [[ -d $t ]]; then 
-    if [[ ! -d $home/$t ]]; then 
-      printf "Initializing %50s\n" "$home/$t"
-      mkdir -p $home/$t
+    if [[ ! -d $HOME/$t ]]; then 
+      printf "Initializing %50s\n" "$HOME/$t"
+      mkdir -p $HOME/$t
     fi
-    cp -rf $current/$t/* $home/$t
+    cp -rf $current/$t/* $HOME/$t
 
   # If the target is a file
   elif [[ -f $t ]]; then 
-    cp $current/$t $home
+    cp $current/$t $HOME
   fi
 
-  printf "$t %50s\n" " ==> $home/$t" 
+  printf "$t %50s\n" " ==> $HOME/$t" 
 done
 
 echo "================================= All done ================================="
