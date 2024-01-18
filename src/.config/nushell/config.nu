@@ -780,6 +780,9 @@ def conf [name = nu] {
   if $name == "arduino" {
     nvim src/.arduino15/arduino-cli.yaml
   }
+  if $name == "kitty" {
+    nvim src/.config/kitty/kitty.conf
+  }
 }
 
 def aurman [
