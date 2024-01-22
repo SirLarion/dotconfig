@@ -857,7 +857,7 @@ alias gp = git push
 alias groot = git rev-parse --show-toplevel
 
 alias acli = arduino-cli
-alias teencli = teensly_loader_cli
+alias teencli = teensy_loader_cli
 
 alias zoot = cd (groot)
 alias vim = nvim

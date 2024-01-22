@@ -5,10 +5,10 @@ local plugins = {
 		lazy = false,
 	},
 	{
-		"jose-elias-alvarez/null-ls.nvim",
+		"stevearc/conform.nvim",
 		lazy = false,
 		config = function()
-			require("custom.configs.null-ls")
+			require("custom.configs.format")
 		end,
 	},
 	{
