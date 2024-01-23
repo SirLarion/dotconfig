@@ -32,9 +32,9 @@ M.telescope = {
 		["<C-p>"] = { ":Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍 <CR>" },
 		["<C-o>"] = {
 			function()
-				require("telescope.builtin").live_grep({})
+				require("telescope.builtin").oldfiles()
 			end,
-			"Live grep",
+			"Recent files",
 		},
 	},
 }

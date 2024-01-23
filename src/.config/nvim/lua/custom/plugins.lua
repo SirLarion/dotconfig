@@ -53,6 +53,13 @@ local plugins = {
 		lazy = false,
 	},
 	{
+		"nvim-telescope/telescope-fzy-native.nvim",
+		lazy = false,
+		config = function()
+			require("telescope").load_extension("fzy_native")
+		end,
+	},
+	{
 		"andrewferrier/wrapping.nvim",
 		config = function()
 			require("wrapping").setup({
