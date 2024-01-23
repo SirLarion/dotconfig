@@ -1,9 +1,0 @@
-query GetQuizTemplateIds {
-  quizModules {
-    name {
-      defaultMessage
-    }
-    quizTemplateIds
-    _id
-  }
-}

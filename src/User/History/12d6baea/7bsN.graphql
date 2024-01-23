@@ -1,6 +1,0 @@
-query ThemeTagsQuery {
-  vectorTags {
-    categoryName
-    name
-  }
-}

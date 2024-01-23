@@ -1,9 +1,0 @@
-query GetDemoTemplates {
-  demoQuestTemplates(filter: { isActive_eq: true }) {
-    tag
-    requiredContext {
-      usedOrgContext
-      usedDomains
-    }
-  }
-}

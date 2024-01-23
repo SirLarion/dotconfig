@@ -13,6 +13,7 @@ conform.setup({
 		cpp = { "clang_format" },
 		arduino = { "clang_format" },
 		bash = { "beautysh" },
+		dart = { "dart_format" },
 	},
 	format_on_save = {
 		timeout_ms = 200,

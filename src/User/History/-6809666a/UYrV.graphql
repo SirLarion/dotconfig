@@ -1,7 +1,0 @@
-fragment UserUiLocale on User {
-  profile {
-    locale {
-      ui
-    }
-  }
-}

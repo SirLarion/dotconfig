@@ -1,8 +1,0 @@
-query GetCurrentUserEmail {
-  currentUser {
-    _id
-    emails {
-      address
-    }
-  }
-}

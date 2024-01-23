@@ -1,9 +1,0 @@
-query GetCurrentUserFeatures {
-  currentUser {
-    _id
-    organization {
-      _id
-      ...OrganizationFeatures
-    }
-  }
-}

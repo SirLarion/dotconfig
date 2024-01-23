@@ -1,9 +1,0 @@
-query GetAppContainer {
-  currentUser {
-    _id
-    roles
-    game {
-      mode
-    }
-  }
-}

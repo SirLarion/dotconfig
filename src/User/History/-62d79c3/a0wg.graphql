@@ -1,6 +1,0 @@
-query VectorTagsQuery {
-  vectorTags {
-    categoryName
-    name
-  }
-}

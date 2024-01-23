@@ -1,8 +1,0 @@
-mutation SetOrganizationDemoMode($organizationId: ID!, $value: Boolean!) {
-  setDemoMode(organizationId: $organizationId, value: $value) {
-    _id
-    game {
-      demoMode
-    }
-  }
-}

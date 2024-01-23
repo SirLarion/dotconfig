@@ -1,6 +1,0 @@
-query GetVectorTags {
-  vectorTags {
-    categoryName
-    name
-  }
-}

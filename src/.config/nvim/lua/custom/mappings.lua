@@ -10,11 +10,6 @@ M.general = {
 		["J"] = { "10j" },
 		["K"] = { "10k" },
 
-		["<C-h>"] = { "<cmd> TmuxNavigateLeft<CR>" },
-		["<C-l>"] = { "<cmd> TmuxNavigateRight<CR>" },
-		["<C-j>"] = { "<cmd> TmuxNavigateDown<CR>" },
-		["<C-k>"] = { "<cmd> TmuxNavigateUp<CR>" },
-
 		["<F5>"] = { "<cmd> ! ./deploy<CR>" },
 		["+"] = { "<cmd> vertical res +5<CR>" },
 		["-"] = { "<cmd> vertical res -5<CR>" },
@@ -35,6 +30,12 @@ M.telescope = {
 
 	n = {
 		["<C-p>"] = { ":Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍 <CR>" },
+		["<C-o>"] = {
+			function()
+				require("telescope.builtin").live_grep({})
+			end,
+			"Live grep",
+		},
 	},
 }
 

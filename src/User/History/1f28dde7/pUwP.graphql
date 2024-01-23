@@ -1,6 +1,0 @@
-query EventSaver {
-  currentUser {
-    _id
-    ...UserEvents
-  }
-}

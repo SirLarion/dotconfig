@@ -1,6 +1,0 @@
-mutation CreateOrganization($organization: CreateOrganizationInput!) {
-  createOrganization(organization: $organization) {
-    _id
-    name
-  }
-}

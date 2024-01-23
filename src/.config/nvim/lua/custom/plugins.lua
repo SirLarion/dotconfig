@@ -37,6 +37,12 @@ local plugins = {
 		lazy = false,
 	},
 	{
+		"nvim-treesitter/nvim-treesitter",
+		opts = {
+			indent = { enable = true, disable = { "dart" } },
+		},
+	},
+	{
 		"nvim-tree/nvim-tree.lua",
 		opts = {
 			filters = { custom = { "^.git$" } },

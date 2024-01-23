@@ -1,8 +1,0 @@
-query GetIndustryList {
-  industryConnection {
-    nodes {
-      _id
-      name
-    }
-  }
-}

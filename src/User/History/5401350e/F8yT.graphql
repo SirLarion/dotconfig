@@ -1,3 +1,0 @@
-mutation SetOrgGmailIntegration($useGmailDeliveryApi: Boolean!) {
-  setOrganizationGmailIntegration(useGmailDeliveryApi: $useGmailDeliveryApi)
-}

@@ -1,9 +1,0 @@
-mutation SetIsOrgOnboarding($organizationId: ID!, $onboarding: Boolean!) {
-  setOrganizationOnboarding(
-    organizationId: $organizationId
-    onboarding: $onboarding
-  ) {
-    _id
-    onboardingStartedAt
-  }
-}

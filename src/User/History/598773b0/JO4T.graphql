@@ -1,6 +1,0 @@
-mutation SetOrgIndustry($organizationId: ID!, $industryId: ID!) {
-  setOrganizationIndustry(
-    organizationId: $organizationId
-    industryId: $industryId
-  )
-}

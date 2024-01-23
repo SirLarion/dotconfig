@@ -1,6 +1,0 @@
-query CurrentUserUiLocaleProviderQuery {
-  currentUser {
-    _id
-    ...UserUiLocale
-  }
-}

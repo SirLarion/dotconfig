@@ -1,6 +1,0 @@
-query GetQuestTemplateTags($filter: QuestTemplate_filter) {
-  questTemplates(sort: tag_ASC, filter: $filter) {
-    _id
-    tag
-  }
-}

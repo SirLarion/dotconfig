@@ -1,8 +1,0 @@
-mutation RateThreat($rating: RateThreatInput!) {
-  rateThreat(rating: $rating) {
-    threats {
-      _id
-      severity
-    }
-  }
-}

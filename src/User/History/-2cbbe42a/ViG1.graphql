@@ -1,9 +1,0 @@
-mutation SendQuestsToEmails(
-  $emails: [String]!
-  $questTags: [String]!
-  $origin: QuestOrigin
-) {
-  sendQuestsToEmails(emails: $emails, questTags: $questTags, origin: $origin) {
-    _id
-  }
-}

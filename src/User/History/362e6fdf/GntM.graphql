@@ -1,9 +1,0 @@
-query GetCurrentOrganizationCities {
-  currentUser {
-    _id
-    organization {
-      _id
-      cities
-    }
-  }
-}
