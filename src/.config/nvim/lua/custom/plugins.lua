@@ -32,6 +32,7 @@ local plugins = {
 			vim.g.VM_maps = {
 				["Find Under"] = "<C-d>",
 				["Find Subword Under"] = "<C-d>",
+				["Run Normal"] = "jj",
 			}
 		end,
 		lazy = false,
