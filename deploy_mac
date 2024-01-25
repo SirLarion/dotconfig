@@ -1,0 +1,42 @@
+#!/opt/homebrew/bin/bash
+
+current="$HOME/repos/dotconfig/src"
+cd $current
+
+declare -A targets
+
+targets[nvim]=".config/nvim/lua/custom"
+targets[tmux]=".config/tmux"
+targets[nushell]=".config/nushell"
+targets[rofi]=".config/rofi"
+targets[eww]=".config/eww"
+targets[omp]=".oh-my-posh.nu"
+targets[vim]=".vimrc"
+targets[bash]=".bashrc"
+targets[kitty]=".config/kitty"
+targets[zathura]=".config/zathura"
+targets[neomutt]=".config/neomutt"
+targets[arduino]=".arduino15"
+
+echo "============================== Deploying dots =============================="
+
+for t in "${targets[@]}"; do
+  # If the target is a directory
+  if [[ -d $t ]]; then 
+    if [[ ! -d $HOME/$t ]]; then 
+      printf "Initializing %50s\n" "$HOME/$t"
+      mkdir -p $HOME/$t
+    fi
+    cp -rf $current/$t/* $HOME/$t
+
+  # If the target is a file
+  elif [[ -f $t ]]; then 
+    cp $current/$t $HOME
+  fi
+
+  printf "$t %50s\n" " ==> $HOME/$t" 
+done
+
+cp $HOME/.config/kitty/mac-overrides.conf $HOME/.config/kitty/overrides.conf
+
+echo "================================= All done ================================="
