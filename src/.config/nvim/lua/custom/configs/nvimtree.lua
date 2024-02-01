@@ -3,6 +3,7 @@ local api = require("nvim-tree.api")
 
 local options = {
 	on_attach = function(bufnr)
+		api.config.mappings.default_on_attach(bufnr)
 		vim.keymap.set("n", "l", api.node.open.edit, { buffer = bufnr })
 		vim.keymap.set("n", "H", api.tree.collapse_all, { buffer = bufnr })
 		vim.keymap.set("n", "h", api.node.navigate.parent_close, { buffer = bufnr })

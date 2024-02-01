@@ -838,6 +838,7 @@ def nvim-clear-swap [] {
 neofetch
 source ~/.zoxide-fix.nu
 source ~/.oh-my-posh.nu
+source ~/.local/share/atuin/init.nu
 
 # Aliases
 # TODO make this more robust

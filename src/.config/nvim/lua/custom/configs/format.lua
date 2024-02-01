@@ -13,6 +13,8 @@ conform.setup({
 		cpp = { "clang_format" },
 		arduino = { "clang_format" },
 		bash = { "beautysh" },
+		xml = { "xmlformat" },
+		opml = { "xmlformat" },
 	},
 	format_on_save = {
 		timeout_ms = 200,

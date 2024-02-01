@@ -3,7 +3,7 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require("lspconfig")
 
-local servers = { "cssls", "rust_analyzer", "texlab", "html", "clangd", "dartls" }
+local servers = { "cssls", "rust_analyzer", "texlab", "html", "clangd", "dartls", "lemminx", "arduino_language_server" }
 
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
