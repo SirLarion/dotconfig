@@ -6,9 +6,10 @@
     <button icon="docclose" onTap="close_app" color="#cc7b7a" />
   </row>
   <row weight="1">
+    <button weight="1" icon="power" onTap="@wol" color="#add884"/>
     <button weight="1" icon="power" onTap="shutdown" color="#cc7b7a"/>
-    <button weight="3" icon="search" onTap="search" color="#9ac5ce"/>
-    <button weight="3" icon="docswitch" onTap="next_app" color="#9ac5ce"/>
+    <button weight="2" icon="search" onTap="search" color="#9ac5ce"/>
+    <button weight="2" icon="docswitch" onTap="next_app" color="#9ac5ce"/>
   </row>
   <row weight="10">
     <touch
