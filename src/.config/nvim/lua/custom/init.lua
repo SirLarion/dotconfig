@@ -7,6 +7,8 @@ vim.opt_global.textwidth = 80
 
 vim.g.toggle_theme_icon = ""
 
+vim.g.rust_recommended_style = 0
+
 -- Open nvim-tree on startup with some twists
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function(data)

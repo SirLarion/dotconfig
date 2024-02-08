@@ -15,6 +15,7 @@ conform.setup({
 		bash = { "beautysh" },
 		xml = { "xmlformat" },
 		opml = { "xmlformat" },
+		rs = { "rustfmt" },
 	},
 	format_on_save = {
 		timeout_ms = 200,
