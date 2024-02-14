@@ -1,5 +1,8 @@
 board_manager:
-  additional_urls: ["https://www.pjrc.com/teensy/package_teensy_index.json"]
+  additional_urls: [
+    "https://www.pjrc.com/teensy/package_teensy_index.json", 
+    "https://adafruit.github.io/arduino-board-index/package_adafruit_index.json"
+  ]
 build_cache:
   compilations_before_purge: 10
   ttl: 720h0m0s
