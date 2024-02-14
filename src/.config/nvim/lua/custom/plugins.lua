@@ -111,10 +111,10 @@ local plugins = {
   {
     "nvimtools/none-ls.nvim",
     config = function()
-      local none_ls = require("none-ls")
-      none_ls.setup({
+      local null_ls = require("null-ls")
+      null_ls.setup({
         sources = {
-          none_ls.builtins.code_actions.eslint_d,
+          null_ls.builtins.code_actions.eslint_d,
         }
       })
     end,
