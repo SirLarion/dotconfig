@@ -3,7 +3,7 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 
 local lspconfig = require("lspconfig")
 
-local servers = { "cssls", "rust_analyzer", "texlab", "html", "clangd", "dartls", "lemminx", "arduino_language_server" }
+local servers = { "cssls", "rust_analyzer", "texlab", "html", "clangd", "lemminx", "arduino_language_server" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup({
@@ -40,6 +40,11 @@ end
 lspconfig.tsserver.setup({
   on_attach = on_attach,
   capabilities = capabilities,
+  init_options = {
+    preferences = {
+      disableSuggestions = true,
+    }
+  },
   handlers = {
     ["textDocument/definition"] = function(err, result, method, ...)
       if vim.tbl_islist(result) and #result > 1 then
