@@ -47,14 +47,40 @@ local plugins = {
   },
   {
     "nvim-telescope/telescope.nvim",
+    opts = (function()
+      local actions = require("telescope.actions")
+      return {
+        defaults = {
+          mappings = {
+            n = {
+              ["l"] = actions.file_edit,
+            },
+            i = {
+              ["<C-u>"] = false,
+            },
+          },
+        },
+        extensions = {
+          ["ui-select"] = {
+            require("telescope.themes").get_dropdown({ initial_mode = "normal" })
+          }
+        }
+      }
+    end)(),
     lazy = false,
   },
   {
     "nvim-telescope/telescope-fzy-native.nvim",
-    lazy = false,
     config = function()
       require("telescope").load_extension("fzy_native")
     end,
+  },
+  {
+    "nvim-telescope/telescope-ui-select.nvim",
+    config = function()
+      require("telescope").load_extension("ui-select")
+    end,
+    lazy = false,
   },
   {
     "andrewferrier/wrapping.nvim",
@@ -91,7 +117,7 @@ local plugins = {
     config = function()
       require("nvim-ts-autotag").setup()
     end,
-    lazy = false,
+    ft = { "javascriptreact", "typescriptreact" }
   },
   {
     "ThePrimeagen/harpoon",

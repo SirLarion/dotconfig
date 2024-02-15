@@ -30,8 +30,8 @@ M.telescope = {
 
   n = {
     ["<C-p>"] = { ":Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍 <CR>" },
-    ["<C-o>"] = { ":Telescope oldfiles <CR>" },
-    ["F"] = { ":Telescope live_grep <CR>" },
+    ["<C-o>"] = { ":Telescope oldfiles initial_mode=normal <CR>" },
+    ["F"] = { ":Telescope live_grep find_command=rg prompt_prefix=🔍 <CR>" },
   }
 }
 

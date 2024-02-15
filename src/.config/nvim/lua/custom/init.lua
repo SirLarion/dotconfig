@@ -106,10 +106,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set("n", "<C-k>", vim.lsp.buf.hover, opts)
     vim.keymap.set("n", "<space>d", vim.lsp.buf.type_definition, opts)
     vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
-    -- vim.keymap.set("n", "gr", function()
-    --   require("telescope.builtin").lsp_references({
-    --     initial_mode = "normal"
-    --   })
-    -- end)
+    vim.keymap.set("n", "<C-.>", vim.lsp.buf.code_action, opts)
   end,
 })
