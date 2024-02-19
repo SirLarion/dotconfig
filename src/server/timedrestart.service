@@ -1,0 +1,7 @@
+[Unit]
+Description=Timed restart script
+
+[Service]
+Type=oneshot
+ExecStart=echo "Nightly naptime! Rebooting..."
+ExecStart=/usr/bin/reboot

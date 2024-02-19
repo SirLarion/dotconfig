@@ -1,0 +1,44 @@
+# Source: https://github.com/agowa338/MinecraftSystemdUnit/
+# License: MIT
+[Unit]
+Description=T H I K K  B O I S  O N L Y 
+After=network.target
+
+[Service]
+WorkingDirectory=/opt/minecraft/%i
+PrivateUsers=true 
+# Users Database is not available for within the unit, only root and minecraft is available, everybody else is nobody
+User=minecraft
+Group=minecraft
+ProtectSystem=full 
+# Read only mapping of /usr /boot and /etc
+ProtectHome=true 
+# /home, /root and /run/user seem to be empty from within the unit. It is recommended to enable this setting for all long-running services (in particular network-facing ones).
+ProtectKernelTunables=true 
+# /proc/sys, /sys, /proc/sysrq-trigger, /proc/latency_stats, /proc/acpi, /proc/timer_stats, /proc/fs and /proc/irq will be read-only within the unit. It is recommended to turn this on for most services.
+# Implies MountFlags=slave
+ProtectKernelModules=true 
+# Block module system calls, also /usr/lib/modules. It is recommended to turn this on for most services that do not need special file systems or extra kernel modules to work
+# Implies NoNewPrivileges=yes
+ProtectControlGroups=true 
+# It is hence recommended to turn this on for most services.
+# Implies MountAPIVFS=yes
+
+ExecStart=/usr/bin/java -Xms5G -Xmx8G -server -XX:+UseG1GC -XX:ParallelGCThreads=8 -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=10 -jar server.jar nogui
+
+ExecStop=/bin/echo '/say SERVER SHUTTING DOWN. Saving map...' > /run/minecraft.stdin
+ExecStop=/bin/sleep 5
+ExecStop=/bin/echo '/save-all' > /run/minecraft.stdin
+ExecStop=/bin/echo '/stop'
+ExecStop=/bin/sleep 10
+
+Restart=on-failure
+RestartSec=60s
+
+Sockets=minecraft@%i.socket
+StandardInput=socket
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
