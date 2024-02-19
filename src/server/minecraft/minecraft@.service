@@ -29,7 +29,7 @@ ExecStart=/usr/bin/java -Xms5G -Xmx8G -server -XX:+UseG1GC -XX:ParallelGCThreads
 ExecStop=/bin/echo '/say SERVER SHUTTING DOWN. Saving map...' > /run/minecraft.stdin
 ExecStop=/bin/sleep 5
 ExecStop=/bin/echo '/save-all' > /run/minecraft.stdin
-ExecStop=/bin/echo '/stop'
+ExecStop=/bin/echo '/stop' > /run/minecraft.stdin
 ExecStop=/bin/sleep 10
 
 Restart=on-failure
