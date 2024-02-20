@@ -1,0 +1,8 @@
+[sshd] 
+enabled = true 
+filter = sshd 
+backend = systemd 
+bantime = 2w 
+ignoreip = 127.0.0.1/8 
+banaction = nftables 
+banaction_allports = nftables[type=allports]
