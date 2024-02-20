@@ -1,0 +1,32 @@
+[opener]
+edit = [
+  { exec = 'kitten @ launch --type=tab nvim "$@"' }
+]
+
+open = [
+  { exec = 'xdg-open "$@"' }
+]
+
+img = [
+  { exec = 'gimp "$@"', orphan = true }
+]
+
+svg = [
+  { exec = 'inkscape $@', orphan = true }
+]
+
+[open]
+rules = [
+	{ mime = "text/*",                  use = [ "edit" ] },
+
+	{ mime = "image/*", name = "*.svg", use = [ "svg" ] },
+	{ mime = "image/*",                 use = [ "open", "img" ] },
+
+  { mime = "*", use = [ "open" ] }
+]
+
+[plugin]
+prepend_previewers  = [
+  { mime = "image/svg", exec = "image" }
+]
+

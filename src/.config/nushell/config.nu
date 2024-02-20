@@ -783,6 +783,9 @@ def conf [name = nu] {
   if $name == "kitty" {
     nvim src/.config/kitty/kitty.conf
   }
+  if $name == "yazi" {
+    nvim src/.config/yazi/yazi.toml
+  }
 }
 
 def aurman [
@@ -839,6 +842,8 @@ neofetch
 source ~/.zoxide-fix.nu
 source ~/.oh-my-posh.nu
 source ~/.local/share/atuin/init.nu
+
+$env.SSH_AUTH_SOCK = $"($env.XDG_RUNTIME_DIR)/ssh-agent.socket"
 
 # Aliases
 # TODO make this more robust

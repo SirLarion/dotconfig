@@ -1,0 +1,5 @@
+[manager]
+prepend_keymap = [
+  { on = ["<C-h>"], exec = 'hidden toggle' },
+  { on = ["<S-Enter>"], exec = 'open --interactive'}
+]
