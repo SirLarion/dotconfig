@@ -4,7 +4,7 @@ edit = [
 ]
 
 open = [
-  { exec = 'xdg-open "$@"' }
+  { exec = 'xdg-open "$@"', orphan = true }
 ]
 
 img = [

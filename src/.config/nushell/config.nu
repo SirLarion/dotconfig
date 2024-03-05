@@ -786,6 +786,12 @@ def conf [name = nu] {
   if $name == "yazi" {
     nvim src/.config/yazi/yazi.toml
   }
+  if $name == "calcure" {
+    nvim src/.config/calcure/config.ini
+  }
+  if $name == "spt" {
+    nvim src/.config/spotify-tui/config.yml
+  }
 }
 
 def aurman [
@@ -854,6 +860,7 @@ alias ga = git add
 alias gc = git commit
 alias gcm = git commit -m
 alias goops = git commit --amend
+alias gfp = git push --force-with-lease
 alias grb = git rebase
 alias grba = git rebase --abort
 alias grbc = git rebase --continue

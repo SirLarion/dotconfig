@@ -18,6 +18,8 @@ targets[zathura]=".config/zathura"
 targets[neomutt]=".config/neomutt"
 targets[arduino]=".arduino15"
 targets[yazi]=".config/yazi"
+targets[calcure]=".config/calcure"
+targets[spotify-tui]=".config/spotify-tui"
 
 echo "============================== Deploying dots =============================="
 
