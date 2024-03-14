@@ -13,7 +13,6 @@ local servers = {
 	"arduino_language_server",
 	"jsonls",
 	"taplo",
-	"kotlin_language_server",
 }
 
 for _, lsp in ipairs(servers) do

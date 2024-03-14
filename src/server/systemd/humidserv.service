@@ -1,0 +1,10 @@
+[Unit]
+Description=Home analytics collector server 
+After=network.target
+
+[Service]
+WorkingDirectory=/home/sirlarion/repos/humidserv
+ExecStart=/usr/bin/humidserv
+
+[Install]
+WantedBy=multi-user.target
