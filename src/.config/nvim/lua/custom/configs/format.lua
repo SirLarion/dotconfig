@@ -17,6 +17,7 @@ conform.setup({
 		xml = { "xmlformat" },
 		opml = { "xmlformat" },
 		rs = { "rustfmt" },
+		kotlin = { "ktlint" },
 	},
 	format_on_save = {
 		timeout_ms = 200,

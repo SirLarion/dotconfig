@@ -13,11 +13,21 @@ local servers = {
 	"arduino_language_server",
 	"jsonls",
 	"taplo",
+	"kotlin_language_server",
+	"jdtls",
 }
+
+local utils = require("core.utils")
+local on_init = function(client)
+	if not utils.load_config().ui.lsp_semantic_tokens and client.supports_method("textDocument/semanticTokens") then
+		client.server_capabilities.semanticTokensProvider = nil
+	end
+end
 
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
 		on_attach = on_attach,
+		on_init = on_init,
 		capabilities = capabilities,
 	})
 end
@@ -49,6 +59,7 @@ end
 
 lspconfig.tsserver.setup({
 	on_attach = on_attach,
+	on_init = on_init,
 	capabilities = capabilities,
 	init_options = {
 		preferences = {

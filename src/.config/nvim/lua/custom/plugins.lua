@@ -46,7 +46,32 @@ local plugins = {
 		end,
 	},
 	{
+		"nvim-telescope/telescope-fzy-native.nvim",
+		config = function()
+			require("telescope").load_extension("fzy_native")
+		end,
+	},
+	{
+		"debugloop/telescope-undo.nvim",
+		config = function()
+			require("telescope").load_extension("undo")
+		end,
+	},
+	{
+		"nvim-telescope/telescope-ui-select.nvim",
+		config = function()
+			require("telescope").load_extension("ui-select")
+		end,
+		lazy = false,
+	},
+	{
 		"nvim-telescope/telescope.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"debugloop/telescope-undo.nvim",
+			"nvim-telescope/telescope-fzy-native.nvim",
+			"nvim-telescope/telescope-ui-select.nvim",
+		},
 		opts = (function()
 			local actions = require("telescope.actions")
 			return {
@@ -67,19 +92,6 @@ local plugins = {
 				},
 			}
 		end)(),
-		lazy = false,
-	},
-	{
-		"nvim-telescope/telescope-fzy-native.nvim",
-		config = function()
-			require("telescope").load_extension("fzy_native")
-		end,
-	},
-	{
-		"nvim-telescope/telescope-ui-select.nvim",
-		config = function()
-			require("telescope").load_extension("ui-select")
-		end,
 		lazy = false,
 	},
 	{
@@ -117,7 +129,7 @@ local plugins = {
 		config = function()
 			require("nvim-ts-autotag").setup()
 		end,
-		ft = { "javascriptreact", "typescriptreact" },
+		ft = { "javascriptreact", "typescriptreact", "html" },
 	},
 	{
 		"ThePrimeagen/harpoon",
@@ -146,6 +158,12 @@ local plugins = {
 			})
 		end,
 		lazy = false,
+	},
+	{
+		"mfussenegger/nvim-jdtls",
+		config = function()
+			require("custom.configs.jdtls")
+		end,
 	},
 }
 

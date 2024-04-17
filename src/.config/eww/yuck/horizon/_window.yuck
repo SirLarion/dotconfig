@@ -1,8 +1,9 @@
 (defwindow dashboard
   :monitor 0
 	:geometry (geometry :x "0px" 
-						:y "0"
+						:y "0px"
             :anchor "center")
   :wm-ignore false
+  :windowtype "normal"
   :stacking "bg"
 (dashboard))
