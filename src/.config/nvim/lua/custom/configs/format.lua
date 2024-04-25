@@ -9,6 +9,7 @@ conform.setup({
 		typescriptreact = { "prettierd" },
 		json = { "prettierd" },
 		css = { "prettierd" },
+		scss = { "prettierd" },
 		html = { "prettierd" },
 		c = { "clang_format" },
 		cpp = { "clang_format" },

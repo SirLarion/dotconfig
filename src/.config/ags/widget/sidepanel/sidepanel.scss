@@ -1,0 +1,321 @@
+@use 'sass:math';
+@use 'sass:color';
+
+.sidepanel {
+  background-color: $bg;
+
+  .horizontal {
+    min-width: 100pt;
+  }
+
+  .quicksettings {
+    @include spacing;
+
+    padding: $popover-padding * 1.4;
+
+    .header {
+      @include spacing(0.5);
+      color: transparentize($fg, 0.15);
+
+      button {
+        @include button;
+        padding: $padding;
+
+        image {
+          font-size: 1.4em;
+        }
+      }
+    }
+
+    .sliders-box {
+      @include widget;
+      padding: $padding;
+
+      button {
+        @include button($flat: true);
+        padding: $padding * 0.5;
+      }
+
+      .volume button.arrow:last-child {
+        margin-left: $spacing * 0.4;
+      }
+
+      .volume,
+      .brightness {
+        padding: $padding * 0.5;
+      }
+
+      scale {
+        @include slider;
+        margin: 0 ($spacing * 0.5);
+
+        &.muted highlight {
+          background-image: none;
+          background-color: transparentize($fg, $amount: 0.2);
+        }
+      }
+    }
+
+    .row {
+      @include spacing;
+    }
+
+    .menu {
+      @include unset;
+      @include widget;
+      padding: $padding;
+      margin-top: $spacing;
+
+      .icon {
+        margin: 0 ($spacing * 0.5);
+        margin-left: $spacing * 0.2;
+      }
+
+      .title {
+        font-weight: bold;
+      }
+
+      separator {
+        margin: ($radius * 0.5);
+        background-color: $border-color;
+      }
+
+      button {
+        @include button($flat: true);
+        padding: ($padding * 0.5);
+
+        image:first-child {
+          margin-right: $spacing * 0.5;
+        }
+      }
+
+      .bluetooth-devices {
+        @include spacing(0.5);
+      }
+
+      switch {
+        @include switch;
+      }
+    }
+
+    .sliders-box .menu {
+      margin: ($spacing * 0.5) 0;
+    }
+
+    .toggle-button:not(:last-child) {
+      margin-right: 8pt;
+    }
+
+    .toggle-button {
+      @include button;
+      font-weight: bold;
+
+      image {
+        font-size: 1.3em;
+      }
+
+      label {
+        margin-left: $spacing * 0.3;
+      }
+
+      button {
+        @include button($flat: true);
+
+        &:first-child {
+          padding: $padding * 1.2;
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+
+        &:last-child {
+          padding: $padding * 0.5;
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+      }
+
+      &.active {
+        background-color: $primary-bg;
+
+        label,
+        image {
+          color: $primary-fg;
+        }
+      }
+    }
+
+    .simple-toggle {
+      @include button;
+      font-weight: bold;
+      padding: $padding * 1.2;
+
+      label {
+        margin-left: $spacing * 0.3;
+      }
+
+      image {
+        font-size: 1.3em;
+      }
+    }
+
+    .media {
+      @include spacing;
+
+      .player {
+        @include media;
+      }
+    }
+  }
+
+  .date-box {
+    padding: $padding;
+
+    .clock {
+      font-size: 5em;
+    }
+
+    .date {
+      font-size: 2em;
+    }
+  }
+
+  .launcher {
+    @include floating_widget;
+
+    .quicklaunch {
+      @include spacing;
+
+      button {
+        @include button($flat: true);
+        padding: $padding;
+      }
+    }
+
+    entry {
+      @include button;
+      padding: $padding;
+      margin: $spacing;
+
+      selection {
+        color: color.mix($fg, $bg, 50%);
+        background-color: transparent;
+      }
+
+      label,
+      image {
+        color: $fg;
+      }
+    }
+
+    image.spinner {
+      color: $primary-bg;
+      margin-right: $spacing;
+    }
+
+    separator {
+      margin: 4pt 0;
+      background-color: $popover-border-color;
+    }
+
+    button.app-item {
+      @include button($flat: true, $reactive: false);
+
+      > box {
+        @include spacing(0.5);
+      }
+
+      transition: $transition;
+      padding: $padding;
+
+      label {
+        transition: $transition;
+
+        &.title {
+          color: $fg;
+        }
+
+        &.description {
+          color: transparentize($fg, 0.3);
+        }
+      }
+
+      image {
+        transition: $transition;
+      }
+
+      &:hover,
+      &:focus {
+        .title {
+          color: $primary-bg;
+        }
+
+        .description {
+          color: transparentize($primary-bg, 0.4);
+        }
+
+        image {
+          -gtk-icon-shadow: 2px 2px $primary-bg;
+        }
+      }
+
+      &:active {
+        background-color: transparentize($primary-bg, 0.5);
+        border-radius: $radius;
+        box-shadow: inset 0 0 0 $border-width $border-color;
+
+        .title {
+          color: $fg;
+        }
+      }
+    }
+
+    button.help {
+      @include button($flat: true, $reactive: false);
+      padding: 0 ($padding * 0.5);
+
+      label {
+        transition: $transition;
+        color: $fg;
+      }
+
+      .name {
+        font-size: 1.2em;
+        font-weight: bold;
+      }
+
+      .description {
+        color: transparentize($fg, 0.3);
+      }
+
+      &:hover,
+      &:focus {
+        label {
+          text-shadow: $text-shadow;
+        }
+
+        .name,
+        .version {
+          color: $primary-bg;
+        }
+
+        .description {
+          color: transparentize($primary-bg, 0.3);
+        }
+      }
+    }
+
+    button.sh-item {
+      @include button($flat: true, $reactive: false);
+      padding: 0 ($padding * 0.5);
+
+      transition: $transition;
+      color: $fg;
+
+      &:hover,
+      &:focus {
+        color: $primary-bg;
+        text-shadow: $text-shadow;
+      }
+    }
+  }
+}

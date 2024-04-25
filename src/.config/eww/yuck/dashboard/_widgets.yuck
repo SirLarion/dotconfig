@@ -1,0 +1,63 @@
+(defwidget powerbtn[click classname icon name] 
+    (box :orientation "v" :class "powerbtn" :space-evenly false
+        (button :onclick click :orientation "h" :class "lockicon ${classname}" icon)
+        (box :class "powerstr" name)
+      )
+  )
+
+(defwidget time[]
+  (box :orientation "v" :class "time" :space-evenly "false"
+    (box :orientation "h" "${hour}:${minute}")
+    (box :orientation "v" "${datemonth}")
+  )
+)
+
+(defwidget music[]
+  (box :orientation "h" :class "musicbox" :space-evenly "false"
+      (box :class "musicicon" "󰎆")
+      (box :orientation "v"  :class "musicinfo" :space-evenly false :hexpand true
+          (box :class "musicname" "${songname}")
+          (box :class "musicartist" "${artist}")
+          (box :class "musicctrl" :orientation "h" :halign 'center' :spacing 20 :space-evenly false
+              (button :onclick "~/.config/eww/scripts/buttonclick prevbutton playerctl previous" :class "musicprev" "󰙣")
+              (button :onclick "~/.config/eww/scripts/buttonclick playbutton playerctl play-pause" :class "musicprev" "${icon}")
+              (button :onclick "~/.config/eww/scripts/buttonclick nextbutton playerctl next" :class "musicnext" "󰙡")
+            )
+        )
+    )
+  )
+
+(defwidget volscale[]
+    (box
+    :orientation "h"
+    :space-evenly "false" :class "volscale"
+      (box :orientation "h" :valign "center" :class "scale-label" "VOL")
+      (scale :class " scale volover"
+              :min 0
+              :max 100
+              :orientation "h"
+              :value "${volume}"
+              :onchange "~/.config/eww/scripts/volume {}"
+              :valign 'center')
+    )
+)
+
+(defwidget dashboard[] 
+  (box :orientation "h" :class "content" :halign "center" :valign "center" :hexpand true :vexpand true :space-evenly false
+    (box :orientation "v" :class "timemusic" :space-evenly false :vexpand true
+      (box :orientation "h" :class "wrapper" :space-evenly false
+        (time)
+        (box :orientation "v" :class "buttons" :space-evenly true :hexpand true
+          (button :onclick "loginctl poweroff" :class "profilebtn red" "󰤆")
+          (button :onclick "loginctl restart" :class "profilebtn green" "󰦛")
+        )
+      )
+      (box :orientation "h" :class "metrics" :space-evenly false
+        (circbar :value {EWW_RAM.used_mem_perc} :text "󰍛" :classname "red")
+        (circbar :value {round(EWW_CPU.avg, 0)} :text "󰘚" :classname "yellow")
+        (circbar :value {EWW_DISK["/"].used_perc} :text "󰋊" :classname "green" )
+        (circbar :value {EWW_BATTERY.BAT0.capacity} :text "" :classname "blue" )
+      )
+    )
+  )
+)

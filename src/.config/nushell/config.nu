@@ -792,37 +792,14 @@ def conf [name = nu] {
   if $name == "spt" {
     nvim src/.config/spotify-tui/config.yml
   }
-}
-
-def aurman [
-  pkg: string
-  --sync (-S)
-  --remove (-R)
-] {
-  let dir = (pwd)
-  if $sync {
-    mut package = $pkg
-    if not ($pkg | str starts-with 'https://') {
-      $package = $"https://aur.archlinux.org/($pkg)"
-    }
-    cd $"($env.HOME)/Downloads"
-    git clone $package pkgdir
-    cd pkgdir
-    try {
-      makepkg -Acsi
-    }
-    cd .. ; rm -r pkgdir
+  if $name == "dunst" {
+    nvim src/.config/dunst/dunstrc
   }
-  if $remove {
-    sudo pacman -R $pkg
+  if $name == "hyprland" {
+    nvim src/.config/hypr/hyprland.conf
   }
-  cd $dir
-}  
-
-def dev [] {
-  let cmd = tmux attach-session -t devenv 
-  if $cmd != 1 {
-    tmux new -s devenv
+  if $name == "ags" {
+    nvim src/.config/ags/config.js
   }
 }
 
@@ -871,6 +848,8 @@ alias groot = git rev-parse --show-toplevel
 
 alias acli = arduino-cli
 alias teencli = teensy_loader_cli
+
+alias hyprlog = bash ~/repos/dotconfig/scripts/hyprlog
 
 alias zoot = cd (groot)
 alias vim = nvim

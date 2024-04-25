@@ -43,7 +43,7 @@
 )
 
 (defwidget dashboard[] 
-  (box :orientation "h" :class "content" :halign "center" :valign "center" :hexpand true :vexpand true :space-evenly false
+  (box :orientation "h" :class "content" :halign "center" :valign "center" :vexpand true :space-evenly false
     (box :orientation "v" :class "timemusic" :space-evenly false :vexpand true
       (box :orientation "h" :class "wrapper" :space-evenly false
         (time)

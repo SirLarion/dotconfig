@@ -1,0 +1,24 @@
+$_margin: 99px;
+
+window.screen-corner {
+  box.shadow {
+    margin-right: $_margin * -1;
+    margin-left: $_margin * -1;
+  }
+
+  box.border {
+    margin-right: $_margin;
+    margin-left: $_margin;
+  }
+
+  &.corners {
+    box.border {
+      border-radius: $radius;
+      box-shadow: 0 0 0 $radius $bg;
+    }
+
+    box.corner {
+      border-radius: $radius;
+    }
+  }
+}

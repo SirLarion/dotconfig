@@ -1,5 +1,0 @@
-#!/bin/bash
-
-WINDOW='dashboard'
-
-eww open $WINDOW

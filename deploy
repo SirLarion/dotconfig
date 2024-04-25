@@ -20,6 +20,10 @@ targets[arduino]=".arduino15"
 targets[yazi]=".config/yazi"
 targets[calcure]=".config/calcure"
 targets[spotify-tui]=".config/spotify-tui"
+targets[dunst]=".config/dunst"
+targets[hypr]=".config/hypr"
+targets[ags]=".config/ags"
+targets[swaylock]=".config/swaylock"
 
 echo "============================== Deploying dots =============================="
 
