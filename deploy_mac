@@ -6,17 +6,9 @@ cd $current
 declare -A targets
 
 targets[nvim]=".config/nvim/lua/custom"
-targets[tmux]=".config/tmux"
-targets[nushell]=".config/nushell"
-targets[rofi]=".config/rofi"
-targets[eww]=".config/eww"
-targets[omp]=".oh-my-posh.nu"
 targets[vim]=".vimrc"
 targets[bash]=".bashrc"
 targets[kitty]=".config/kitty"
-targets[zathura]=".config/zathura"
-targets[neomutt]=".config/neomutt"
-targets[arduino]=".arduino15"
 
 echo "============================== Deploying dots =============================="
 
