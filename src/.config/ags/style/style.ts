@@ -53,14 +53,10 @@ const variables = () => [
   $('padding', `${padding}pt`),
   $('spacing', `${spacing}pt`),
   $('radius', `${radius}px`),
+  $('button-radius', `calc(${radius}px * 0.6)`),
   $('transition', `${options.transition}ms`),
 
   $('shadows', `${shadows}`),
-
-  $(
-    'widget-bg',
-    `transparentize(${t(dark.widget, light.widget)}, ${widget.opacity.value / 100})`,
-  ),
 
   $(
     'hover-bg',
