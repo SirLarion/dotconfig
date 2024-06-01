@@ -1,18 +1,18 @@
 [opener]
 edit = [
-  { exec = 'kitten @ launch --type=tab nvim "$@"' }
+  { run = 'kitten @ launch --type=tab nvim "$@"' }
 ]
 
 open = [
-  { exec = 'xdg-open "$@"', orphan = true }
+  { run = 'xdg-open "$@"', orphan = true }
 ]
 
 img = [
-  { exec = 'gimp "$@"', orphan = true }
+  { run = 'gimp "$@"', orphan = true }
 ]
 
 svg = [
-  { exec = 'inkscape $@', orphan = true }
+  { run = 'inkscape $@', orphan = true }
 ]
 
 [open]
@@ -27,6 +27,6 @@ rules = [
 
 [plugin]
 prepend_previewers  = [
-  { mime = "image/svg", exec = "image" }
+  { mime = "image/svg", run = "image" }
 ]
 

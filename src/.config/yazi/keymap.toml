@@ -1,5 +1,8 @@
 [manager]
 prepend_keymap = [
-  { on = ["<C-h>"], exec = 'hidden toggle' },
-  { on = ["<S-Enter>"], exec = 'open --interactive'}
+  { on = ["<C-h>"], run = 'hidden toggle' },
+  { on = ["<S-Enter>"], run = 'open --interactive'},
+  { on = [ "y" ], run = [ "yank", '''shell --confirm 'cat $(echo $@) | wl-copy'''' ]}
 ]
+
+
