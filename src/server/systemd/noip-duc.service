@@ -1,0 +1,9 @@
+[Unit]
+Description=Service for running the no-ip DUC
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/noip-duc -g all.ddnskey.com -u <USER_NAME> -p <PASSWORD>
+
+[Install]
+WantedBy=multi-user.target
