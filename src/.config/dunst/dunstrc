@@ -42,7 +42,7 @@
     always_run_script = true
     title = Dunst
     class = Dunst
-    corner_radius = 0
+    corner_radius = 8
     ignore_dbusclose = false
     force_xwayland = false
     force_xinerama = false
@@ -55,15 +55,16 @@
 
 [urgency_low]
     background = "#000000"
-    foreground = "#2E3440"
+    foreground = "#efefef"
     timeout = 10
 
 [urgency_normal]
     background = "#000000"
-    foreground = "#33658a"
+    foreground = "#efefef"
+    icon = ""
     timeout = 10
 
 [urgency_critical]
-    background = "#efefef"
-    foreground = "#51bf9b"
+    background = "#000000"
+    foreground = "#efefef"
     timeout = 10

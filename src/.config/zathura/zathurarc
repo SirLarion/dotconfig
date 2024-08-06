@@ -2,6 +2,8 @@ set selection-clipboard clipboard
 
 set adjust-open "width"
 
+set database sqlite
+
 set default-bg "#f5f5f5"
 set default-fg "#000000"
 set statusbar-bg "#f5f5f5"

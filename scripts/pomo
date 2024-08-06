@@ -8,6 +8,6 @@ min=${arg1:?Example: pomo 15 Take a break}
 sec=$((min * 60))
 msg="${args:?Example: pomo 15 Take a break}"
 
-notify-send -u critical -a Pomodoro "Focusing for ${min}m 🍅"
+notify-send -u normal -a Pomodoro "Focusing for ${min}m 🍅"
 
-sleep "${sec:?}" && notify-send -u critical -a Pomodoro "${msg:?} 🍅"
+sleep "${sec:?}" && notify-send -u normal -a Pomodoro "${msg:?} 🍅"

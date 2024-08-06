@@ -816,7 +816,17 @@ def ping-mc-server [] {
   python $script -H $host
 }
 
-# def zoot [repo: string] {}
+def rsync_copy [
+  source: string
+  dest: string
+  --recursive (-r)
+] {
+  if $recursive {
+    rsync -ahr --info=progress2 $source $dest
+  } else {
+    rsync -ah --info=progress2 $source $dest
+  }
+}
 
 def nvim-clear-swap [] {
   let user_input = (input "Are you sure?\n> ")
@@ -858,5 +868,6 @@ alias teencli = teensy_loader_cli
 
 alias hyprlog = bash ~/repos/dotconfig/scripts/hyprlog
 
+alias cp = rsync_copy
 alias zoot = cd (groot)
 alias vim = nvim
