@@ -1,0 +1,4 @@
+#!/bin/bash
+
+url=$(zbarcam -q -1 | sed 's/QR-Code://')
+librewolf $url
