@@ -1,1 +1,0 @@
-git xdotool signal-desktop discord thunderbird python-pip neofetch telegram-desktop flameshot gimp steam rustup inkscape playerctl kruler kdebugsettings minecraft blender bluez bluez-utils fuse3 fuse2 xdg-desktop-portal xdg-desktop-portal-gtk pulseaudio-bluetooth rtorrent vlc wine mupdf hddtemp rsync unrar unzip
