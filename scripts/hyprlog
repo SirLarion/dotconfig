@@ -1,3 +1,5 @@
 #!/bin/bash
 
-cat /tmp/hypr/$(ls -t /tmp/hypr/ | head -n 2 | tail -n 1)/hyprland.log
+hypr="/run/user/1000/hypr"
+
+cat /"$hypr"/$(ls -t "$hypr" | head -n 2 | tail -n 1)/hyprland.log

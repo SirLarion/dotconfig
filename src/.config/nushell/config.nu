@@ -868,6 +868,6 @@ alias teencli = teensy_loader_cli
 
 alias hyprlog = bash ~/repos/dotconfig/scripts/hyprlog
 
-alias cp = rsync_copy
+alias rcopy = rsync_copy
 alias zoot = cd (groot)
 alias vim = nvim
