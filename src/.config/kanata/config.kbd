@@ -1,0 +1,13 @@
+;; Caps to escape configuration for Kanata
+
+(defsrc
+  caps
+)
+
+(defalias
+  capsesc (one-shot-release 50 esc)
+)
+
+(deflayer base
+  @capsesc
+)

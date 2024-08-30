@@ -23,6 +23,7 @@ targets[dunst]=".config/dunst"
 targets[hypr]=".config/hypr"
 targets[ags]=".config/ags"
 targets[swaylock]=".config/swaylock"
+targets[kanata]=".config/kanata"
 
 echo "============================== Deploying dots =============================="
 

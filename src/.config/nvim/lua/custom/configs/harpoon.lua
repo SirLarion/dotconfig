@@ -3,7 +3,7 @@ local harpoon = require("harpoon")
 harpoon:setup()
 
 vim.keymap.set("n", "<C-a>", function()
-	harpoon:list():append()
+	harpoon:list():add()
 end)
 
 vim.keymap.set("n", "H", function()

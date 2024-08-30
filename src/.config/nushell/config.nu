@@ -808,6 +808,9 @@ def conf [name = nu] {
   if $name == "ags" {
     nvim src/.config/ags/config.js
   }
+  if $name == "kanata" {
+    nvim src/.config/kanata/config.kbd
+  }
 }
 
 def ping-mc-server [] {

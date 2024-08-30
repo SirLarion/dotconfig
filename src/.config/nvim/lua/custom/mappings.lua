@@ -9,6 +9,7 @@ M.general = {
 		["<A-k>"] = { "ddkP" },
 		["J"] = { "10j" },
 		["K"] = { "10k" },
+		["<C-g>"] = { ":b# <CR>" },
 
 		["<F5>"] = { "<cmd> ! ./deploy<CR>" },
 		["+"] = { "<cmd> vertical res +5<CR>" },
