@@ -9,6 +9,7 @@ targets[nvim]=".config/nvim/lua/custom"
 targets[vim]=".vimrc"
 targets[bash]=".bashrc"
 targets[kitty]=".config/kitty"
+targets[karabiner]=".config/karabiner"
 
 echo "============================== Deploying dots =============================="
 
