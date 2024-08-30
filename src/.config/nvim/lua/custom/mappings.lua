@@ -58,30 +58,4 @@ M.comment = {
 	},
 }
 
-M.tabufline = {
-	plugin = true,
-
-	n = {
-		["<C-w>"] = {
-			function()
-				require("nvchad.tabufline").close_buffer()
-			end,
-			"Close buffer",
-		},
-		["<C-l>"] = {
-			function()
-				require("nvchad.tabufline").tabuflineNext()
-			end,
-			"Goto next buffer",
-		},
-
-		["<C-h>"] = {
-			function()
-				require("nvchad.tabufline").tabuflinePrev()
-			end,
-			"Goto prev buffer",
-		},
-	},
-}
-
 return M
