@@ -1,4 +1,4 @@
-local jdtls = require("nvim-jdtls")
+local jdtls = require("jdtls")
 
 local opts = {
 	-- How to find the root dir for a given filename. The default comes from
@@ -43,4 +43,4 @@ local opts = {
 	test = true,
 }
 
-jdtls.setup(opts)
+jdtls.start_or_attach(opts)

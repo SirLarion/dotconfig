@@ -2,12 +2,16 @@ vim.opt.hls = false
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
-
 vim.opt_global.textwidth = 80
 
-vim.g.toggle_theme_icon = ""
-
 vim.g.rust_recommended_style = 0
+
+vim.g.mapleader = " "
+
+require("config.utils").load_mappings()
+require("config.lazy")
+
+vim.cmd.colorscheme "catppuccin"
 
 -- Open nvim-tree on startup with some twists
 vim.api.nvim_create_autocmd("VimEnter", {

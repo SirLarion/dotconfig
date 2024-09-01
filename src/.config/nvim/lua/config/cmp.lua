@@ -1,12 +1,10 @@
 local cmp = require("cmp")
 
-dofile(vim.g.base46_cache .. "cmp")
-
 local cmp_ui = {
 	icons = true,
 	lspkind_text = true,
-	style = "default", -- default/flat_light/flat_dark/atom/atom_colored
-	border_color = "grey_fg", -- only applicable for "default" style, use color names from base30 variables
+	style = "flat_light",
+	border_color = "grey_fg",    -- only applicable for "default" style, use color names from base30 variables
 	selected_item_bg = "colored", -- colored / simple
 }
 local cmp_style = cmp_ui.style
@@ -123,4 +121,4 @@ if cmp_style ~= "atom" and cmp_style ~= "atom_colored" then
 	options.window.completion.border = border("CmpBorder")
 end
 
-return options
+cmp.setup(options)

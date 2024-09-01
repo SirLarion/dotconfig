@@ -1,48 +1,36 @@
---@type NvPluginSpec[]
 local plugins = {
 	"nvim-lua/plenary.nvim",
+	"nvim-tree/nvim-web-devicons",
+	"tinted-theming/base16-vim",
 	{
-		"NvChad/base46",
-		branch = "v2.0",
-		build = function()
-			require("base46").load_all_highlights()
-		end,
+		"catppuccin/nvim",
+		name = "catppuccin",
+		priority = 1000,
+		integrations = {
+			telescope = false,
+		}
 	},
-	{
-		"nvim-tree/nvim-web-devicons",
-		config = function()
-			dofile(vim.g.base46_cache .. "devicons")
-			require("nvim-web-devicons").setup()
-		end,
-	},
-
 	{
 		"lukas-reineke/indent-blankline.nvim",
-		version = "2.20.7",
-		opts = {
-			indentLine_enabled = 1,
-			filetype_exclude = {
-				"help",
-				"lazy",
-				"lspinfo",
-				"TelescopePrompt",
-				"TelescopeResults",
-				"mason",
-				"nvdash",
-				"nvcheatsheet",
-				"",
-			},
-			show_trailing_blankline_indent = false,
-			show_first_indent_level = false,
-			show_current_context = true,
-			show_current_context_start = true,
-		},
-		config = function(_, opts)
-			dofile(vim.g.base46_cache .. "blankline")
-			require("indent_blankline").setup(opts)
-		end,
+		main = "ibl",
+		config = function()
+			require("ibl").setup {
+				scope = { enabled = false },
+			}
+		end
 	},
-
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = { 'nvim-tree/nvim-web-devicons' },
+		config = function()
+			require("lualine").setup {
+				options = {
+					theme = "catppuccin",
+					globalstatus = true,
+				}
+			}
+		end
+	},
 	{
 		"nvim-treesitter/nvim-treesitter",
 		cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
@@ -57,10 +45,6 @@ local plugins = {
 
 			indent = { enable = true },
 		},
-		config = function(_, opts)
-			dofile(vim.g.base46_cache .. "syntax")
-			require("nvim-treesitter.configs").setup(opts)
-		end,
 	},
 
 	-- git stuff
@@ -83,6 +67,7 @@ local plugins = {
 			})
 		end,
 		opts = {
+			current_line_blame = true,
 			signs = {
 				add = { text = "│" },
 				change = { text = "│" },
@@ -92,10 +77,6 @@ local plugins = {
 				untracked = { text = "│" },
 			},
 		},
-		config = function(_, opts)
-			dofile(vim.g.base46_cache .. "git")
-			require("gitsigns").setup(opts)
-		end,
 	},
 
 	-- lsp stuff
@@ -103,7 +84,12 @@ local plugins = {
 		"williamboman/mason.nvim",
 		cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
 		opts = {
-			ensure_installed = { "lua-language-server" }, -- not an option from mason.nvim
+			ensure_installed = {
+				"typescript-language-server",
+				"rust-analyzer",
+				"eslint-lsp",
+				"lua-language-server"
+			},
 
 			PATH = "skip",
 
@@ -129,7 +115,6 @@ local plugins = {
 			max_concurrent_installers = 10,
 		},
 		config = function(_, opts)
-			dofile(vim.g.base46_cache .. "mason")
 			require("mason").setup(opts)
 
 			-- custom nvchad cmd to install all mason binaries listed
@@ -169,8 +154,8 @@ local plugins = {
 					vim.api.nvim_create_autocmd("InsertLeave", {
 						callback = function()
 							if
-								require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
-								and not require("luasnip").session.jump_active
+									require("luasnip").session.current_nodes[vim.api.nvim_get_current_buf()]
+									and not require("luasnip").session.jump_active
 							then
 								require("luasnip").unlink_current()
 							end
@@ -204,37 +189,24 @@ local plugins = {
 				"hrsh7th/cmp-path",
 			},
 		},
-		opts = function()
-			return require("custom.configs.cmp")
+		config = function()
+			require("config.cmp")
 		end,
-		config = function(_, opts)
-			require("cmp").setup(opts)
+	},
+	{
+		"numToStr/Comment.nvim",
+		init = function()
+			require("config.utils").load_mappings "comment"
 		end,
 	},
 	{
 		"nvim-tree/nvim-tree.lua",
-		config = function()
-			require("custom.configs.nvimtree")
+		init = function()
+			require("config.utils").load_mappings "nvimtree"
 		end,
-	},
-	{
-		"nvim-telescope/telescope-fzy-native.nvim",
 		config = function()
-			require("telescope").load_extension("fzy_native")
+			require("config.nvimtree")
 		end,
-	},
-	{
-		"debugloop/telescope-undo.nvim",
-		config = function()
-			require("telescope").load_extension("undo")
-		end,
-	},
-	{
-		"nvim-telescope/telescope-ui-select.nvim",
-		config = function()
-			require("telescope").load_extension("ui-select")
-		end,
-		lazy = false,
 	},
 	{
 		"nvim-telescope/telescope.nvim",
@@ -244,84 +216,21 @@ local plugins = {
 			"debugloop/telescope-undo.nvim",
 			"nvim-telescope/telescope-fzy-native.nvim",
 			"nvim-telescope/telescope-ui-select.nvim",
+			"andrewberty/telescope-themes"
 		},
-		cmd = "Telescope",
-		opts = (function()
-			local actions = require("telescope.actions")
-			return {
-				defaults = {
-					vimgrep_arguments = {
-						"rg",
-						"-L",
-						"--color=never",
-						"--no-heading",
-						"--with-filename",
-						"--line-number",
-						"--column",
-						"--smart-case",
-					},
-					prompt_prefix = "   ",
-					selection_caret = "  ",
-					entry_prefix = "  ",
-					initial_mode = "insert",
-					selection_strategy = "reset",
-					sorting_strategy = "ascending",
-					layout_strategy = "horizontal",
-					layout_config = {
-						horizontal = {
-							prompt_position = "top",
-							preview_width = 0.55,
-							results_width = 0.8,
-						},
-						vertical = {
-							mirror = false,
-						},
-						width = 0.87,
-						height = 0.80,
-						preview_cutoff = 120,
-					},
-					file_sorter = require("telescope.sorters").get_fuzzy_file,
-					file_ignore_patterns = { "node_modules" },
-					generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
-					path_display = { "truncate" },
-					winblend = 0,
-					border = {},
-					borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-					color_devicons = true,
-					set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
-					file_previewer = require("telescope.previewers").vim_buffer_cat.new,
-					grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
-					qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
-					-- Developer configurations: Not meant for general override
-					buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
-					mappings = {
-						n = {
-							["q"] = require("telescope.actions").close,
-							["l"] = actions.file_edit,
-						},
-						i = {
-							["<C-u>"] = false,
-						},
-					},
-				},
-				extensions = {
-					["ui-select"] = {
-						require("telescope.themes").get_dropdown({ initial_mode = "normal" }),
-					},
-				},
-			}
-		end)(),
-		config = function(_, opts)
-			dofile(vim.g.base46_cache .. "telescope")
-			local telescope = require("telescope")
-			telescope.setup(opts)
+		init = function()
+			require("config.utils").load_mappings "telescope"
 		end,
+		config = function()
+			require("config.telescope")
+		end,
+		cmd = "Telescope",
 	},
 	{
 		"stevearc/conform.nvim",
 		lazy = false,
 		config = function()
-			require("custom.configs.format")
+			require("config.format")
 		end,
 	},
 	{
@@ -334,9 +243,6 @@ local plugins = {
 	},
 	{
 		"rinx/nvim-ripgrep",
-		config = function()
-			require("nvim-ripgrep").setup()
-		end,
 		lazy = false,
 	},
 	{
@@ -350,7 +256,6 @@ local plugins = {
 		end,
 		lazy = false,
 	},
-
 	{
 		"andrewferrier/wrapping.nvim",
 		config = function()
@@ -365,20 +270,12 @@ local plugins = {
 		end,
 	},
 	{
-		"williamboman/mason.nvim",
-		opts = {
-			ensure_installed = {
-				"typescript-language-server",
-				"rust-analyzer",
-				"eslint-lsp",
-			},
-		},
-	},
-	{
 		"neovim/nvim-lspconfig",
+		init = function()
+			require("config.utils").load_mappings "lspconfig"
+		end,
 		config = function()
-			require("plugins.configs.lspconfig")
-			require("custom.configs.lspconfig")
+			require("config.lspconfig")
 		end,
 	},
 	{
@@ -392,21 +289,15 @@ local plugins = {
 		"ThePrimeagen/harpoon",
 		branch = "harpoon2",
 		config = function()
-			require("custom.configs.harpoon")
+			require("config.harpoon")
 		end,
 		dependencies = { "nvim-lua/plenary.nvim" },
 		lazy = false,
 	},
 	{
-		"lewis6991/gitsigns.nvim",
-		opts = {
-			current_line_blame = true,
-		},
-	},
-	{
 		"mfussenegger/nvim-jdtls",
 		config = function()
-			require("custom.configs.jdtls")
+			require("config.jdtls")
 		end,
 	},
 }

@@ -767,7 +767,7 @@ $env.config = {
 def conf [name = nu] {
   cd ~/repos/dotconfig/
   if $name == "vim" {
-    nvim src/.config/nvim/lua/custom/init.lua
+    nvim src/.config/nvim/init.lua
   }  
   if $name == "nu" {
     nvim src/.config/nushell/config.nu
@@ -842,7 +842,7 @@ def nvim-clear-swap [] {
 }
 
 neofetch
-source ~/.zoxide-fix.nu
+source ~/.zoxide.nu
 source ~/.oh-my-posh.nu
 source ~/.local/share/atuin/init.nu
 

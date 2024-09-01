@@ -5,7 +5,7 @@ cd $current
 
 declare -A targets
 
-targets[nvim]=".config/nvim/lua/custom"
+targets[nvim]=".config/nvim/"
 targets[tmux]=".config/tmux"
 targets[nushell]=".config/nushell"
 targets[rofi]=".config/rofi"

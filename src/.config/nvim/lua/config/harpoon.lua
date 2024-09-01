@@ -31,26 +31,26 @@ local function toggle_telescope(harpoon_files)
 	end
 
 	require("telescope.pickers")
-		.new({}, {
-			prompt_title = "Harpoon",
-			finder = make_finder(),
-			previewer = conf.file_previewer({}),
-			sorter = conf.generic_sorter({}),
-			initial_mode = "normal",
-			attach_mappings = function(prompt_buffer_number, map)
-				map("n", "d", function()
-					local state = require("telescope.actions.state")
-					local selected_entry = state.get_selected_entry()
-					local current_picker = state.get_current_picker(prompt_buffer_number)
+			.new({}, {
+				prompt_title = "Harpoon",
+				finder = make_finder(),
+				previewer = conf.file_previewer({}),
+				sorter = conf.generic_sorter({}),
+				initial_mode = "normal",
+				attach_mappings = function(prompt_buffer_number, map)
+					map("n", "d", function()
+						local state = require("telescope.actions.state")
+						local selected_entry = state.get_selected_entry()
+						local current_picker = state.get_current_picker(prompt_buffer_number)
 
-					harpoon:list():removeAt(selected_entry.index)
-					current_picker:refresh(make_finder())
-				end)
+						harpoon:list():removeAt(selected_entry.index)
+						current_picker:refresh(make_finder())
+					end)
 
-				return true
-			end,
-		})
-		:find()
+					return true
+				end,
+			})
+			:find()
 end
 
 vim.keymap.set("n", "<C-e>", function()

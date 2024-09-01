@@ -1,7 +1,52 @@
-local on_attach = require("plugins.configs.lspconfig").on_attach
-local capabilities = require("plugins.configs.lspconfig").capabilities
+local on_attach = function(client, bufnr)
+	client.server_capabilities.documentFormattingProvider = false
+	client.server_capabilities.documentRangeFormattingProvider = false
+
+	if client.supports_method "textDocument/semanticTokens" then
+		client.server_capabilities.semanticTokensProvider = nil
+	end
+end
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 local lspconfig = require("lspconfig")
+
+capabilities.textDocument.completion.completionItem = {
+	documentationFormat = { "markdown", "plaintext" },
+	snippetSupport = true,
+	preselectSupport = true,
+	insertReplaceSupport = true,
+	labelDetailsSupport = true,
+	deprecatedSupport = true,
+	commitCharactersSupport = true,
+	tagSupport = { valueSet = { 1 } },
+	resolveSupport = {
+		properties = {
+			"documentation",
+			"detail",
+			"additionalTextEdits",
+		},
+	},
+}
+
+lspconfig.lua_ls.setup {
+	on_attach,
+	capabilities,
+
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = { "vim" },
+			},
+			workspace = {
+				checkThirdParty = true,
+				library = {
+					vim.env.RUNTIME
+				},
+			},
+		},
+	},
+}
 
 local servers = {
 	"cssls",
@@ -17,17 +62,9 @@ local servers = {
 	"jdtls",
 }
 
-local utils = require("core.utils")
-local on_init = function(client)
-	if not utils.load_config().ui.lsp_semantic_tokens and client.supports_method("textDocument/semanticTokens") then
-		client.server_capabilities.semanticTokensProvider = nil
-	end
-end
-
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
 		on_attach = on_attach,
-		on_init = on_init,
 		capabilities = capabilities,
 	})
 end
@@ -59,7 +96,6 @@ end
 
 lspconfig.tsserver.setup({
 	on_attach = on_attach,
-	on_init = on_init,
 	capabilities = capabilities,
 	init_options = {
 		preferences = {
