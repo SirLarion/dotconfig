@@ -27,6 +27,14 @@ M.general = {
   },
 }
 
+M.nvimtree = {
+	plugin = true,
+
+	n = {
+		["<C-n>"] = { "<cmd> NvimTreeToggle <CR>", "Toggle nvimtree" },
+	},
+}
+
 M.telescope = {
   plugin = true,
 
