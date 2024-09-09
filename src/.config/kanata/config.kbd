@@ -1,13 +1,21 @@
-;; Caps to escape configuration for Kanata
-
-(defsrc
-  caps
+(defcfg
+  process-unmapped-keys yes
 )
 
-(defalias
-  capsesc (one-shot-release 50 esc)
+(defsrc
+  caps h j k l
 )
 
 (deflayer base
-  @capsesc
+  @supercaps h j k l
 )
+
+(deflayer arrows
+  _    left down up right
+)
+
+(defalias
+  holdarrows (layer-while-held arrows)
+  supercaps (tap-hold-release 200 200 esc @holdarrows)
+)
+
