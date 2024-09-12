@@ -1,4 +1,4 @@
-local on_attach = function(client, bufnr)
+local on_attach = function(client)
   client.server_capabilities.documentFormattingProvider = false
   client.server_capabilities.documentRangeFormattingProvider = false
 
@@ -91,7 +91,7 @@ local function filterDts(value)
   return string.match(uri, "%.d.ts") == nil
 end
 
-lspconfig.tsserver.setup({
+lspconfig.ts_ls.setup({
   on_attach = on_attach,
   capabilities = capabilities,
   init_options = {

@@ -262,11 +262,11 @@ local plugins = {
     config = function()
       require("wrapping").setup({
         create_keymaps = false,
-        auto_set_mode_filetype_allowlist = {
-          "latex",
-          "markdown",
-          "tex",
-        },
+        softener = {
+          markdown = false,
+          latex = false,
+          tex = false,
+        }
       })
     end,
   },
