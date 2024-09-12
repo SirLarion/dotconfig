@@ -7,6 +7,7 @@ telescope.setup {
 	defaults = {
 		vimgrep_arguments = {
 			"rg",
+			"-s",
 			"-L",
 			"--color=never",
 			"--no-heading",

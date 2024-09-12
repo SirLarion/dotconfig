@@ -4,7 +4,135 @@
             "complex_modifications": {
                 "parameters": { "basic.to_if_held_down_threshold_milliseconds": 50 },
                 "rules": [
-                    {
+ 										{
+												"description": "Nocaps",
+												"manipulators": [
+													{
+														"from": {
+															"key_code": "caps_lock",
+															"modifiers": {
+																"optional": [
+																	"any"
+																]
+															}
+														},
+														"to": [
+															{
+																"set_variable": {
+																	"name": "caps_lock pressed",
+																	"value": 1
+																}
+															}
+														],
+														"to_after_key_up": [
+															{
+																"set_variable": {
+																	"name": "caps_lock pressed",
+																	"value": 0
+																}
+															}
+														],
+														"type": "basic"
+													},
+													{
+														"type": "basic",
+														"conditions": [
+															{
+																"name": "caps_lock pressed",
+																"type": "variable_if",
+																"value": 1
+															}
+														],
+														"from": {
+															"key_code": "h",
+															"modifiers": {
+																"optional": [
+																	"any"
+																]
+															}
+														},
+														"to": [
+															{
+																"key_code": "left_arrow",
+																"modifiers": []
+															}
+														]
+													},
+													{
+														"type": "basic",
+														"conditions": [
+															{
+																"name": "caps_lock pressed",
+																"type": "variable_if",
+																"value": 1
+															}
+														],
+														"from": {
+															"key_code": "j",
+															"modifiers": {
+																"optional": [
+																	"any"
+																]
+															}
+														},
+														"to": [
+															{
+																"key_code": "down_arrow",
+																"modifiers": []
+															}
+														]
+													},
+													{
+														"type": "basic",
+														"conditions": [
+															{
+																"name": "caps_lock pressed",
+																"type": "variable_if",
+																"value": 1
+															}
+														],
+														"from": {
+															"key_code": "k",
+															"modifiers": {
+																"optional": [
+																	"any"
+																]
+															}
+														},
+														"to": [
+															{
+																"key_code": "up_arrow",
+																"modifiers": []
+															}
+														]
+													},
+													{
+														"type": "basic",
+														"conditions": [
+															{
+																"name": "caps_lock pressed",
+																"type": "variable_if",
+																"value": 1
+															}
+														],
+														"from": {
+															"key_code": "l",
+															"modifiers": {
+																"optional": [
+																	"any"
+																]
+															}
+														},
+														"to": [
+															{
+																"key_code": "right_arrow",
+																"modifiers": []
+															}
+														]
+													}
+												]
+										},
+                   {
                         "description": "Backslash",
                         "manipulators": [
                             {
@@ -615,12 +743,12 @@
                         ]
                     },
                     {
-                        "description": "Ctrl+Alt+H -> Ctrl+Left",
+                        "description": "Shift+Cmd+H/L -> Ctrl+Arrows",
                         "manipulators": [
                             {
                                 "from": {
                                     "key_code": "h",
-                                    "modifiers": { "mandatory": ["left_control", "left_command"] }
+                                    "modifiers": { "mandatory": ["left_shift", "left_command"] }
                                 },
                                 "to": [
                                     {
@@ -630,16 +758,11 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Ctrl+Alt+L -> Ctrl+Right",
-                        "manipulators": [
+                            },
                             {
                                 "from": {
                                     "key_code": "l",
-                                    "modifiers": { "mandatory": ["left_control", "left_command"] }
+                                    "modifiers": { "mandatory": ["left_shift", "left_command"] }
                                 },
                                 "to": [
                                     {
@@ -679,12 +802,7 @@
             ],
             "name": "Default profile",
             "selected": true,
-            "simple_modifications": [
-                {
-                    "from": { "key_code": "caps_lock" },
-                    "to": [{ "key_code": "escape" }]
-                }
-            ]
+						"simple_modifications": []
         }
     ]
 }

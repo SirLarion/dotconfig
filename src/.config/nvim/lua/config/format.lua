@@ -7,7 +7,7 @@ conform.setup({
 		javascriptreact = { "prettierd" },
 		typescript = { "prettierd" },
 		typescriptreact = { "prettierd" },
-		json = { "prettierd" },
+		json = { "fixjson" },
 		css = { "prettierd" },
 		scss = { "prettierd" },
 		html = { "prettierd" },

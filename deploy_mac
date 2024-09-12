@@ -5,7 +5,7 @@ cd $current
 
 declare -A targets
 
-targets[nvim]=".config/nvim/lua/custom"
+targets[nvim]=".config/nvim"
 targets[vim]=".vimrc"
 targets[bash]=".bashrc"
 targets[kitty]=".config/kitty"
