@@ -2,6 +2,19 @@ local plugins = {
   "nvim-tree/nvim-web-devicons",
   "onsails/lspkind.nvim",
   {
+    "nvimtools/none-ls.nvim",
+    dependencies = {
+      "nvimtools/none-ls-extras.nvim"
+    },
+    config = function()
+      require("null-ls").setup({
+        sources = {
+          require("none-ls.diagnostics.eslint_d"),
+        }
+      })
+    end,
+  },
+  {
     "catppuccin/nvim",
     lazy = false,
     name = "catppuccin",
@@ -301,6 +314,12 @@ local plugins = {
       require("config.jdtls")
     end,
   },
+  {
+    "mskelton/oldies.nvim",
+    init = function()
+      require("config.utils").load_mappings "oldies"
+    end,
+  }
 }
 
 return plugins

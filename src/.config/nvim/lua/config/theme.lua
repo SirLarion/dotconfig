@@ -17,6 +17,8 @@ require("catppuccin").setup {
         NvimTreeCursorLine = { bg = C.surface1 },
         NvimTreeNormal = { bg = C.base },
 
+        GitSignsCurrentLineBlame = { fg = C.surface2 },
+
         CmpItemKindSnippet = { fg = C.base, bg = C.mauve },
         CmpItemKindKeyword = { fg = C.base, bg = C.red },
         CmpItemKindText = { fg = C.base, bg = C.teal },

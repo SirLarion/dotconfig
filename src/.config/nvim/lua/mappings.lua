@@ -218,4 +218,21 @@ M.comment = {
 	},
 }
 
+M.oldies = {
+  plugin = true,
+
+  n = {
+    ["<C-g>"] = {
+      function()
+        require("oldies").prev()
+      end,
+    },
+    ["<C-f>"] = {
+      function()
+        require("oldies").next()
+      end,
+    }
+  }
+}
+
 return M
