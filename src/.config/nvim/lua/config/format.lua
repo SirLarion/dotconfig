@@ -15,8 +15,8 @@ conform.setup({
     cpp = { "clang_format" },
     arduino = { "clang_format" },
     bash = { "beautysh" },
-    xml = { "xmlformat" },
-    opml = { "xmlformat" },
+    xml = { "xmllint" },
+    opml = { "xmllint" },
     rust = { "rustfmt" },
     kotlin = { "ktlint" },
   },
@@ -26,7 +26,7 @@ conform.setup({
   },
   formatters = {
     rustfmt = {
-      command = "/usr/bin/rustfmt"
-    }
-  }
+      command = "/usr/bin/rustfmt",
+    },
+  },
 })

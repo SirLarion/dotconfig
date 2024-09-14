@@ -1,11 +1,11 @@
-require("catppuccin").setup {
+require("catppuccin").setup({
   color_overrides = {
     latte = {
       base = "#FAFAF9",
       mantle = "#F6F6F7",
       crust = "#F3F3F4",
       surface0 = "#F2F2F3",
-      surface1 = "#F2F2F3"
+      surface1 = "#F2F2F3",
     },
   },
   highlight_overrides = {
@@ -51,6 +51,6 @@ require("catppuccin").setup {
   integrations = {
     telescope = { enabled = true, style = "nvchad" },
   },
-}
+})
 
-vim.cmd.colorscheme "catppuccin-latte"
+vim.cmd.colorscheme("catppuccin-latte")

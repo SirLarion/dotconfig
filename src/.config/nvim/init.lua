@@ -27,7 +27,7 @@ o.numberwidth = 2
 o.ruler = false
 
 -- disable nvim intro
-opt.shortmess:append "sI"
+opt.shortmess:append("sI")
 
 o.signcolumn = "yes"
 o.splitbelow = true
@@ -155,11 +155,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     local opts = { buffer = ev.buf }
     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-    vim.keymap.set("n", "<C-k>",
-      function()
-        openDiagnosticIfNoFloat()
-        openLspHoverIfNoFloat(opts)
-      end, opts)
+    vim.keymap.set("n", "<C-k>", function()
+      openDiagnosticIfNoFloat()
+      openLspHoverIfNoFloat(opts)
+    end, opts)
     vim.keymap.set("n", "<space>d", vim.lsp.buf.type_definition, opts)
     vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
     vim.keymap.set("n", "<C-.>", vim.lsp.buf.code_action, opts)

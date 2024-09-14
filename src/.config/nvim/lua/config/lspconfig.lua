@@ -2,7 +2,7 @@ local on_attach = function(client)
   client.server_capabilities.documentFormattingProvider = false
   client.server_capabilities.documentRangeFormattingProvider = false
 
-  if client.supports_method "textDocument/semanticTokens" then
+  if client.supports_method("textDocument/semanticTokens") then
     client.server_capabilities.semanticTokensProvider = nil
   end
 end
@@ -29,7 +29,7 @@ capabilities.textDocument.completion.completionItem = {
   },
 }
 
-lspconfig.lua_ls.setup {
+lspconfig.lua_ls.setup({
   on_attach,
   capabilities,
 
@@ -43,7 +43,7 @@ lspconfig.lua_ls.setup {
       },
     },
   },
-}
+})
 
 local servers = {
   "cssls",
@@ -57,7 +57,7 @@ local servers = {
   "taplo",
   "kotlin_language_server",
   "jdtls",
-  "ts_ls"
+  "ts_ls",
 }
 
 for _, lsp in ipairs(servers) do

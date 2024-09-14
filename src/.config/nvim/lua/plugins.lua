@@ -4,13 +4,13 @@ local plugins = {
   {
     "nvimtools/none-ls.nvim",
     dependencies = {
-      "nvimtools/none-ls-extras.nvim"
+      "nvimtools/none-ls-extras.nvim",
     },
     config = function()
       require("null-ls").setup({
         sources = {
           require("none-ls.diagnostics.eslint_d"),
-        }
+        },
       })
     end,
   },
@@ -28,22 +28,22 @@ local plugins = {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
     config = function()
-      require("ibl").setup {
+      require("ibl").setup({
         scope = { enabled = false },
-      }
-    end
+      })
+    end,
   },
   {
     "nvim-lualine/lualine.nvim",
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-      require("lualine").setup {
+      require("lualine").setup({
         options = {
           theme = "catppuccin",
           globalstatus = true,
-        }
-      }
-    end
+        },
+      })
+    end,
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -102,7 +102,7 @@ local plugins = {
         "typescript-language-server",
         "rust-analyzer",
         "eslint-lsp",
-        "lua-language-server"
+        "lua-language-server",
       },
 
       PATH = "skip",
@@ -210,13 +210,13 @@ local plugins = {
   {
     "numToStr/Comment.nvim",
     init = function()
-      require("config.utils").load_mappings "comment"
+      require("config.utils").load_mappings("comment")
     end,
   },
   {
     "nvim-tree/nvim-tree.lua",
     init = function()
-      require("config.utils").load_mappings "nvimtree"
+      require("config.utils").load_mappings("nvimtree")
     end,
     config = function()
       require("config.nvimtree")
@@ -230,10 +230,10 @@ local plugins = {
       "debugloop/telescope-undo.nvim",
       "nvim-telescope/telescope-fzy-native.nvim",
       "nvim-telescope/telescope-ui-select.nvim",
-      "andrewberty/telescope-themes"
+      "andrewberty/telescope-themes",
     },
     init = function()
-      require("config.utils").load_mappings "telescope"
+      require("config.utils").load_mappings("telescope")
     end,
     config = function()
       require("config.telescope")
@@ -279,14 +279,14 @@ local plugins = {
           markdown = false,
           latex = false,
           tex = false,
-        }
+        },
       })
     end,
   },
   {
     "neovim/nvim-lspconfig",
     init = function()
-      require("config.utils").load_mappings "lspconfig"
+      require("config.utils").load_mappings("lspconfig")
     end,
     config = function()
       require("config.lspconfig")
@@ -317,9 +317,9 @@ local plugins = {
   {
     "mskelton/oldies.nvim",
     init = function()
-      require("config.utils").load_mappings "oldies"
+      require("config.utils").load_mappings("oldies")
     end,
-  }
+  },
 }
 
 return plugins
