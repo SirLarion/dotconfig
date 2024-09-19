@@ -19,14 +19,15 @@ conform.setup({
     opml = { "xmllint" },
     rust = { "rustfmt" },
     kotlin = { "ktlint" },
+    sql = { "sleek" },
   },
   format_on_save = {
     timeout_ms = 200,
     lsp_fallback = true,
   },
   formatters = {
-    rustfmt = {
-      command = "/usr/bin/rustfmt",
+    sleek = {
+      command = "/home/sirlarion/.cargo/bin/sleek",
     },
   },
 })

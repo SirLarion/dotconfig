@@ -105,7 +105,7 @@ local plugins = {
         "lua-language-server",
       },
 
-      PATH = "skip",
+      PATH = "prepend",
 
       ui = {
         icons = {
@@ -315,10 +315,8 @@ local plugins = {
     end,
   },
   {
-    "mskelton/oldies.nvim",
-    init = function()
-      require("config.utils").load_mappings("oldies")
-    end,
+    "folke/which-key.nvim",
+    event = "VeryLazy",
   },
 }
 

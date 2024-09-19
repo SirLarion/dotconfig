@@ -41,8 +41,8 @@ M.telescope = {
   plugin = true,
 
   n = {
-    ["<C-p>"] = { ":Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍 <CR>" },
-    ["<C-o>"] = { ":Telescope oldfiles <CR>" },
+    ["<leader>p"] = { ":Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=🔍 <CR>" },
+    ["<leader>o"] = { ":Telescope oldfiles <CR>" },
     ["F"] = { ":Telescope live_grep find_command=rg prompt_prefix=🔍 <CR>" },
     ["U"] = { ":Telescope undo initial_mode=normal <CR>" },
   },
@@ -213,23 +213,6 @@ M.comment = {
     ["<leader>7"] = {
       "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
       "Toggle comment",
-    },
-  },
-}
-
-M.oldies = {
-  plugin = true,
-
-  n = {
-    ["<C-g>"] = {
-      function()
-        require("oldies").prev()
-      end,
-    },
-    ["<C-f>"] = {
-      function()
-        require("oldies").next()
-      end,
     },
   },
 }

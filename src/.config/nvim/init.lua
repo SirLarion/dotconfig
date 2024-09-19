@@ -44,6 +44,7 @@ vim.opt_global.textwidth = 80
 g.mapleader = " "
 
 require("config.utils").load_mappings()
+
 require("config.lazy")
 require("config.netlogo")
 
@@ -100,7 +101,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
-function checkIsFloat()
+function CheckIsFloat()
   for _, winid in pairs(vim.api.nvim_tabpage_list_wins(0)) do
     if vim.api.nvim_win_get_config(winid).zindex then
       return true
@@ -112,8 +113,8 @@ end
 -- Function to check if a floating dialog exists and if not
 -- then check for diagnostics under the cursor
 -- https://neovim.discourse.group/t/how-to-show-diagnostics-on-hover/3830/2
-function openDiagnosticIfNoFloat()
-  if checkIsFloat() then
+function OpenDiagnosticIfNoFloat()
+  if CheckIsFloat() then
     return
   end
   -- THIS IS FOR BUILTIN LSP
@@ -130,8 +131,8 @@ function openDiagnosticIfNoFloat()
   })
 end
 
-function openLspHoverIfNoFloat(opts)
-  if checkIsFloat() then
+function OpenLspHoverIfNoFloat(opts)
+  if CheckIsFloat() then
     return
   end
   vim.lsp.buf.hover(opts)
@@ -141,7 +142,7 @@ end
 vim.api.nvim_create_augroup("lsp_diagnostics_hold", { clear = true })
 vim.api.nvim_create_autocmd({ "CursorHold" }, {
   pattern = "*",
-  command = "lua openDiagnosticIfNoFloat()",
+  command = "lua OpenDiagnosticIfNoFloat()",
   group = "lsp_diagnostics_hold",
 })
 
@@ -156,8 +157,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
     local opts = { buffer = ev.buf }
     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
     vim.keymap.set("n", "<C-k>", function()
-      openDiagnosticIfNoFloat()
-      openLspHoverIfNoFloat(opts)
+      OpenDiagnosticIfNoFloat()
+      OpenLspHoverIfNoFloat(opts)
     end, opts)
     vim.keymap.set("n", "<space>d", vim.lsp.buf.type_definition, opts)
     vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
