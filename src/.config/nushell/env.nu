@@ -62,6 +62,7 @@ $env.NU_PLUGIN_DIRS = [
 $env.PATH = ($env.PATH | split row (char esep) | prepend '/home/sirlarion/.bun/bin/')
 $env.PATH = ($env.PATH | split row (char esep) | prepend '/home/sirlarion/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/')
 $env.PATH = ($env.PATH | split row (char esep) | prepend '/home/sirlarion/.cargo/bin')
+$env.PATH = ($env.PATH | split row (char esep) | prepend '/opt/netlogo/bin')
 zoxide init nushell | save -f ~/.zoxide.nu
 
 source /home/sirlarion/.config/nushell/local.nu

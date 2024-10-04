@@ -17,6 +17,17 @@ M.general = {
     ["<F5>"] = { "<cmd> ! ./deploy<CR>" },
     ["+"] = { "<cmd> vertical res +5<CR>" },
     ["-"] = { "<cmd> vertical res -5<CR>" },
+
+    ["gne"] = {
+      function()
+        vim.diagnostic.goto_next()
+      end,
+    },
+    ["gpe"] = {
+      function()
+        vim.diagnostic.goto_prev()
+      end,
+    },
   },
 
   i = {

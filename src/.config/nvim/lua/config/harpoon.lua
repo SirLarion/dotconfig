@@ -43,7 +43,7 @@ local function toggle_telescope(harpoon_files)
             local selected_entry = state.get_selected_entry()
             local current_picker = state.get_current_picker(prompt_buffer_number)
 
-            harpoon:list():removeAt(selected_entry.index)
+            harpoon:list():remove(selected_entry)
             current_picker:refresh(make_finder())
           end)
 

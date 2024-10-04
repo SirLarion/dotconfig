@@ -46,7 +46,6 @@ g.mapleader = " "
 require("config.utils").load_mappings()
 
 require("config.lazy")
-require("config.netlogo")
 
 -- Open nvim-tree on startup with some twists
 vim.api.nvim_create_autocmd("VimEnter", {
