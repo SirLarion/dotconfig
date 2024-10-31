@@ -1,5 +1,7 @@
 source ./theme.muttrc
 
+set editor      = /usr/bin/vim
+
 # setup imap and smtp server information
 set folder      ="`source ~/.config/.env && echo $IMAP_SERVER`"
 set smtp_url    ="`source ~/.config/.env && echo $SMTP_SERVER`"
@@ -7,7 +9,8 @@ set smtp_url    ="`source ~/.config/.env && echo $SMTP_SERVER`"
 # sending
 set from        = "miska@tammenpaa.com"
 set real_name   = "Miska Tammenpää"
-set imap_pass   ="`source ~/.config/.env && echo $MISKA_TAMMENPAA_IMAP_PASS`"
+set imap_pass   ="`secret-tool lookup user miska@tammenpaa.com`"
+set smtp_pass   ="`secret-tool lookup user miska@tammenpaa.com`"
 
 set sort        = reverse-date-received
 

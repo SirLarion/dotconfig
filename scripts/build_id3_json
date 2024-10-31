@@ -1,0 +1,13 @@
+#!/bin/bash
+
+cd $1
+
+echo '[' >> songs.json
+
+for f in *.mp3; do 
+  echo "{ \"file\": \"$f\"," >> songs.json
+  ffprobe -v error -show_entries format_tags=title,artist,album -of json "$f" >> songs.json
+  echo '},' >> songs.json
+done
+
+echo ']' >> songs.json

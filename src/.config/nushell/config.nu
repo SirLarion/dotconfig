@@ -232,7 +232,7 @@ $env.config = {
     }
 
     color_config: $light_theme # if you want a more interesting theme, you can replace the empty record with `$dark_theme`, `$light_theme` or another custom record
-    footer_mode: "25" # always, never, number_of_rows, auto
+    footer_mode: 25 # always, never, number_of_rows, auto
     float_precision: 2 # the precision for displaying floats in tables
     buffer_editor: "" # command that will be used to edit the current line buffer with ctrl+o, if unset fallback to $env.EDITOR and $env.VISUAL
     use_ansi_coloring: true
@@ -765,11 +765,17 @@ $env.config = {
 
 def conf [name = nu] {
   cd ~/repos/dotconfig/
-  if $name == "vim" {
+  if $name == "nvim" {
     nvim src/.config/nvim/init.lua
   }  
+  if $name == "vim" {
+    nvim src/.vimrc
+  }
   if $name == "nu" {
     nvim src/.config/nushell/config.nu
+  }
+  if $name == "fish" {
+    nvim src/.config/fish/config.fish
   }
   if $name == "tmux" {
     nvim src/.config/tmux/tmux.conf

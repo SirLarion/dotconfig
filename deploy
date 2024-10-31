@@ -8,8 +8,10 @@ declare -A targets
 targets[nvim]=".config/nvim/"
 targets[tmux]=".config/tmux"
 targets[nushell]=".config/nushell"
+targets[fish]=".config/fish"
 targets[rofi]=".config/rofi"
 targets[eww]=".config/eww"
+targets[atuin]=".config/atuin"
 targets[omp]=".oh-my-posh.nu"
 targets[vim]=".vimrc"
 targets[bash]=".bashrc"
@@ -24,6 +26,7 @@ targets[hypr]=".config/hypr"
 targets[ags]=".config/ags"
 targets[swaylock]=".config/swaylock"
 targets[kanata]=".config/kanata"
+targets[starship]=".config/starship.toml"
 
 echo "============================== Deploying dots =============================="
 
@@ -38,7 +41,7 @@ for t in "${targets[@]}"; do
 
   # If the target is a file
   elif [[ -f $t ]]; then 
-    cp $current/$t $HOME
+    cp $current/$t $HOME/$t
   fi
 
   printf "$t %50s\n" " ==> $HOME/$t" 

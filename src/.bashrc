@@ -170,7 +170,6 @@ PATH=$PATH:/bin/sbt/bin
 PATH=$PATH:/bin/maple2018/bin
 PATH=$PATH:/home/sirlarion/blender-git/build_linux/bin
 PATH=$PATH:/opt/android-sdk/tools/bin
-neofetch
 
 stty -ixon
 
