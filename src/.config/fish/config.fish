@@ -176,10 +176,10 @@ set -U fish_pager_color_selected_completion
 set -U fish_pager_color_secondary_background 
 set -U fish_color_keyword
 
-set -g fish_user_paths "/home/sirlarion/.local/bin/" $fish_user_paths
-set -g fish_user_paths '/home/sirlarion/.bun/bin/' $fish_user_paths
-set -g fish_user_paths '/home/sirlarion/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/' $fish_user_paths
-set -g fish_user_paths '/home/sirlarion/.cargo/bin' $fish_user_paths
+set -g fish_user_paths "/home/larion/.local/bin/" $fish_user_paths
+set -g fish_user_paths '/home/larion/.bun/bin/' $fish_user_paths
+set -g fish_user_paths '/home/larion/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/' $fish_user_paths
+set -g fish_user_paths '/home/larion/.cargo/bin' $fish_user_paths
 
 zoxide init fish | source
 atuin init fish --disable-up-arrow | source

@@ -27,7 +27,7 @@ conform.setup({
   },
   formatters = {
     sleek = {
-      command = "/home/sirlarion/.cargo/bin/sleek",
+      command = "/home/larion/.cargo/bin/sleek",
     },
   },
 })

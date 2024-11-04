@@ -3,7 +3,7 @@ Description=Home analytics collector server
 After=network.target
 
 [Service]
-WorkingDirectory=/home/sirlarion/repos/humidserv/server
+WorkingDirectory=/home/larion/repos/humidserv/server
 ExecStart=/usr/bin/humidserv
 
 [Install]

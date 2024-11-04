@@ -59,9 +59,9 @@ $env.NU_PLUGIN_DIRS = [
 # To add entries to PATH (on Windows you might use Path), you can use the following pattern:
 # $env.PATH = ($env.PATH | split row (char esep) | prepend '/some/path')
 
-$env.PATH = ($env.PATH | split row (char esep) | prepend '/home/sirlarion/.bun/bin/')
-$env.PATH = ($env.PATH | split row (char esep) | prepend '/home/sirlarion/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/')
-$env.PATH = ($env.PATH | split row (char esep) | prepend '/home/sirlarion/.cargo/bin')
+$env.PATH = ($env.PATH | split row (char esep) | prepend '/home/larion/.bun/bin/')
+$env.PATH = ($env.PATH | split row (char esep) | prepend '/home/larion/.arduino15/packages/arduino/tools/avrdude/6.3.0-arduino17/bin/')
+$env.PATH = ($env.PATH | split row (char esep) | prepend '/home/larion/.cargo/bin')
 zoxide init nushell | save -f ~/.zoxide.nu
 
-source /home/sirlarion/.config/nushell/local.nu
+source /home/larion/.config/nushell/local.nu

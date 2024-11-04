@@ -12,9 +12,9 @@ build_cache:
 daemon:
   port: "50051"
 directories:
-  data: /home/sirlarion/.arduino15
-  downloads: /home/sirlarion/.arduino15/staging
-  user: /home/sirlarion/repos/sketcherino
+  data: /home/larion/.arduino15
+  downloads: /home/larion/.arduino15/staging
+  user: /home/larion/repos/sketcherino
 library:
   enable_unsafe_install: false
 logging:
