@@ -1,8 +1,8 @@
 format = """
-[](#9A348E)\
+[](<%host_accent%>)\
 $os\
 $username\
-[](bg:#DA627D fg:#9A348E)\
+[](bg:#DA627D fg:<%host_accent%>)\
 $directory\
 [](fg:#DA627D bg:#FCA17D)\
 $git_branch\
@@ -33,15 +33,15 @@ add_newline = false
 # and use the os module below
 [username]
 show_always = true
-style_user = "fg:#FAFAFA bg:#9A348E"
-style_root = "fg:#FAFAFA bg:#9A348E"
-format = '[♞ $user ]($style)'
+style_user = "fg:#FAFAFA bg:<%host_accent%>"
+style_root = "fg:#FAFAFA bg:<%host_accent%>"
+format = '[<%host_symbol%> $user ]($style)'
 disabled = false
 
 # An alternative to the username module which displays a symbol that
 # represents the current operating system
 [os]
-style = "fg:#FAFAFA bg:#9A348E"
+style = "fg:#FAFAFA bg:<%host_accent%>"
 disabled = true # Disabled by default
 
 [directory]

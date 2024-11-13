@@ -1,0 +1,21 @@
+#!/bin/bash
+
+declare -A substitutes
+
+if [[ $HOSTNAME == "otm" ]]; then
+  if [[ $1 == "starship" ]]; then
+    substitutes[host_symbol]="♞"
+    substitutes[host_accent]="#9A348E"
+  fi
+
+elif [[ $HOSTNAME == "homeserver" ]]; then
+  if [[ $1 == "starship" ]]; then
+    substitutes[host_symbol]="♚"
+    substitutes[host_accent]="#AA2C5C"
+  fi
+else 
+  if [[ $1 == "starship" ]]; then
+    substitutes[host_symbol]="♟"
+    substitutes[host_accent]="#4A32AA"
+  fi
+fi

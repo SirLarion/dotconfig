@@ -1,48 +1,78 @@
 #!/bin/bash
 
+script_dir=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 current="$HOME/repos/dotconfig/src"
 cd $current
 
 declare -A targets
 
-targets[nvim]=".config/nvim/"
-targets[tmux]=".config/tmux"
-targets[nushell]=".config/nushell"
-targets[fish]=".config/fish"
-targets[rofi]=".config/rofi"
-targets[eww]=".config/eww"
-targets[atuin]=".config/atuin"
-targets[omp]=".oh-my-posh.nu"
-targets[vim]=".vimrc"
-targets[bash]=".bashrc"
-targets[kitty]=".config/kitty"
-targets[zathura]=".config/zathura"
-targets[neomutt]=".config/neomutt"
-targets[arduino]=".arduino15"
-targets[yazi]=".config/yazi"
-targets[spotify-tui]=".config/spotify-tui"
-targets[dunst]=".config/dunst"
-targets[hypr]=".config/hypr"
-targets[ags]=".config/ags"
-targets[swaylock]=".config/swaylock"
-targets[kanata]=".config/kanata"
-targets[starship]=".config/starship.toml"
+# Key: name, Value: file/dir in $HOME/.config
+
+if [[ $HOSTNAME == "otm" ]]; then
+  targets[nvim]=".config/nvim/"
+  targets[nu]=".config/nushell"
+  targets[fish]=".config/fish"
+  targets[rofi]=".config/rofi"
+  targets[eww]=".config/eww"
+  targets[atuin]=".config/atuin"
+  targets[vim]=".vimrc"
+  targets[bash]=".bashrc"
+  targets[kitty]=".config/kitty"
+  targets[zathura]=".config/zathura"
+  targets[neomutt]=".config/neomutt"
+  targets[arduino]=".arduino15"
+  targets[yazi]=".config/yazi"
+  targets[dunst]=".config/dunst"
+  targets[hypr]=".config/hypr"
+  targets[ags]=".config/ags"
+  targets[swaylock]=".config/swaylock"
+  targets[kanata]=".config/kanata"
+  targets[starship]=".config/starship.toml"
+elif [[ $HOSTNAME == "homeserver" ]]; then
+  targets[nvim]=".config/nvim/"
+  targets[fish]=".config/fish"
+  targets[atuin]=".config/atuin"
+  targets[vim]=".vimrc"
+  targets[bash]=".bashrc"
+  targets[starship]=".config/starship.toml"
+else 
+  targets[fish]=".config/fish"
+  targets[starship]=".config/starship.toml"
+fi
 
 echo "============================== Deploying dots =============================="
 
-for t in "${targets[@]}"; do
+for key in "${!targets[@]}"; do
+  t=${targets[$key]}
+
+  source $script_dir/declare_substitutes $key
+
   # If the target is a directory
   if [[ -d $t ]]; then 
     if [[ ! -d $HOME/$t ]]; then 
       printf "Initializing %50s\n" "$HOME/$t"
       mkdir -p $HOME/$t
     fi
+
     cp -rf $current/$t/* $HOME/$t
+
+    for sub_key in "${!substitutes[@]}"; do 
+      sub_val=${substitutes[$sub_key]}
+      find $HOME/$t -type f -exec sed -i -e "s/<%$sub_key%>/$sub_val/g" {} \;
+    done
 
   # If the target is a file
   elif [[ -f $t ]]; then 
-    cp $current/$t $HOME/$t
+    cp -f $current/$t $HOME/$t
+
+    for sub_key in "${!substitutes[@]}"; do 
+      sub_val=${substitutes[$sub_key]}
+      sed -i -e "s/<%$sub_key%>/$sub_val/g" $HOME/$t
+    done
+
   fi
+
+  unset substitutes
 
   printf "$t %50s\n" " ==> $HOME/$t" 
 done

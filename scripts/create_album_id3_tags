@@ -1,0 +1,53 @@
+#!/bin/bash
+
+while [ $# -gt 0 ]; do
+  case "$1" in
+    -a|--artist)
+      artist="$2"
+      ;;
+    -A|--album)
+      album="$2"
+      ;;
+    -g|--genre)
+      genre="$2"
+      ;;
+    -y|--year)
+      year="$2"' '
+      ;;
+    *)
+      printf "Error: Invalid argument: $1\n"
+      exit 1
+  esac
+  shift 2
+done
+
+ntracks=$(ls | grep .mp3 | wc -l)
+
+change_metadata() {
+    ffmpeg \
+      -v error \
+      -i "$file" \
+      -metadata title="$1" \
+      -metadata artist="$artist" \
+      -metadata genre="$genre" \
+      -metadata album="$album" \
+      -metadata date="$year" \
+      -metadata track="$2/$ntracks" \
+      "tmp-$file"
+
+    rm $file
+    mv tmp-$file $file
+
+}
+
+for file in *; do 
+    if [[ -f "$file" && $file == *.mp3 ]]; then 
+        echo "$file:" 
+        read -p "title: " title
+        read -p "track #: " track_no
+        echo ""
+
+        change_metadata "$title" "$track_no" &
+    fi 
+done
+

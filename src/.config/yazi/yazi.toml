@@ -8,6 +8,10 @@ open = [
 ]
 
 img = [
+  { run = 'imv "$@"', orphan = true }
+]
+
+imgedit = [
   { run = 'gimp "$@"', orphan = true }
 ]
 
@@ -20,7 +24,9 @@ rules = [
 	{ mime = "text/*",                  use = [ "edit" ] },
 
 	{ mime = "image/*", name = "*.svg", use = [ "svg" ] },
-	{ mime = "image/*",                 use = [ "open", "img" ] },
+	{ mime = "image/*",                 use = [ "img", "imgedit", "open" ] },
+
+	{ mime = "audio/*",                 use = [ "img", "imgedit", "open" ] },
 
   { mime = "*", use = [ "open" ] }
 ]
