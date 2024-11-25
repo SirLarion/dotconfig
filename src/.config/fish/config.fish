@@ -191,10 +191,11 @@ zoxide init fish | source
 atuin init fish --disable-up-arrow | source
 starship init fish | source
 
-<%greeting%>
-
 set -gx EDITOR nvim 
 set -gx MANPAGER 'nvim +Man!'
 
 set -gx SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"
 
+if status is-interactive
+  <%greeting%>
+end
