@@ -15,7 +15,7 @@ elif [[ $HOSTNAME == "homeserver" ]]; then
     substitutes[host_symbol]="♚"
     substitutes[host_accent]="#AA2C5C"
   elif [[ $1 == "fish" ]]; then
-    substitutes[greeting]="figlet -w 120 -f broadway"
+    substitutes[greeting]="figlet -w 120 -f broadway vhut"
   fi
 
 else 
