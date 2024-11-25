@@ -28,6 +28,9 @@ if [[ $HOSTNAME == "otm" ]]; then
   targets[swaylock]=".config/swaylock"
   targets[kanata]=".config/kanata"
   targets[starship]=".config/starship.toml"
+  targets[calcurse]=".config/calcurse"
+  targets[wikiman]=".config/wikiman"
+  targets[elinks]=".config/elinks"
 elif [[ $HOSTNAME == "homeserver" ]]; then
   targets[nvim]=".config/nvim/"
   targets[fish]=".config/fish"

@@ -1,0 +1,18 @@
+#!/bin/sh
+
+data_dir="$HOME/.local/share/calcurse"
+config_dir="$HOME/.config/calcurse"
+
+# Do not do anything when synchronizing with a CalDAV server.
+[ -f "$data_dir/caldav/lock" ] && exit
+
+# Optionally run the CalDAV synchronization script in the background.
+cd "$data_dir" || exit
+if [ -d caldav ] && command -v calcurse-caldav >/dev/null; then
+	(
+		date="$(date +'%b %d %H:%M:%S')"
+		echo "$date Running calcurse-caldav from the post-save hook..."
+		calcurse-caldav
+		echo
+	) >>caldav/log 2>&1 &
+fi

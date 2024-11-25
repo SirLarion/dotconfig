@@ -6,16 +6,23 @@ if [[ $HOSTNAME == "otm" ]]; then
   if [[ $1 == "starship" ]]; then
     substitutes[host_symbol]="♞"
     substitutes[host_accent]="#9A348E"
+  elif [[ $1 == "fish" ]]; then
+    substitutes[greeting]="neofetch"
   fi
 
 elif [[ $HOSTNAME == "homeserver" ]]; then
   if [[ $1 == "starship" ]]; then
     substitutes[host_symbol]="♚"
     substitutes[host_accent]="#AA2C5C"
+  elif [[ $1 == "fish" ]]; then
+    substitutes[greeting]="figlet -w 120 -f broadway"
   fi
+
 else 
   if [[ $1 == "starship" ]]; then
     substitutes[host_symbol]="♟"
     substitutes[host_accent]="#4A32AA"
+  elif [[ $1 == "fish" ]]; then
+    substitutes[greeting]="neofetch"
   fi
 fi

@@ -1,29 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout onlaunch="launch_kiosk">
   <row weight="2">
-    <button icon="home" onTap="launch_kiosk" color="#a675bf"/>
-    <button icon="docnew" onTap="new_app" color="#add884"/>
+    <button icon="home" onTap="launch_kiosk" color="#a675bf" />
+    <button icon="docnew" onTap="new_app" color="#add884" />
     <button icon="docclose" onTap="close_app" color="#cc7b7a" />
   </row>
   <row weight="1">
-    <button weight="1" icon="power" onTap="@wol" color="#add884"/>
-    <button weight="1" icon="power" onTap="shutdown" color="#cc7b7a"/>
-    <button weight="2" icon="search" onTap="search" color="#9ac5ce"/>
-    <button weight="2" icon="docswitch" onTap="next_app" color="#9ac5ce"/>
+    <button weight="1" icon="power" onTap="@wol" color="#add884" />
+    <button weight="1" icon="power" onTap="shutdown" color="#cc7b7a" />
+    <button weight="2" icon="search" onTap="search" color="#9ac5ce" />
+    <button weight="2" icon="docswitch" onTap="next_app" color="#9ac5ce" />
   </row>
   <row weight="10">
-    <touch
-      weight="5"
-      color="#707070"
-      onHold="hold"
-      onTap="left" 
-      onDoubleTap="double" 
-      onTouchDelta="delta"
-    />
-    <touch
-      weight="2"
-      color="#707070"
-      onTouchDelta="scroll"
-    />
+    <touch weight="5" color="#707070" onHold="hold" onTap="left" onDoubleTap="double"
+      onTouchDelta="delta" />
+    <touch weight="2" color="#707070" onTouchDelta="scroll" />
   </row>
 </layout>
