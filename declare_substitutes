@@ -8,6 +8,8 @@ if [[ $HOSTNAME == "otm" ]]; then
     substitutes[host_accent]="#9A348E"
   elif [[ $1 == "fish" ]]; then
     substitutes[greeting]="neofetch"
+  elif [[ $1 == "kitty" ]]; then
+    substitutes[overrides_file]="overrides.conf"
   fi
 
 elif [[ $HOSTNAME == "homeserver" ]]; then
@@ -16,6 +18,13 @@ elif [[ $HOSTNAME == "homeserver" ]]; then
     substitutes[host_accent]="#AA2C5C"
   elif [[ $1 == "fish" ]]; then
     substitutes[greeting]="figlet -w 120 -f broadway vhut"
+  elif [[ $1 == "kitty" ]]; then
+    substitutes[overrides_file]="overrides.conf"
+  fi
+
+elif [[ "$HOSTNAME" =~ "MacBook.*" ]]; then
+  if [[ $1 == "kitty" ]]; then
+    substitutes[overrides_file]="mac-overrides.conf"
   fi
 
 else 
@@ -24,5 +33,7 @@ else
     substitutes[host_accent]="#4A32AA"
   elif [[ $1 == "fish" ]]; then
     substitutes[greeting]="neofetch"
+  elif [[ $1 == "kitty" ]]; then
+    substitutes[overrides_file]="overrides.conf"
   fi
 fi

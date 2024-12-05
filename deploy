@@ -31,6 +31,7 @@ if [[ $HOSTNAME == "otm" ]]; then
   targets[calcurse]=".config/calcurse"
   targets[wikiman]=".config/wikiman"
   targets[elinks]=".config/elinks"
+
 elif [[ $HOSTNAME == "homeserver" ]]; then
   targets[nvim]=".config/nvim/"
   targets[fish]=".config/fish"
@@ -38,6 +39,14 @@ elif [[ $HOSTNAME == "homeserver" ]]; then
   targets[vim]=".vimrc"
   targets[bash]=".bashrc"
   targets[starship]=".config/starship.toml"
+
+elif [[ "$HOSTNAME" =~ "MacBook.*" ]]; then
+  targets[nvim]=".config/nvim"
+  targets[vim]=".vimrc"
+  targets[bash]=".bashrc"
+  targets[kitty]=".config/kitty"
+  targets[karabiner]=".config/karabiner"
+
 else 
   targets[fish]=".config/fish"
   targets[starship]=".config/starship.toml"
