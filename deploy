@@ -32,6 +32,18 @@ if [[ $HOSTNAME == "otm" ]]; then
   targets[wikiman]=".config/wikiman"
   targets[elinks]=".config/elinks"
 
+elif [[ $HOSTNAME == "dynamic" ]]; then
+  targets[nvim]=".config/nvim/"
+  targets[nu]=".config/nushell"
+  targets[fish]=".config/fish"
+  targets[atuin]=".config/atuin"
+  targets[vim]=".vimrc"
+  targets[bash]=".bashrc"
+  targets[kitty]=".config/kitty"
+  targets[starship]=".config/starship.toml"
+  targets[calcurse]=".config/calcurse"
+  targets[kanata]=".config/kanata"
+
 elif [[ $HOSTNAME == "homeserver" ]]; then
   targets[nvim]=".config/nvim/"
   targets[fish]=".config/fish"

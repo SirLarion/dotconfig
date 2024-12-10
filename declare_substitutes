@@ -12,6 +12,16 @@ if [[ $HOSTNAME == "otm" ]]; then
     substitutes[overrides_file]="overrides.conf"
   fi
 
+elif [[ $HOSTNAME == "dynamic" ]]; then
+  if [[ $1 == "starship" ]]; then
+    substitutes[host_symbol]="♜"
+    substitutes[host_accent]="#0A454C"
+  elif [[ $1 == "fish" ]]; then
+    substitutes[greeting]="neofetch"
+  elif [[ $1 == "kitty" ]]; then
+    substitutes[overrides_file]="overrides.conf"
+  fi
+
 elif [[ $HOSTNAME == "homeserver" ]]; then
   if [[ $1 == "starship" ]]; then
     substitutes[host_symbol]="♚"
