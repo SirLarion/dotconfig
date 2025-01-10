@@ -113,6 +113,9 @@ function conf -a name
   if test $name = "kitty" 
     nvim src/.config/kitty/kitty.conf
   end
+  if test $name = "ghostty" 
+    nvim src/.config/ghostty/config
+  end
   if test $name = "yazi" 
     nvim src/.config/yazi/yazi.toml
   end
@@ -181,6 +184,10 @@ set -U fish_pager_color_selected_prefix
 set -U fish_pager_color_selected_completion 
 set -U fish_pager_color_secondary_background 
 set -U fish_color_keyword
+
+set -U fish_cursor_default block
+set -U fish_cursor_insert bar
+set -U fish_cursor_replace_one underscore
 
 set -g fish_user_paths "/home/sirlarion/.local/bin/" $fish_user_paths
 set -g fish_user_paths '/home/sirlarion/.bun/bin/' $fish_user_paths

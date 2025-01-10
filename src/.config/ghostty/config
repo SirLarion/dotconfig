@@ -1,0 +1,15 @@
+font-family = JetBrainsMono NF SemiBold
+font-family-bold = JetBrainsMono NF Bold
+window-padding-x = 16
+window-padding-y = 16
+
+window-decoration = false
+
+resize-overlay = never
+
+theme = ayu_light
+
+shell-integration-features = no-cursor
+cursor-style = block
+
+gtk-wide-tabs = false

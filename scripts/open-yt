@@ -1,0 +1,4 @@
+#!/bin/bash
+
+url=$(wl-paste)
+[[ $url == *youtube.com*watch* ]] && mpv "$url"

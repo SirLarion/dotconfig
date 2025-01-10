@@ -15,14 +15,8 @@ dir="$HOME/.config/rofi/themes"
 theme='launcher'
 
 ## Run
-if [[ ! -e $HOME/rofi.pid ]] ; then
-	rofi \
-	    -show drun -kb-cancel "Super_L" \
-	    -click-to-exit -hover-select -me-select-entry '' -me-accept-entry MousePrimary \
-	    -theme ${dir}/${theme}.rasi
-	touch $HOME/rofi.pid
-else
-	killall -q rofi
-	rm $HOME/rofi.pid
-fi
+rofi \
+    -show drun \
+    -click-to-exit -hover-select -me-select-entry '' -me-accept-entry MousePrimary \
+    -theme ${dir}/${theme}.rasi
 

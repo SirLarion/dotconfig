@@ -25,7 +25,7 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       720px;
+    width:                       560px;
     x-offset:                    0px;
     y-offset:                    0px;
 
@@ -57,8 +57,8 @@ entry {
     enabled:                     true;
     expand:                      false;
     padding:                     20px 0px;
-    background-color:            @selected;
-    text-color:                  @background;
+    background-color:            @background;
+    text-color:                  @foreground;
     cursor:                      text;
     placeholder:                 "Search...";
     placeholder-color:           inherit;
@@ -90,18 +90,14 @@ listview {
     cursor:                      "default";
 }
 scrollbar {
-    handle-width:                5px ;
-    handle-color:                @selected;
-    border-radius:               0px;
-    background-color:            @background-alt;
+  enabled: false;
 }
 
 /*****----- Elements -----*****/
 element {
     enabled:                     true;
-    spacing:                     15px;
     margin:                      0px;
-    padding:                     20px 10px;
+    padding:                     12px 10px;
     border:                      0px solid;
     border-radius:               8px;
     border-color:                @selected;
