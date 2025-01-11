@@ -336,6 +336,18 @@ local plugins = {
     "folke/which-key.nvim",
     event = "VeryLazy",
   },
+  {
+    "tpope/vim-fugitive",
+  },
+  {
+    "akinsho/git-conflict.nvim",
+    default_mappings = {
+      ours = "o",
+      theirs = "t",
+      none = "0",
+      both = "b",
+    },
+  },
 }
 
 return plugins
